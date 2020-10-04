@@ -1,7 +1,9 @@
 {include file="header.tpl"}
-<div class="container">
+
 
 <h2> Ingrese un nuevo Producto </h2>
+
+
 
         <form action="insert">
     <div class="form-group">

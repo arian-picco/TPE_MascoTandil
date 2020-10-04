@@ -13,7 +13,8 @@
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/tablas.css" rel="stylesheet" type="text/css">
         <link href="css/footer.css" rel="stylesheet" type="text/css">
-  
+        
+
     <!-- De éste link se descargan la fuentes que contienen los iconos de las redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

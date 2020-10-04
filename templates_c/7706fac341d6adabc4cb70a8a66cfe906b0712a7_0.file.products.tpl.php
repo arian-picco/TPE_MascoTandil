@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-04 00:49:13
+/* Smarty version 3.1.34-dev-7, created on 2020-10-04 22:28:29
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f78ffe9e9fe20_63928730',
+  'unifunc' => 'content_5f7a306dc5b041_96731633',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1601765326,
+      1 => 1601843307,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f78ffe9e9fe20_63928730 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7a306dc5b041_96731633 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<div class="container">
+
 
 <h2> Ingrese un nuevo Producto </h2>
+
+
 
         <form action="insert">
     <div class="form-group">

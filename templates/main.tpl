@@ -85,5 +85,5 @@
     </article>
 
 
-</body>
+
     {include 'footer.tpl'}

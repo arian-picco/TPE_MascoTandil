@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-03 16:15:52
+/* Smarty version 3.1.34-dev-7, created on 2020-10-04 22:34:00
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f788798182a71_87169377',
+  'unifunc' => 'content_5f7a31b898e5e8_91271575',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1601734550,
+      1 => 1601843634,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f788798182a71_87169377 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7a31b898e5e8_91271575 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -37,7 +37,8 @@ function content_5f788798182a71_87169377 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/tablas.css" rel="stylesheet" type="text/css">
         <link href="css/footer.css" rel="stylesheet" type="text/css">
-  
+        
+
     <!-- De éste link se descargan la fuentes que contienen los iconos de las redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
