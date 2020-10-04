@@ -1,0 +1,29 @@
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: #888888;
+  border: 2px black solid;
+}
+
+.contenedor-redes {
+  /* Uso nav porque es una buena practica para elementos navegables */
+  width: 100%; /* Para que ocupe lo mismo que header-menu */
+  height: 100%; /* Para que ocupe lo mismo que header-menu */
+  display: flex; /* Permite usar las propiedades flex-box */
+  align-items: center; /* alinea los elementos que tenga dentro */
+}
+
+.contenedor-redes ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap; /* indica que los elementos se mustren en fila y no se superpongan */
+  justify-content: space-around; /* aplica la distancia entre los elementos de la lista */
+  list-style: none; /* le saca los puntitos a la lista */
+}
+
+.contenedor-redes a {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 50px;
+  /* le saco el formato del hipervinculo */
+}
