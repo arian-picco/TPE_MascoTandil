@@ -1,5 +1,40 @@
 {include file="header.tpl"}
- <article class="contenedores-index">
+ 
+
+<div class="container">
+<div class="container bootdey">
+    <div class="col-md-12">
+    <section class="panel">
+          <div class="panel-body">
+              <div class="col-md-6">
+                  <div class="pro-img-details">
+                      <img src="imagenes/{$productDetail[0]->id_category}.png">
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <h4 class="pro-d-title">
+                    {$productDetail[0]->name}
+                  </h4>
+                  <p>
+                    {$productDetail[0]->description}
+                  </p>
+                  <div class="product_meta">
+                      <span class="posted_in"> <strong>Category:</strong> 
+                  </div>
+                  <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">{$productDetail[0]->price}</span></div>
+                   <p>
+                    <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
+                  </p>
+              </div>
+          </div>
+      </section>
+      </div>
+      </div>
+</div>
+
+ 
+ 
+ {* <article class="contenedores-index">
             <h1>{$productDetail[0]->name}</h1>
             <h2>{$productDetail[0]->description}</h2>
             <h2>{$productDetail[0]->price}</h2>
@@ -11,7 +46,7 @@
  <article class="contenedores-index">
             <h3><a href="store">Volver a la tienda</a></h3>
         </article>
-        
+         *}
 
  <div class="container">
   <form action="update/{$productDetail[0]->id}">

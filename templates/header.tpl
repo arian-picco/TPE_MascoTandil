@@ -10,6 +10,7 @@
         <link href="css/index.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/peluqueria.css" rel="stylesheet" type="text/css">
+        <link href="css/details.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         {* <link href="css/tablas.css" rel="stylesheet" type="text/css"> *}
         <link href="css/footer.css" rel="stylesheet" type="text/css">

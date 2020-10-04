@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-05 00:29:00
+/* Smarty version 3.1.34-dev-7, created on 2020-10-05 01:15:00
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7a4cac08ac72_28653537',
+  'unifunc' => 'content_5f7a5774d380f9_68560701',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1601850538,
+      1 => 1601853298,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f7a4cac08ac72_28653537 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7a5774d380f9_68560701 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -34,6 +34,7 @@ function content_5f7a4cac08ac72_28653537 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/index.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/peluqueria.css" rel="stylesheet" type="text/css">
+        <link href="css/details.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
                 <link href="css/footer.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">

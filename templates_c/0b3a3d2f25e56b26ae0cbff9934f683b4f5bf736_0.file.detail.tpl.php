@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-05 00:51:30
+/* Smarty version 3.1.34-dev-7, created on 2020-10-05 01:11:38
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7a51f29b1019_43369156',
+  'unifunc' => 'content_5f7a56aab608f1_57698857',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0b3a3d2f25e56b26ae0cbff9934f683b4f5bf736' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl',
-      1 => 1601851889,
+      1 => 1601853097,
       2 => 'file',
     ),
   ),
@@ -22,26 +22,49 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7a51f29b1019_43369156 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7a56aab608f1_57698857 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
- <article class="contenedores-index">
-            <h1><?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->name;?>
-</h1>
-            <h2><?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->description;?>
-</h2>
-            <h2><?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->price;?>
-</h2>
-               <section class="guard-pelu-index">
-                 <img src="">
-            </section>
-        </article>
-     
- <article class="contenedores-index">
-            <h3><a href="store">Volver a la tienda</a></h3>
-        </article>
-        
+ 
 
+<div class="container">
+<div class="container bootdey">
+    <div class="col-md-12">
+    <section class="panel">
+          <div class="panel-body">
+              <div class="col-md-6">
+                  <div class="pro-img-details">
+                      <img src="imagenes/<?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->id_category;?>
+.png">
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <h4 class="pro-d-title">
+                    <?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->name;?>
+
+                  </h4>
+                  <p>
+                    <?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->description;?>
+
+                  </p>
+                  <div class="product_meta">
+                      <span class="posted_in"> <strong>Category:</strong> 
+                  </div>
+                  <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old"><?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->price;?>
+</span></div>
+                   <p>
+                    <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
+                  </p>
+              </div>
+          </div>
+      </section>
+      </div>
+      </div>
+</div>
+
+ 
+ 
+ 
  <div class="container">
   <form action="update/<?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->id;?>
 ">
