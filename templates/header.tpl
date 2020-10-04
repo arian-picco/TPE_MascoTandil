@@ -11,9 +11,9 @@
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/peluqueria.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
-        <link href="css/tablas.css" rel="stylesheet" type="text/css">
+        {* <link href="css/tablas.css" rel="stylesheet" type="text/css"> *}
         <link href="css/footer.css" rel="stylesheet" type="text/css">
-        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- De éste link se descargan la fuentes que contienen los iconos de las redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-04 22:34:00
+/* Smarty version 3.1.34-dev-7, created on 2020-10-05 00:29:00
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7a31b898e5e8_91271575',
+  'unifunc' => 'content_5f7a4cac08ac72_28653537',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1601843634,
+      1 => 1601850538,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f7a31b898e5e8_91271575 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7a4cac08ac72_28653537 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -35,9 +35,8 @@ function content_5f7a31b898e5e8_91271575 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/peluqueria.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
-        <link href="css/tablas.css" rel="stylesheet" type="text/css">
-        <link href="css/footer.css" rel="stylesheet" type="text/css">
-        
+                <link href="css/footer.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- De éste link se descargan la fuentes que contienen los iconos de las redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

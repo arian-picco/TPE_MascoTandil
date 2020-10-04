@@ -32,6 +32,5 @@ class StoreView {
         $smarty->assign('Mascotandil',$this->title);
         $smarty->assign('products', $productsByCatogory);
         $smarty->display('templates/products.tpl'); 
-        var_dump($productsByCatogory);
-    }
+     }
 }
