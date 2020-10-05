@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-05 00:49:21
+/* Smarty version 3.1.34-dev-7, created on 2020-10-06 00:24:50
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7a517153d593_74180070',
+  'unifunc' => 'content_5f7b9d32ae1de1_17229301',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1601851759,
+      1 => 1601936688,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7a517153d593_74180070 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7b9d32ae1de1_17229301 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -36,11 +36,12 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
   </section>
 
   <div class="container">
-  <form action="insert" method="post">
-    <div class="row">
-      <div class="col-md-12 order-md-1">
-        <h3 class="mb-3">Ingrese un nuevo Producto</h3>
-        <div class="row">
+  
+    <div class="row justify-content-center">
+      <div class="col-md-8 order-md-1">
+      <form action="insert" method="post" class="form">
+        <h3 class="mb-5">Ingrese un nuevo Producto</h3>
+        <div class="row justify-content-around">
             <div class="col-md-4 mb-3">
                 <div class="form-group">
                     <label for="name">Nombre</label>
@@ -59,26 +60,28 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     <input type="text" name="input_price" class="form-control" id="price"> 
                 </div>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-2">
+            <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="1" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para Gatos
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-2">
+            <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para Perros
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-2">
+            <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para animales Pequeños
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-3">
-                <button type="submit" class="btn btn-primary">Cargar</button>
+            <div class="row justify-content-center">
+            <div class="custom-control custom-checkbox col-md-12 mb-6">
+                <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
+            </div>
             </div>
         </div>
       </div>
@@ -87,7 +90,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
     <div class="row">
         <div class="col-md-12 order-md-1">
             
-            <h2> Categorias </h2>
+            <h2> Lista de productos </h2>
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav">

@@ -10,11 +10,12 @@
   </section>
 
   <div class="container">
-  <form action="insert" method="post">
-    <div class="row">
-      <div class="col-md-12 order-md-1">
-        <h3 class="mb-3">Ingrese un nuevo Producto</h3>
-        <div class="row">
+  
+    <div class="row justify-content-center">
+      <div class="col-md-8 order-md-1">
+      <form action="insert" method="post" class="form">
+        <h3 class="mb-5">Ingrese un nuevo Producto</h3>
+        <div class="row justify-content-around">
             <div class="col-md-4 mb-3">
                 <div class="form-group">
                     <label for="name">Nombre</label>
@@ -33,26 +34,28 @@
                     <input type="text" name="input_price" class="form-control" id="price"> 
                 </div>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-2">
+            <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="1" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para Gatos
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-2">
+            <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para Perros
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-2">
+            <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para animales Pequeños
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-12 mb-3">
-                <button type="submit" class="btn btn-primary">Cargar</button>
+            <div class="row justify-content-center">
+            <div class="custom-control custom-checkbox col-md-12 mb-6">
+                <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
+            </div>
             </div>
         </div>
       </div>
@@ -61,7 +64,7 @@
     <div class="row">
         <div class="col-md-12 order-md-1">
             
-            <h2> Categorias </h2>
+            <h2> Lista de productos </h2>
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav">

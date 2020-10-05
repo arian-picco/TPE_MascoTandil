@@ -51,22 +51,22 @@ class StoreController {
     }
 
     function updateProduct($id) {
-        var_dump($id); 
+
    
 
         $name = $_REQUEST['input_name'];
         $description = $_REQUEST['input_description'];
         $price = $_REQUEST['input_price'];
         $id_category = $_REQUEST['input_category'];
-        var_dump($name);  
-        var_dump($description);  
-        var_dump($price);  
-        var_dump($id_category); 
+   
 
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
-        $productDetail= $this->model->getProductDetail($id);
-        $this->view->showProductDetail($id);
+        
+        $productDetailUpdated= $this->model->getProductDetail($id);
 
+        $this->view->showProductDetail($productDetailUpdated);
+
+       
     
     }
 
