@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-05 01:35:54
+/* Smarty version 3.1.34-dev-7, created on 2020-10-06 14:56:51
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7a5c5a0705d4_58095989',
+  'unifunc' => 'content_5f7c699389d7f6_08401679',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1601854470,
+      1 => 1601989008,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f7a5c5a0705d4_58095989 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7c699389d7f6_08401679 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -37,30 +37,34 @@ function content_5f7a5c5a0705d4_58095989 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/details.css" rel="stylesheet" type="text/css">
         <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/form.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
                 <link href="css/footer.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- De éste link se descargan la fuentes que contienen los iconos de las redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-    <header class="header-menu">
-        <div class="btn-menu">
-            <a class="botonM">Menu</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">MascoCuidados</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="menu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home">Inicio<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store">Tienda</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin">Admin</a>
+              </li>
+          </ul>
         </div>
-        <nav class="vista">
-            <ul>
-                <li><a href="home">Inicio</a></li>
-                <li><a href="store">Tienda</a></li>
-                <li><a href="hairdressing"> Peluqueria</a></li>
-            </ul>
-        </nav>
-    </header>
+      </nav>
 
-    <div class="header-logo">
-        <h1>MASCO-CUIDADOS</h1>
-        <div class="imglogo">
-            <img src="imagenes/logoIMG.png">
-        </div>
-    </div>
+   
 <?php }
 }
