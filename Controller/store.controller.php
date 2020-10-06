@@ -44,6 +44,11 @@ class StoreController {
         $price = $_REQUEST['input_price'];
         $id_category = $_REQUEST['input_category'];
 
+        if(empty($name) || empty($description) ||
+           empty($price) || empty($id_category) ) {
+           $this->view->showError('faltan datos obligatorios');
+           die();
+           } 
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
         $this->view->showProducts($products);
@@ -52,13 +57,16 @@ class StoreController {
 
     function updateProduct($id) {
 
-   
-
         $name = $_REQUEST['input_name'];
         $description = $_REQUEST['input_description'];
         $price = $_REQUEST['input_price'];
         $id_category = $_REQUEST['input_category'];
-   
+        
+        if(empty($name) || empty($description) ||
+        empty($price) || empty($id_category) ) {
+        $this->view->showErrorDetail('faltan datos obligatorios');
+        die();
+        } 
 
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
         

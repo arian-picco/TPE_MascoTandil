@@ -19,20 +19,21 @@ class MainView{
         $smarty->display('templates/main.tpl'); 
     }
 
-    function showHairDressing(){
-
-        $smarty = new Smarty();
-        $smarty->assign('Peluqueria',$this->title);
-        $smarty->display('templates/hairdressing.tpl'); 
-    }
-
     function showStore(){
 
         $smarty = new Smarty();
         $smarty->assign('Tienda',$this->title);
         $smarty->display('templates/store.tpl'); 
     }
-    
+
+    function showLogin(){
+
+        $smarty = new Smarty();
+        $smarty->assign('Tienda',$this->title);
+        $smarty->display('templates/login.tpl'); 
+    }
+
+
 }
 
 

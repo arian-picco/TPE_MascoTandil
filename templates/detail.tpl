@@ -46,6 +46,9 @@
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
                 </div>
+                  <div class="col-md-12 mb-6">
+                        <h3>{$Error}</h3>
+                  </div>
                 </div>
             </div>
         </div>

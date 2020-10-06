@@ -1,8 +1,5 @@
 {include 'header.tpl'}
 <body>
-
-
-
         <article class="main-body bg-image " style="background-image: url(imagenes/background.jpg)">
           <div class="container">
             <div class="row">
@@ -21,5 +18,4 @@
             </div>
           </div>
         </article>
-
     {include 'footer.tpl'}
