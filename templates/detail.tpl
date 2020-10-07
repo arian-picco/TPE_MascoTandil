@@ -37,7 +37,7 @@
                     </label>
                 </div>
                 <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
+                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="3" >
                     <label class="form-check-label" for="exampleRadios1">
                     Producto para animales Pequeños
                     </label>
