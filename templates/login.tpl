@@ -15,8 +15,14 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="form-group">
-                        <label for="description">Contraseña</label>
-                        <input type="text" name="input_description" class="form-control" id="description"> 
+                        <label for="email">E mail</label>
+                        <input type="text" name="input_email" class="form-control" id="input_email"> 
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="text" name="input_password" class="form-control" id="input_password"> 
                     </div>
                 </div>
             </div>

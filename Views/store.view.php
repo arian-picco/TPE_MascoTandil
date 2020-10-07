@@ -34,17 +34,17 @@ class StoreView {
         $smarty->display('templates/products.tpl'); 
      }
 
-     function showError($message){
-        $smarty = new Smarty();
-        $smarty->assign('Mascotandil',$this->title);
-        $smarty->assign('error', $message);
-        $smarty->display('templates/products.tpl'); 
-     }
+    //  function showError($message){
+    //     $smarty = new Smarty();
+    //     $smarty->assign('Mascotandil',$this->title);
+    //     $smarty->assign('error', $message);
+    //     $smarty->display('templates/products.tpl'); 
+    //  }
 
-     function showErrorDetail($message){
-        $smarty = new Smarty();
-        $smarty->assign('Mascotandil',$this->title);
-        $smarty->assign('error', $message);
-        $smarty->display('templates/detail.tpl'); 
-     }
+    //  function showErrorDetail($message){
+    //     $smarty = new Smarty();
+    //     $smarty->assign('Mascotandil',$this->title);
+    //     $smarty->assign('error', $message);
+    //     $smarty->display('templates/detail.tpl'); 
+    //  }
 }

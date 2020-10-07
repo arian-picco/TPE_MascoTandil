@@ -46,9 +46,10 @@ class StoreController {
 
         if(empty($name) || empty($description) ||
            empty($price) || empty($id_category) ) {
-           $this->view->showError('faltan datos obligatorios');
+        //    $this->view->showError('faltan datos obligatorios');
            die();
            } 
+
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
         $this->view->showProducts($products);
@@ -64,7 +65,7 @@ class StoreController {
         
         if(empty($name) || empty($description) ||
         empty($price) || empty($id_category) ) {
-        $this->view->showErrorDetail('faltan datos obligatorios');
+        // $this->view->showErrorDetail('faltan datos obligatorios');
         die();
         } 
 

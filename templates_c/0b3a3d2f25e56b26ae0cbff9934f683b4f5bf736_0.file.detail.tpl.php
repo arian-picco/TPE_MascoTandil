@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-06 15:03:48
+/* Smarty version 3.1.34-dev-7, created on 2020-10-07 17:15:32
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7c6b34ba4c25_41922937',
+  'unifunc' => 'content_5f7ddb94391423_74446503',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0b3a3d2f25e56b26ae0cbff9934f683b4f5bf736' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl',
-      1 => 1601951392,
+      1 => 1602028947,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7c6b34ba4c25_41922937 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7ddb94391423_74446503 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
  
@@ -73,7 +73,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
                 </div>
-                </div>
+                                  </div>
             </div>
         </div>
         </div>
