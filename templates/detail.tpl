@@ -75,6 +75,7 @@
                   <p>
                     {$productDetail[0]->description}
                   </p>
+                  {* agregar una columna para la categoria  *}
                   <div class="product_meta">
                       <span class="posted_in"> <strong>Category:</strong> 
                   </div>

@@ -30,6 +30,7 @@ class StoreController {
     function showProductByCategory($categorySelected){
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
         $this->view->showProductByCategory($productsByCatogory);
+        var_dump($productsByCatogory);
     }
 
     function DeleteProduct($product_id){

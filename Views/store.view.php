@@ -34,6 +34,9 @@ class StoreView {
         $smarty->display('templates/products.tpl'); 
      }
 
+
+     //apuntar a un tpl de error - Show Error
+
     //  function showError($message){
     //     $smarty = new Smarty();
     //     $smarty->assign('Mascotandil',$this->title);

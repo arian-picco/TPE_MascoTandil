@@ -16,6 +16,7 @@ Class ProductsModel {
         return $products = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //hacer un join y después imprimir en la tabla
     function getProductDetail($productDetail){
         $sentencia = $this->db->prepare( "SELECT * from products WHERE id = ?");
         $sentencia->execute(array($productDetail));

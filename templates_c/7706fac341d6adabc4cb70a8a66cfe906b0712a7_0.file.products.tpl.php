@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-07 02:02:32
+/* Smarty version 3.1.34-dev-7, created on 2020-10-08 14:22:40
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7d05982f43c6_17754618',
+  'unifunc' => 'content_5f7f04903e9368_64506113',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602028951,
+      1 => 1602159757,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7d05982f43c6_17754618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7f04903e9368_64506113 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -108,6 +108,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     <th scope="col">Producto</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
+                    <th scope="col">Categoría</th>
                     <th scope="col">Edicion</th>
                   </tr>
                 </thead>
@@ -118,6 +119,8 @@ $_smarty_tpl->tpl_vars['product']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['product']->value) {
 $_smarty_tpl->tpl_vars['product']->do_else = false;
 ?>
+                  <?php echo print_r($_smarty_tpl->tpl_vars['products']->value);?>
+
                   <tr>
                       <td>
                        <a href="detail/<?php echo $_smarty_tpl->tpl_vars['product']->value->id;?>
@@ -130,6 +133,10 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
                       </td>
                       <td>
                         <?php echo $_smarty_tpl->tpl_vars['product']->value->price;?>
+
+                      </td>
+                      <td>
+                        <?php echo $_smarty_tpl->tpl_vars['product']->value->cat_name;?>
 
                       </td>
                       <td>

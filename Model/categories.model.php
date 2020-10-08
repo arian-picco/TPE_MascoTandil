@@ -11,14 +11,14 @@ Class CategoriesModel {
 
 
     function getProductByCategory($categorySelected){
-        $sentencia = $this->db->prepare( "SELECT products.id,products.name,products.description,products.price, categories.category_name FROM
+        $sentencia = $this->db->prepare( "SELECT products.id,products.name,
+        products.description,products.price, categories.category_name as cat_name FROM
         products inner JOIN categories ON products.id_category = categories.id where id_category = ?");
         $sentencia->execute(array($categorySelected));
         return $productsByCatogory = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        var_dump($productsByCatogory);
     }
 
-    
+    //funcion que agregue o quite categoria
 
 }
 

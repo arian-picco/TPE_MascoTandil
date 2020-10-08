@@ -56,9 +56,6 @@
               <div class="custom-control custom-checkbox col-md-12 mb-6">
                   <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
              </div>
-            {* <div class="col-md-12 mb-6">
-                <h3>{$Error}</h3>
-            </div> *}
             </div>
         </div>
       </div>
@@ -85,11 +82,13 @@
                     <th scope="col">Producto</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
+                    <th scope="col">Categoría</th>
                     <th scope="col">Edicion</th>
                   </tr>
                 </thead>
                 <tbody>
                   {foreach from=$products item=product}
+                  {$products|@print_r}
                   <tr>
                       <td>
                        <a href="detail/{$product->id}">{$product->name}</a>
@@ -99,6 +98,9 @@
                       </td>
                       <td>
                         {$product->price}
+                      </td>
+                      <td>
+                        {$product->cat_name}
                       </td>
                       <td>
                       <button class="btn-delete">
