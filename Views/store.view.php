@@ -32,7 +32,7 @@ class StoreView {
         $smarty->assign('Mascotandil',$this->title);
         $smarty->assign('products', $productsByCatogory);
         $smarty->display('templates/products.tpl'); 
-     }
+    }
 
 
      //apuntar a un tpl de error - Show Error

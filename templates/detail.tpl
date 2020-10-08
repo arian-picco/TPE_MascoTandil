@@ -77,7 +77,7 @@
                   </p>
                   {* agregar una columna para la categoria  *}
                   <div class="product_meta">
-                      <span class="posted_in"> <strong>Category:</strong> 
+                      <span class="posted_in"> <strong>Category:{$productDetail[0]->cat_name}</strong> 
                   </div>
                   <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">{$productDetail[0]->price}</span></div>
                    <p>

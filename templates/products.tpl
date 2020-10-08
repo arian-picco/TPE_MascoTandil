@@ -47,7 +47,7 @@
                 </label>
             </div>
             <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
+                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="3" >
                 <label class="form-check-label" for="exampleRadios1">
                 Producto para animales Pequeños
                 </label>
@@ -82,13 +82,12 @@
                     <th scope="col">Producto</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
-                    <th scope="col">Categoría</th>
                     <th scope="col">Edicion</th>
                   </tr>
                 </thead>
                 <tbody>
                   {foreach from=$products item=product}
-                  {$products|@print_r}
+                  {* {$products|@print_r} *}
                   <tr>
                       <td>
                        <a href="detail/{$product->id}">{$product->name}</a>
@@ -98,9 +97,6 @@
                       </td>
                       <td>
                         {$product->price}
-                      </td>
-                      <td>
-                        {$product->cat_name}
                       </td>
                       <td>
                       <button class="btn-delete">
