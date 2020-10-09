@@ -8,10 +8,7 @@
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <link href="css/header.css" rel="stylesheet" type="text/css">
         <link href="css/index.css" rel="stylesheet" type="text/css">
-        <link href="css/guarderia.css" rel="stylesheet" type="text/css">
-        <link href="css/peluqueria.css" rel="stylesheet" type="text/css">
         <link href="css/details.css" rel="stylesheet" type="text/css">
-        <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/form.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         {* <link href="css/tablas.css" rel="stylesheet" type="text/css"> *}

@@ -11,7 +11,9 @@ Class ProductsModel {
 
 
     function getProducts(){
-        $sentencia = $this->db->prepare( "SELECT * from products");
+        $sentencia = $this->db->prepare( "SELECT products.id,products.name,
+        products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM
+        products inner JOIN categories ON products.id_category = categories.id");
         $sentencia->execute();
         return $products = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }

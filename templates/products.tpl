@@ -68,20 +68,20 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="category/1">Gato</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category/2">Perro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category/3">Animales Pequeños</a></li>
+                 {foreach from=$categories item=category}
+                    <li class="nav-item"><a class="nav-link" href="category/{$category->id}">{$category->category_name}</a></li>
+                 {/foreach}
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
                 </ul>
             </div>
             </nav>
-
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Producto</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Edicion</th>
                   </tr>
                 </thead>
@@ -97,6 +97,9 @@
                       </td>
                       <td>
                         {$product->price}
+                      </td>
+                      <td>
+                        {$product->cat_name}
                       </td>
                       <td>
                       <button class="btn-delete">

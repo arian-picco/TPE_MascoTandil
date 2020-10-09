@@ -1,7 +1,7 @@
 <?php
 
 include_once 'Views/store.view.php';
-require_once "Controller/store.controller.php";
+
 
 class StoreController {
 
@@ -14,12 +14,13 @@ class StoreController {
         $this->view = new StoreView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
-
     }
 
     function showProducts(){
         $products = $this->model->getProducts();
-        $this->view->showProducts($products);
+        $categories = $this->categoryModel->getCategories();
+        $this->view->showProducts($products,$categories);
+        
     }
 
     function showProductDetail($productSelected){
@@ -29,7 +30,8 @@ class StoreController {
 
     function showProductByCategory($categorySelected){
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
-        $this->view->showProductByCategory($productsByCatogory);
+        $categories = $this->categoryModel->getCategories();
+        $this->view->showProductByCategory($productsByCatogory,$categories);
     }
 
     function DeleteProduct($product_id){
@@ -68,11 +70,8 @@ class StoreController {
         // $this->view->showErrorDetail('faltan datos obligatorios');
         die();
         } 
-
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
-        
         $productDetailUpdated= $this->model->getProductDetail($id);
-
         $this->view->showProductDetail($productDetailUpdated);
 
        

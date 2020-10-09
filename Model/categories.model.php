@@ -18,6 +18,14 @@ Class CategoriesModel {
         return $productsByCatogory = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
+    function getCategories(){
+        $sentencia = $this->db->prepare( "SELECT * from categories");
+        $sentencia->execute();
+        return $categories = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
     //funcion que agregue o quite categoria
 
 }

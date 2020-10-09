@@ -12,11 +12,12 @@ class StoreView {
     }
 
 
-    function ShowProducts($products){
+    function ShowProducts($products, $categories){
 
         $smarty = new Smarty();
         $smarty->assign('Mascotandil',$this->title);
         $smarty->assign('products', $products);
+        $smarty->assign('categories', $categories);
         $smarty->display('templates/products.tpl'); 
     }
     
@@ -27,9 +28,10 @@ class StoreView {
         $smarty->display('templates/detail.tpl'); 
     }
 
-    function showProductByCategory($productsByCatogory){
+    function showProductByCategory($productsByCatogory,$categories){
         $smarty = new Smarty();
         $smarty->assign('Mascotandil',$this->title);
+        $smarty->assign('categories', $categories);
         $smarty->assign('products', $productsByCatogory);
         $smarty->display('templates/products.tpl'); 
     }

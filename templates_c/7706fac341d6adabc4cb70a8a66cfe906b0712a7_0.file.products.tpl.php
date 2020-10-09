@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-08 15:31:29
+/* Smarty version 3.1.34-dev-7, created on 2020-10-09 16:07:03
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7f14b1eb0123_29077844',
+  'unifunc' => 'content_5f806e87d67b01_91584106',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602163882,
+      1 => 1602251554,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7f14b1eb0123_29077844 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f806e87d67b01_91584106 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -94,20 +94,29 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
             <div class="collapse navbar-collapse justify-content-md-center">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="category/1">Gato</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category/2">Perro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category/3">Animales Pequeños</a></li>
+                 <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
+$_smarty_tpl->tpl_vars['category']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
+$_smarty_tpl->tpl_vars['category']->do_else = false;
+?>
+                    <li class="nav-item"><a class="nav-link" href="category/<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
+"><?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
+</a></li>
+                 <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
                 </ul>
             </div>
             </nav>
-
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Producto</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Edicion</th>
                   </tr>
                 </thead>
@@ -130,6 +139,10 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
                       </td>
                       <td>
                         <?php echo $_smarty_tpl->tpl_vars['product']->value->price;?>
+
+                      </td>
+                      <td>
+                        <?php echo $_smarty_tpl->tpl_vars['product']->value->cat_name;?>
 
                       </td>
                       <td>

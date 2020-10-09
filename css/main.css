@@ -12,7 +12,7 @@ font-size: 35px;
 }
 
 .menu{
-    margin-left: 50%;
+    margin-left: 60%;
 }
 
 .navbar {
@@ -76,3 +76,4 @@ box-shadow: 2px 6px 27px -9px rgba(230,230,230,1);
   .body-login{
     height: 700px;
   }
+

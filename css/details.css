@@ -2,6 +2,10 @@ body{margin-top:20px;
     background:#eee;
     }
     
+.panel-body{
+    background-color: lightblue;
+}
+
     /*panel*/
     .panel {
         border: none;

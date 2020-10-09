@@ -6,3 +6,30 @@ form {
     -moz-box-shadow: 10px 9px 10px 3px rgba(0,0,0,0.64);
     box-shadow: 10px 9px 10px 3px rgba(0,0,0,0.64);
 }
+
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    margin: 5%;
+    width: 90%;
+  }
+  
+
+.form input[type="text"],
+input[type="email"],
+input[type="text"] {
+  align-self: center;
+  font-size: 16px;
+  height: auto;
+  width: auto;
+}
+
+.form input[type="checkbox"] {
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+}

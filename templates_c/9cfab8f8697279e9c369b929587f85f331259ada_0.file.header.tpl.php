@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-07 01:08:45
+/* Smarty version 3.1.34-dev-7, created on 2020-10-09 15:36:43
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7cf8fdaa2df0_64600443',
+  'unifunc' => 'content_5f80676b09e490_71969441',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602025716,
+      1 => 1602250600,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f7cf8fdaa2df0_64600443 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f80676b09e490_71969441 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -32,10 +32,7 @@ function content_5f7cf8fdaa2df0_64600443 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <link href="css/header.css" rel="stylesheet" type="text/css">
         <link href="css/index.css" rel="stylesheet" type="text/css">
-        <link href="css/guarderia.css" rel="stylesheet" type="text/css">
-        <link href="css/peluqueria.css" rel="stylesheet" type="text/css">
         <link href="css/details.css" rel="stylesheet" type="text/css">
-        <link href="css/guarderia.css" rel="stylesheet" type="text/css">
         <link href="css/form.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
                 <link href="css/footer.css" rel="stylesheet" type="text/css">
