@@ -12,4 +12,4 @@
             </ul>
         </nav>
     </footer>
-    <script src="js/captcha.js"></script>
+   

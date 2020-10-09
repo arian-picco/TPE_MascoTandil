@@ -36,6 +36,11 @@ class StoreView {
         $smarty->display('templates/products.tpl'); 
     }
 
+    function showCategoriesEditionPanel($categories){
+        $smarty = new Smarty();
+        $smarty->assign('categories', $categories);
+        $smarty->display('templates/edit_category.tpl'); 
+    }
 
      //apuntar a un tpl de error - Show Error
 

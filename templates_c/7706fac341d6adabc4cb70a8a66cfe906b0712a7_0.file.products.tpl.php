@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-09 16:07:03
+/* Smarty version 3.1.34-dev-7, created on 2020-10-09 19:31:47
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f806e87d67b01_91584106',
+  'unifunc' => 'content_5f809e830f10a3_12541176',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602251554,
+      1 => 1602264698,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f806e87d67b01_91584106 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f809e830f10a3_12541176 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -107,6 +107,7 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="store">Editar Categorías</a></li>
                 </ul>
             </div>
             </nav>
@@ -154,7 +155,7 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
                           <a href="detail/<?php echo $_smarty_tpl->tpl_vars['product']->value->id;?>
 ">Actualizar</a>
                       </button>
-                      </td>
+                                            </td>
                   </tr>
               <?php
 }

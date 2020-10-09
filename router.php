@@ -35,11 +35,6 @@ switch($params[0]) {
     case '':
         $homeController->showHome();
         break;
-    case 'hairdressing':
-        $homeController->showHairDressing();
-        break;
-    // case 'store':
-    //     $homeController->showStore();
         break;
     case 'store':
         $storeController->showProducts();
@@ -56,6 +51,12 @@ switch($params[0]) {
     case 'update':
         $storeController->updateProduct($params[1]);
         break;
+    case 'category_edition':
+        $storeController->showCategoryEditionPanel();
+        break;
+    // case 'updateCategory':
+    //     $storeController->updateCategory($params[1]);
+    //     break;    
     case 'delete':
         $storeController->DeleteProduct($params[1]);
         break;       

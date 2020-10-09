@@ -72,6 +72,7 @@
                     <li class="nav-item"><a class="nav-link" href="category/{$category->id}">{$category->category_name}</a></li>
                  {/foreach}
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="store">Editar Categorías</a></li>
                 </ul>
             </div>
             </nav>
@@ -108,6 +109,9 @@
                       <button class="btn-delete">
                           <a href="detail/{$product->id}">Actualizar</a>
                       </button>
+                      {* <button class="btn-delete">
+                          <a href="category_edition/{$product->id_category}">Actualizar Categoría</a>
+                      </button> *}
                       </td>
                   </tr>
               {/foreach}
