@@ -6,8 +6,10 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 require_once 'Controller/home.controller.php';
 require_once 'Controller/store.controller.php';
 require_once 'Controller/login.controller.php';
+require_once 'Controller/categories.controller.php';
 require_once 'Model/products.model.php';
 require_once 'Model/categories.model.php';
+
 
 
 if (!empty($_GET['action'])) {
@@ -20,6 +22,7 @@ $params = explode('/', $action);
 
 $homeController = new HomeController();
 $storeController = new StoreController();
+$categoriesController = new CategoriesController();
 $loginController = new LoginController();
 
 switch($params[0]) {
@@ -48,17 +51,21 @@ switch($params[0]) {
     case 'insert':
         $storeController->insertProduct();
         break;
+    case 'delete':
+        $storeController->DeleteProduct($params[1]);
+        break;      
     case 'update':
         $storeController->updateProduct($params[1]);
         break;
     case 'category_edition':
-        $storeController->showCategoryEditionPanel();
+        $categoriesController->showCategoryEditionPanel();
         break;
-    // case 'updateCategory':
-    //     $storeController->updateCategory($params[1]);
-    //     break;    
-    case 'delete':
-        $storeController->DeleteProduct($params[1]);
-        break;       
+    case 'updateCategories':
+        $categoriesController->updateCategories();
+        break;
+    case 'deleteCategory':
+        $storeController->DeleteCategory($params[1]);
+        break;          
+ 
     default: echo '404 error';
 }

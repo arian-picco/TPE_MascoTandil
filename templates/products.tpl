@@ -72,7 +72,7 @@
                     <li class="nav-item"><a class="nav-link" href="category/{$category->id}">{$category->category_name}</a></li>
                  {/foreach}
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="store">Editar Categorías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="category_edition">Editar Categorías</a></li>
                 </ul>
             </div>
             </nav>

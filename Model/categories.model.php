@@ -25,8 +25,22 @@ Class CategoriesModel {
     }
 
 
+    function deleteCategory($product_id){
+        $sentencia = $this->db->prepare( "DELETE FROM categories WHERE id=?");
+        $sentencia->execute(array($product_id));
+    }
 
-    //funcion que agregue o quite categoria
+    function insertCategory($name){
+        $sentencia = $this->db->prepare("INSERT INTO categories(name) VALUES(?)");
+        $sentencia->execute(array($name));
+    }
+
+    function updateCategories($name,$category_id){   
+        $sentencia = $this->db->prepare("UPDATE categories SET category_name=? WHERE id=?");
+        $sentencia->execute(array($name,$category_id));
+      }
+
+
 
 }
 

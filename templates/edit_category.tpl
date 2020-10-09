@@ -2,7 +2,7 @@
 
 <div  class="container">
 
-    {* Crear cartel de bienvenida a la edición de categorías. *}
+
 
     <section class="jumbotron text-center">
     <div class="container">
@@ -10,28 +10,32 @@
     </div>
     </section>  
 
-    {* Crear un formulario que contenga todos los category names en un campo editable. Se debe abrir el form e iterar el arreglo de todas las Categorias. *}
-    {* el form enviara el updateCategory, que recargará la pátina con todos los campos editados. *}
-    <form action="updateCategories" class="form">
+  
+    <form action="updateCategories" class="form" method="post">
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Nombre Categoria</th>
+                    <th scope="col"> Editar Nombre</th>
                   </tr>
+
                 </thead>
                 <tbody>
                   {foreach from=$categories item=category}
-                  {* {$products|@print_r} *}
+                  {* {$categories|@print_r} *}
                   <tr>
                       <td>
                           <div class="form-group">
-                             <label for="name">{$category->id}</label>
-                             <input type="text" name="input_name" class="form-control" id="name"> 
+                            <input type="text" name="input_name" class="form-control" id="name" value="{$category->category_name}"> 
                           </div>
                       </td>
                       <td>
+                        <div class="form-group" style="visibility:hidden">
+                          <input type="int" name="input_id" class="form-control" id="name" value="{$category->id}"> 
+                        </div>
+                      </td>
+                      <td>
                       <button class="btn-delete">
-                          <a href="deleteCategory/{$category->id}">Actualizar</a>
+                          <a href="deleteCategory/{$category->id}">Borrar</a>
                       </button>
                       </td>
                       <td>
@@ -45,22 +49,21 @@
            </table>
      </form>
 
-    {* Crear otro formulario para agregar categorias - el form recargará la página con la nueva categoria*}
 
         <form action="addCategory" class="form">
         <h3 class="mb-5">Agregue una nueva categoria</h3>
             <div class="row justify-content-around">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-12 mb-3">
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" name="input_name" class="form-control" id="name"> 
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
                 </div>
-               </div>
+        
             </div>
         </div>
         </div>

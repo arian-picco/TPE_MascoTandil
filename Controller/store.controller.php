@@ -28,11 +28,6 @@ class StoreController {
         $this->view->showProductDetail($productDetail);
     }
 
-    function showCategoriesEditionPanel(){
-        $categories = $this->categoryModel->getCategories();
-        $this->view->showCategoriesEditionPanel($categories);
-    }
-
     function showProductByCategory($categorySelected){
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
         $categories = $this->categoryModel->getCategories();
