@@ -37,7 +37,8 @@ class StoreController {
     function DeleteProduct($product_id){
         $this->model->DeleteProduct($product_id);
         $products = $this->model->getProducts();
-        $this->view->showProducts($products);
+        $categories = $this->categoryModel->getCategories();
+        $this->view->showProducts($products, $categories);
     }
 
     function insertProduct(){
@@ -54,7 +55,8 @@ class StoreController {
 
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
-        $this->view->showProducts($products);
+        $categories = $this->categoryModel->getCategories();
+        $this->view->showProducts($products, $categories);
 
     }
 

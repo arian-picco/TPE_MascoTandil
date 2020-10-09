@@ -14,11 +14,9 @@ Class HomeController{
         $this->view->showHome();
     }
 
-    function showHairDressing(){
-        $this->view->showHairDressing();
-    }
-
     function showStore(){
         $this->view->showStore();
     }
+
+    
 }
