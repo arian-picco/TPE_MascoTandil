@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-09 20:28:21
+/* Smarty version 3.1.34-dev-7, created on 2020-10-11 01:05:38
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f80abc5d481b3_65681292',
+  'unifunc' => 'content_5f823e42ae29f8_93546490',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602268041,
+      1 => 1602371136,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f80abc5d481b3_65681292 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f823e42ae29f8_93546490 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -60,25 +60,24 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     <input type="text" name="input_price" class="form-control" id="price"> 
                 </div>
             </div>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
+$_smarty_tpl->tpl_vars['category']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
+$_smarty_tpl->tpl_vars['category']->do_else = false;
+?>
             <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="1" >
+                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
+" >
                 <label class="form-check-label" for="exampleRadios1">
-                Producto para Gatos
+                <?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
+
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
-                <label class="form-check-label" for="exampleRadios1">
-                Producto para Perros
-                </label>
-            </div>
-            <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="3" >
-                <label class="form-check-label" for="exampleRadios1">
-                Producto para animales Pequeños
-                </label>
-            </div>
-            <div class="row justify-content-center">
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        <div class="row justify-content-center">
               <div class="custom-control custom-checkbox col-md-12 mb-6">
                   <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
              </div>

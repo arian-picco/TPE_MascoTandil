@@ -2,11 +2,9 @@
 
 
 Class ProductsModel {
-
     private $db;
-
     function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpe;charset=utf8', 'root', '');
+    $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpe;charset=utf8', 'root', '');
     }
 
 
@@ -18,7 +16,6 @@ Class ProductsModel {
         return $products = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
-    //hacer un join y después imprimir en la tabla
     function getProductDetail($productDetail){
         $sentencia = $this->db->prepare("SELECT products.id,products.name,
         products.description,products.price, products.id_category, categories.category_name as cat_name FROM
@@ -26,10 +23,6 @@ Class ProductsModel {
         $sentencia->execute(array($productDetail));
         return $productDetail = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-
-    //seleccionar todos los datos de ambas tablas donde el category id sea igual y el id sea igual al input
-  
-
 
     function DeleteProduct($product_id){
         $sentencia = $this->db->prepare( "DELETE FROM products WHERE id=?");

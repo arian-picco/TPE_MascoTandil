@@ -63,8 +63,11 @@ switch($params[0]) {
     case 'updateCategories':
         $categoriesController->updateCategories();
         break;
+    case 'insertCategory':
+        $categoriesController->insertCategory();
+        break;
     case 'deleteCategory':
-        $storeController->DeleteCategory($params[1]);
+        $categoriesController->deleteCategory($params[1]);
         break;          
  
     default: echo '404 error';

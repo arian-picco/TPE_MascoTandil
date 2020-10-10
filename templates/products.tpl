@@ -34,24 +34,14 @@
                     <input type="text" name="input_price" class="form-control" id="price"> 
                 </div>
             </div>
+            {foreach from=$categories item=category}
             <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="1" >
+                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="{$category->id}" >
                 <label class="form-check-label" for="exampleRadios1">
-                Producto para Gatos
+                {$category->category_name}
                 </label>
             </div>
-            <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
-                <label class="form-check-label" for="exampleRadios1">
-                Producto para Perros
-                </label>
-            </div>
-            <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="3" >
-                <label class="form-check-label" for="exampleRadios1">
-                Producto para animales Pequeños
-                </label>
-            </div>
+            {/foreach}
             <div class="row justify-content-center">
               <div class="custom-control custom-checkbox col-md-12 mb-6">
                   <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>

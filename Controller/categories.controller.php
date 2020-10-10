@@ -23,9 +23,8 @@ class CategoriesController {
     }
 
    
-    function DeleteProduct($category_id){
-        $this->model->DeleteCategory($product_id);
-        $products = $this->model->getProducts();
+    function deleteCategory($category_id){
+        $this->categoryModel->deleteCategory($category_id);
         $categories = $this->categoryModel->getCategories();
         $this->view->showCategoriesEditionPanel($categories);
     }
@@ -37,7 +36,7 @@ class CategoriesController {
         //    $this->view->showError('faltan datos obligatorios');
            die();
            } 
-        $this->categoryModel->InsertCategory($name);
+        $this->categoryModel->insertCategory($name);
         $categories = $this->categoryModel->getCategories();
         $this->view->showCategoriesEditionPanel($categories);
 
