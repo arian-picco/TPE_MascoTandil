@@ -22,17 +22,24 @@ Class LoginController{
        $password = $_POST['input_password'];
        $name = $_POST['input_name']; 
       if(empty($email) || empty($password) || empty($name) ){
-        //   $this->view->showError('Faltan datos');
+        $this->view->showLogin("Campos vacíos");
           die();
       }      
-        $user = $this->userModel->getUserByMail($email);
+        
+      //obtengo el user
 
-       //comparto con el objeto que traigo del modelo
+       $user = $this->userModel->getUserByMail($email);
 
+       //comparo con el objeto que traigo del modelo
+      
        if($user && password_verify($password, $user->password)){
-           echo "acceso exitoso";
+
+        //redirigimos a la home
+        header("Location: " . BASE_URL); // le puedo agregar .home si quiero que entre desde login
+        
        } else {
-           echo "acceso denegado";
+           //envio por parametro el error a la vista.
+           $this->view->showLogin("Credenciales inválidas");
        }
      
     }

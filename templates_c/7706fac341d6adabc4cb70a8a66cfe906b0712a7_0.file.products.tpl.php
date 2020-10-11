@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-11 01:05:38
+/* Smarty version 3.1.34-dev-7, created on 2020-10-11 15:01:56
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f823e42ae29f8_93546490',
+  'unifunc' => 'content_5f8302445ce682_97192364',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602371136,
+      1 => 1602371769,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f823e42ae29f8_93546490 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8302445ce682_97192364 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -77,7 +77,7 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                        <div class="row justify-content-center">
+            <div class="row justify-content-center">
               <div class="custom-control custom-checkbox col-md-12 mb-6">
                   <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
              </div>

@@ -25,6 +25,15 @@
                         <input type="password" name="input_password" class="form-control" id="input_password"> 
                     </div>
                 </div>
+                {if $error}
+                <div class="row justify-content-center">
+                    <div class="col-md-12 mb-3">
+                        <div class="alert alert-danger ">
+                        {$error}
+                        <div>
+                    <div>    
+                <div>
+                {/if}
             </div>
               <div class="row justify-content-center">
             <div class="custom-control custom-checkbox col-md-12 mb-3">

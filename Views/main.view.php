@@ -4,18 +4,20 @@ require_once "./libs/smarty/Smarty.class.php";
 
 class MainView{
 
-    private $title;
+    private $smarty;
+
+    function __construct() {
+        $this->smarty = new Smarty();
+    } 
 
     function ShowHome(){
-        $smarty = new Smarty();
-        $smarty->assign('Mascotandil',$this->title);
-        $smarty->display('templates/main.tpl'); 
+        $this->smarty->assign('Mascotandil',$this->title);
+        $this->smarty->display('templates/main.tpl'); 
     }
 
     function showStore(){
-        $smarty = new Smarty();
-        $smarty->assign('Tienda',$this->title);
-        $smarty->display('templates/store.tpl'); 
+        $this->smarty->assign('Tienda',$this->title);
+        $this->smarty->display('templates/store.tpl'); 
     }
 
 

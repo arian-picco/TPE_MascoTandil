@@ -4,42 +4,37 @@ require_once "./libs/smarty/Smarty.class.php";
 
 class StoreView {
 
-    private $title;
+    private $smarty;
 
-
-    function __construct(){
-        $this->title = "Lista de Tareas";
-    }
+    function __construct() {
+        $this->smarty = new Smarty();
+    } 
 
 
     function ShowProducts($products, $categories){
-
-        $smarty = new Smarty();
-        $smarty->assign('Mascotandil',$this->title);
-        $smarty->assign('products', $products);
-        $smarty->assign('categories', $categories);
-        $smarty->display('templates/products.tpl'); 
+        $title = '';
+        $this->smarty->assign('Tienda',$this->title);
+        $this->smarty->assign('products', $products);
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('templates/products.tpl'); 
     }
     
     function showProductDetail($productDetail){
-        $smarty = new Smarty();
-        $smarty->assign('Mascotandil',$this->title);
-        $smarty->assign('productDetail', $productDetail);
-        $smarty->display('templates/detail.tpl'); 
+        $this->smarty->assign('Mascotandil',$this->title);
+        $this->smarty->assign('productDetail', $productDetail);
+        $this->smarty->display('templates/detail.tpl'); 
     }
 
     function showProductByCategory($productsByCatogory,$categories){
-        $smarty = new Smarty();
-        $smarty->assign('Mascotandil',$this->title);
-        $smarty->assign('categories', $categories);
-        $smarty->assign('products', $productsByCatogory);
-        $smarty->display('templates/products.tpl'); 
+        $this->smarty->assign('Mascotandil',$this->title);
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('products', $productsByCatogory);
+        $this->smarty->display('templates/products.tpl'); 
     }
 
     function showCategoriesEditionPanel($categories){
-        $smarty = new Smarty();
-        $smarty->assign('categories', $categories);
-        $smarty->display('templates/edit_category.tpl'); 
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('templates/edit_category.tpl'); 
     }
 
      //apuntar a un tpl de error - Show Error
