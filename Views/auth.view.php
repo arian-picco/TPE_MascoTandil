@@ -19,7 +19,8 @@ class AuthView {
     }
 
 
- // deberia terminar la validacion
+  // generar la validacion en un boolean para ver a qué llama, si los tpl de edicion o no.
+  // Incorporar la validacion para todas cosa que marque bien el header
 
 
 }

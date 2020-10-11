@@ -5,7 +5,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 require_once 'Controller/home.controller.php';
 require_once 'Controller/store.controller.php';
-require_once 'Controller/login.controller.php';
+require_once 'Controller/auth.controller.php';
 require_once 'Controller/categories.controller.php';
 require_once 'Model/products.model.php';
 require_once 'Model/categories.model.php';
@@ -32,12 +32,14 @@ switch($params[0]) {
     case 'verify_user':
         $loginController->loginUser();
         break;
+    case 'logout':
+        $loginController->loginOutUser();
+        break;
     case 'home':
         $homeController->showHome();
         break;
     case '':
         $homeController->showHome();
-        break;
         break;
     case 'store':
         $storeController->showProducts();

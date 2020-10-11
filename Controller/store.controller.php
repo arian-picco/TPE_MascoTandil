@@ -2,8 +2,6 @@
 
 include_once 'Views/store.view.php';
 
-
-
 class StoreController {
 
 
@@ -32,6 +30,7 @@ class StoreController {
     }
 
     function showProductDetail($productSelected){
+        $this->checkLogged();
         $productDetail= $this->model->getProductDetail($productSelected);
         $this->view->showProductDetail($productDetail);
     }

@@ -8,6 +8,8 @@ class StoreView {
 
     function __construct() {
         $this->smarty = new Smarty();
+        // otra opción es asignar acá la session
+        // $this->smarty->assign('username',$_SESSION{'EMAIL_USER'});
     } 
 
 
