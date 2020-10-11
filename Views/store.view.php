@@ -12,27 +12,27 @@ class StoreView {
 
 
     function ShowProducts($products, $categories){
-        $title = '';
-        $this->smarty->assign('Tienda',$this->title);
+        $this->smarty->assign('title','Tienda');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/products.tpl'); 
     }
     
     function showProductDetail($productDetail){
-        $this->smarty->assign('Mascotandil',$this->title);
+        $this->smarty->assign('title','Detalle');
         $this->smarty->assign('productDetail', $productDetail);
         $this->smarty->display('templates/detail.tpl'); 
     }
 
     function showProductByCategory($productsByCatogory,$categories){
-        $this->smarty->assign('Mascotandil',$this->title);
+        $this->smarty->assign('title','Tienda');
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('products', $productsByCatogory);
         $this->smarty->display('templates/products.tpl'); 
     }
 
     function showCategoriesEditionPanel($categories){
+        $this->smarty->assign('title','Panel de Edicion');
         $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/edit_category.tpl'); 
     }

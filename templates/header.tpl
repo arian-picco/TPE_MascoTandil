@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>MascoTandil</title>
+        <title>{$title}</title>
         <base href="{BASE_URL}"
         <link href="css/header.css" rel="stylesheet" type="text/css">
         <link href="css/details.css" rel="stylesheet" type="text/css">

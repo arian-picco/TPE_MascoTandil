@@ -11,12 +11,12 @@ class MainView{
     } 
 
     function ShowHome(){
-        $this->smarty->assign('Mascotandil',$this->title);
+        $this->smarty->assign('title','MascoTandil');
         $this->smarty->display('templates/main.tpl'); 
     }
 
     function showStore(){
-        $this->smarty->assign('Tienda',$this->title);
+        $this->smarty->assign('title','Tienda');
         $this->smarty->display('templates/store.tpl'); 
     }
 

@@ -13,7 +13,7 @@ class AuthView {
 
     //el = null es apra poder llamarlo sin el parametro
     function showLogin($error = null){
-       
+        $this->smarty->assign('title','Ingreso');
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl'); 
     }

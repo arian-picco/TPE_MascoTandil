@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-09 17:35:19
+/* Smarty version 3.1.34-dev-7, created on 2020-10-11 15:24:27
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f80833743c831_49658922',
+  'unifunc' => 'content_5f83078b66de47_60773240',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602257708,
+      1 => 1602422607,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f80833743c831_49658922 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f83078b66de47_60773240 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>MascoTandil</title>
+        <title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</title>
         <base href="<?php echo BASE_URL;?>
 "
         <link href="css/header.css" rel="stylesheet" type="text/css">
