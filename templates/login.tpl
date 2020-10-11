@@ -22,7 +22,7 @@
                 <div class="col-md-4 mb-3">
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="input_password" class="form-control" id="input_password"> 
+                        <input type="password" name="input_password" class="form-control" id="input_password"> 
                     </div>
                 </div>
             </div>

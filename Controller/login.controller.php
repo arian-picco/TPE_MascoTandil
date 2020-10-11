@@ -26,7 +26,14 @@ Class LoginController{
           die();
       }      
         $user = $this->userModel->getUserByMail($email);
-        var_dump($user);
+
+       //comparto con el objeto que traigo del modelo
+
+       if($user && password_verify($password, $user->password)){
+           echo "acceso exitoso";
+       } else {
+           echo "acceso denegado";
+       }
      
     }
 

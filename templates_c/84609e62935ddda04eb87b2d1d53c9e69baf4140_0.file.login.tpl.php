@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-07 23:01:17
+/* Smarty version 3.1.34-dev-7, created on 2020-10-11 02:14:04
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7e2c9d6301f0_46975060',
+  'unifunc' => 'content_5f824e4ca52d68_90280003',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '84609e62935ddda04eb87b2d1d53c9e69baf4140' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/login.tpl',
-      1 => 1602104419,
+      1 => 1602373004,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7e2c9d6301f0_46975060 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f824e4ca52d68_90280003 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main>
@@ -47,7 +47,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                 <div class="col-md-4 mb-3">
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="input_password" class="form-control" id="input_password"> 
+                        <input type="password" name="input_password" class="form-control" id="input_password"> 
                     </div>
                 </div>
             </div>
