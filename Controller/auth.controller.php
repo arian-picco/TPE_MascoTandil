@@ -18,33 +18,37 @@ Class LoginController{
     }
 
     function loginUser(){
-       $email = $_POST['input_email'];
-       $password = $_POST['input_password'];
-       $name = $_POST['input_name']; 
-      if(empty($email) || empty($password) || empty($name) ){
-        $this->view->showLogin("Campos vacíos");
-          die();
-      }      
-        
-      //obtengo el user
-       $user = $this->userModel->getUserByMail($email);
-       //comparo con el objeto que traigo del modelo
-       if($user && password_verify($password, $user->password)){
-        //armo la sesion del usuario
-        session_start();
-        $_SESSION['ID_USER'] = $user->id;
-        $_SESSION['EMAIL_USER'] = $user->email;
-        $_SESSION['ID_NAME'] = $user->name;
-        //redirigimos a la home
-        header("Location: " . BASE_URL); // le puedo agregar .home si quiero que entre desde login
-        
-       } else {
-           //envio por parametro el error a la vista.
-           $this->view->showLogin("Credenciales inválidas");
-       }
-     
+        $email = $_POST['input_email'];
+        $password = $_POST['input_password'];
+        $name = $_POST['input_name']; 
+        if(empty($email) || empty($password) || empty($name) ){
+            $this->view->showLogin("Campos vacíos");
+            die();
+        }      
+            
+        //obtengo el user
+        $user = $this->userModel->getUserByMail($email);
+        //comparo con el objeto que traigo del modelo
+        if($user && password_verify($password, $user->password)){
+                //armo la sesion del usuario
+                session_start();
+                $_SESSION['ID_USER'] = $user->id;
+                $_SESSION['EMAIL_USER'] = $user->email;
+                $_SESSION['ID_NAME'] = $user->name;
+                //redirigimos a la home
+                header("Location: " . BASE_URL); // le puedo agregar .home si quiero que entre desde login
+                
+            } else {
+                //envio por parametro el error a la vista.
+                $this->view->showLogin("Credenciales inválidas");
+            }
     }
 
+    function logOutUser(){
+        session_start();
+        session_destroy();
+        header("Location: " .BASE_URL . 'admin');
+    }
     
 
 

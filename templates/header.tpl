@@ -32,9 +32,12 @@
                 <a class="nav-link" href="admin">Admin</a>
               </li>
              {if isset($smarty.session.EMAIL_USER)}
-              <li class="nav-item">
-                <a class="nav-link" href="#">{$smarty.session.EMAIL_USER}</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">{$smarty.session.EMAIL_USER}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="logout">Logout</a>
+                </li>
               {/if}
           </ul>
         </div>

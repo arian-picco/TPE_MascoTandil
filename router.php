@@ -33,7 +33,7 @@ switch($params[0]) {
         $loginController->loginUser();
         break;
     case 'logout':
-        $loginController->loginOutUser();
+        $loginController->logOutUser();
         break;
     case 'home':
         $homeController->showHome();

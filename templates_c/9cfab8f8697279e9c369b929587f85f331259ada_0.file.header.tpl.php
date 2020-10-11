@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-11 23:37:21
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 00:16:36
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f837b11274ec6_00117093',
+  'unifunc' => 'content_5f8384444271a2_14707378',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602452225,
+      1 => 1602454583,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f837b11274ec6_00117093 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8384444271a2_14707378 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -56,10 +56,13 @@ function content_5f837b11274ec6_00117093 (Smarty_Internal_Template $_smarty_tpl)
                 <a class="nav-link" href="admin">Admin</a>
               </li>
              <?php if ((isset($_SESSION['EMAIL_USER']))) {?>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><?php echo $_SESSION['EMAIL_USER'];?>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><?php echo $_SESSION['EMAIL_USER'];?>
 </a>
-              </li>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="logout">Logout</a>
+                </li>
               <?php }?>
           </ul>
         </div>
