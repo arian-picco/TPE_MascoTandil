@@ -34,6 +34,11 @@ Class LoginController{
       
        if($user && password_verify($password, $user->password)){
 
+        //armo la sesion del usuario
+        session_start();
+        $_SESSION['ID_USER'] = $user->id;
+        $_SESSION['EMAIL_USER'] = $user->email;
+
         //redirigimos a la home
         header("Location: " . BASE_URL); // le puedo agregar .home si quiero que entre desde login
         

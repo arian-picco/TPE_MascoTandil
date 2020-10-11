@@ -1,6 +1,7 @@
 <?php
 
 include_once 'Views/store.view.php';
+include_once 'Views/auth.view.php';
 
 
 class StoreController {
@@ -17,6 +18,7 @@ class StoreController {
     }
 
     function showProducts(){
+        $this->checkLogged();
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
         $this->view->showProducts($products,$categories);
@@ -78,6 +80,15 @@ class StoreController {
 
        
     
+    }
+
+
+    function checkLogged(){
+        session_start();
+        if(!isset($_SESSION['ID_USER'])){
+            header("Location: " . BASE_URL . "admin");
+            die();
+        }
     }
 
 }

@@ -15,12 +15,6 @@ class MainView{
         $this->smarty->display('templates/main.tpl'); 
     }
 
-    function showStore(){
-        $this->smarty->assign('title','Tienda');
-        $this->smarty->display('templates/store.tpl'); 
-    }
-
-
 
 }
 
