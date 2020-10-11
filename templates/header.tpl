@@ -21,8 +21,8 @@
         </button>
       
         <div class="menu">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+          <ul class="navbar-nav d-flex w-100">
+            <li class="nav-item ml-auto">
               <a class="nav-link" href="home">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -31,6 +31,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="admin">Admin</a>
               </li>
+             {if isset($smarty.session.EMAIL_USER)}
+              <li class="nav-item">
+                <a class="nav-link" href="#">{$smarty.session.EMAIL_USER}</a>
+              </li>
+              {/if}
           </ul>
         </div>
       </nav>

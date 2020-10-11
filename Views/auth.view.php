@@ -19,6 +19,8 @@ class AuthView {
     }
 
 
+ // deberia terminar la validacion
+
 
 }
 

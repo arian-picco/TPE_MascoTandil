@@ -1,7 +1,7 @@
 <?php
 
 include_once 'Views/store.view.php';
-include_once 'Views/auth.view.php';
+
 
 
 class StoreController {
@@ -15,9 +15,15 @@ class StoreController {
         $this->view = new StoreView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
+
+        // $this->checkLogged();
+        // var_dump($_SESSION);
+        // Error  ERR_TOO_MANY_REDIRECTS
     }
 
     function showProducts(){
+       
+        //verificar que el usuario esté loggeado
         $this->checkLogged();
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
@@ -63,12 +69,10 @@ class StoreController {
     }
 
     function updateProduct($id) {
-
         $name = $_REQUEST['input_name'];
         $description = $_REQUEST['input_description'];
         $price = $_REQUEST['input_price'];
         $id_category = $_REQUEST['input_category'];
-        
         if(empty($name) || empty($description) ||
         empty($price) || empty($id_category) ) {
         // $this->view->showErrorDetail('faltan datos obligatorios');
@@ -77,9 +81,6 @@ class StoreController {
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
         $productDetailUpdated= $this->model->getProductDetail($id);
         $this->view->showProductDetail($productDetailUpdated);
-
-       
-    
     }
 
 

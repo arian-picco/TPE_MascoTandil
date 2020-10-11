@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-11 15:24:27
+/* Smarty version 3.1.34-dev-7, created on 2020-10-11 23:37:21
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f83078b66de47_60773240',
+  'unifunc' => 'content_5f837b11274ec6_00117093',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602422607,
+      1 => 1602452225,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f83078b66de47_60773240 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f837b11274ec6_00117093 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -45,8 +45,8 @@ function content_5f83078b66de47_60773240 (Smarty_Internal_Template $_smarty_tpl)
         </button>
       
         <div class="menu">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+          <ul class="navbar-nav d-flex w-100">
+            <li class="nav-item ml-auto">
               <a class="nav-link" href="home">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -55,6 +55,12 @@ function content_5f83078b66de47_60773240 (Smarty_Internal_Template $_smarty_tpl)
             <li class="nav-item">
                 <a class="nav-link" href="admin">Admin</a>
               </li>
+             <?php if ((isset($_SESSION['EMAIL_USER']))) {?>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><?php echo $_SESSION['EMAIL_USER'];?>
+</a>
+              </li>
+              <?php }?>
           </ul>
         </div>
       </nav>

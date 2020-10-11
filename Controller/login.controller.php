@@ -27,18 +27,14 @@ Class LoginController{
       }      
         
       //obtengo el user
-
        $user = $this->userModel->getUserByMail($email);
-
        //comparo con el objeto que traigo del modelo
-      
        if($user && password_verify($password, $user->password)){
-
         //armo la sesion del usuario
         session_start();
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['EMAIL_USER'] = $user->email;
-
+        $_SESSION['ID_NAME'] = $user->name;
         //redirigimos a la home
         header("Location: " . BASE_URL); // le puedo agregar .home si quiero que entre desde login
         
