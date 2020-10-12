@@ -1,40 +1,16 @@
-<?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:24:33
-  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f849f61e8bda1_36793354',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '9cfab8f8697279e9c369b929587f85f331259ada' => 
-    array (
-      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602527053,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5f849f61e8bda1_36793354 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>  
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
-</title>
-        <base href="<?php echo BASE_URL;?>
-"
+        <title>{$title}</title>
+        <base href="{BASE_URL}"
         <link href="css/header.css" rel="stylesheet" type="text/css">
         <link href="css/details.css" rel="stylesheet" type="text/css">
         <link href="css/form.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
-                <link href="css/footer.css" rel="stylesheet" type="text/css">
+        {* <link href="css/tablas.css" rel="stylesheet" type="text/css"> *}
+        <link href="css/footer.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -55,17 +31,8 @@ function content_5f849f61e8bda1_36793354 (Smarty_Internal_Template $_smarty_tpl)
             <li class="nav-item">
                 <a class="nav-link" href="admin">Admin</a>
               </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><?php echo $_SESSION['USER_NAME'];?>
-</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="logout">Logout</a>
-                </li>
           </ul>
         </div>
       </nav>
 
    
-<?php }
-}

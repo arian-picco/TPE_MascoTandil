@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 02:22:29
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:24:26
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products_public.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f83a1c5efe6c4_87589398',
+  'unifunc' => 'content_5f849f5abe8d25_54082649',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f6c7c37e936e6960ce0d213941f6548ef6d7e05a' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products_public.tpl',
-      1 => 1602462136,
+      1 => 1602527030,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:header.tpl' => 1,
+    'file:header_public.tpl' => 1,
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f83a1c5efe6c4_87589398 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5f849f5abe8d25_54082649 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:header_public.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
   <section class="jumbotron text-center">

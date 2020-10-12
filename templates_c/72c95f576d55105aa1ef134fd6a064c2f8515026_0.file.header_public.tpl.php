@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:24:33
-  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:24:23
+  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header_public.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f849f61e8bda1_36793354',
+  'unifunc' => 'content_5f849f575ba440_05348133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '9cfab8f8697279e9c369b929587f85f331259ada' => 
+    '72c95f576d55105aa1ef134fd6a064c2f8515026' => 
     array (
-      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602527053,
+      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header_public.tpl',
+      1 => 1602527038,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f849f61e8bda1_36793354 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f849f575ba440_05348133 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -55,17 +55,9 @@ function content_5f849f61e8bda1_36793354 (Smarty_Internal_Template $_smarty_tpl)
             <li class="nav-item">
                 <a class="nav-link" href="admin">Admin</a>
               </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><?php echo $_SESSION['USER_NAME'];?>
-</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="logout">Logout</a>
-                </li>
           </ul>
         </div>
       </nav>
 
-   
-<?php }
+   <?php }
 }

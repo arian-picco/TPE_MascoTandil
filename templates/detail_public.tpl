@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include 'header_public.tpl'}
  <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Bienvenido a la tienda Online - Modo Editor</h1>

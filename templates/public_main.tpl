@@ -1,4 +1,4 @@
-{include 'header.tpl'}
+{include 'header_public.tpl'}
 <body>
         <article class="main-body bg-image " style="background-image: url(imagenes/background.jpg)">
           <div class="container">

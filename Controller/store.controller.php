@@ -78,7 +78,6 @@ class StoreController {
         //    $this->view->showError('faltan datos obligatorios');
            die();
            } 
-
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
@@ -87,8 +86,6 @@ class StoreController {
         } else {
             $this->publicView->showPublicProducts($products,$categories);
         }
-    
-
     }
 
     function updateProduct($id) {

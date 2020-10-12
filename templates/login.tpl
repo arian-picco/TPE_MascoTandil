@@ -1,5 +1,5 @@
 
-{include file="header.tpl"}
+{include file="header_public.tpl"}
 <main>
     <div class="container">
     <div class="body-login">
