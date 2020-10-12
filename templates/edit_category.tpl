@@ -7,6 +7,7 @@
     <section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">Panel de edicion Categorías</h1>
+
     </div>
     </section>  
             <table class="table">

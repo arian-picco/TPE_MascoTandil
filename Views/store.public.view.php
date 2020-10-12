@@ -2,39 +2,35 @@
 
 require_once "./libs/smarty/Smarty.class.php";
 
-class StoreView {
+class StorePublicView {
 
     private $smarty;
 
     function __construct() {
         $this->smarty = new Smarty();
+        // otra opción es asignar acá la session
+        // $this->smarty->assign('username',$_SESSION{'EMAIL_USER'});
     } 
 
 
-    function ShowProducts($products, $categories){
+    function ShowPublicProducts($products, $categories){
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/products.tpl'); 
+        $this->smarty->display('templates/products_public.tpl'); 
     }
     
     function showProductDetail($productDetail){
         $this->smarty->assign('title','Detalle');
         $this->smarty->assign('productDetail', $productDetail);
-        $this->smarty->display('templates/detail.tpl'); 
+        $this->smarty->display('templates/detail_public.tpl'); 
     }
 
-    function showProductByCategory($productsByCatogory,$categories){
+    function showProductByCategoryPublic($productsByCatogory,$categories){
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('products', $productsByCatogory);
-        $this->smarty->display('templates/products.tpl'); 
-    }
-
-    function showCategoriesEditionPanel($categories){
-        $this->smarty->assign('title','Panel de Edicion');
-        $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/edit_category.tpl'); 
+        $this->smarty->display('templates/products_public.tpl'); 
     }
 
     

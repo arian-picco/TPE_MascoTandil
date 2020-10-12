@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-11 15:01:56
-  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 02:22:29
+  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products_public.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8302445ce682_97192364',
+  'unifunc' => 'content_5f83a1c5efe6c4_87589398',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
+    'f6c7c37e936e6960ce0d213941f6548ef6d7e05a' => 
     array (
-      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602371769,
+      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products_public.tpl',
+      1 => 1602462136,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f8302445ce682_97192364 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f83a1c5efe6c4_87589398 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
@@ -36,56 +36,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
   </section>
 
   <div class="container">
-  
-    <div class="row justify-content-center">
-      <div class="col-md-8 order-md-1">
-      <form action="insert" method="post" class="form">
-        <h3 class="mb-5">Ingrese un nuevo Producto</h3>
-        <div class="row justify-content-around">
-            <div class="col-md-4 mb-3">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" name="input_name" class="form-control" id="name"> 
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="form-group">
-                    <label for="description">Descripción</label>
-                    <input type="text" name="input_description" class="form-control" id="description"> 
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="form-group">
-                    <label for="price">Precio</label>
-                    <input type="text" name="input_price" class="form-control" id="price"> 
-                </div>
-            </div>
-            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
-$_smarty_tpl->tpl_vars['category']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
-$_smarty_tpl->tpl_vars['category']->do_else = false;
-?>
-            <div class="custom-control custom-checkbox col-md-3 mb-2">
-                <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
-" >
-                <label class="form-check-label" for="exampleRadios1">
-                <?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
-
-                </label>
-            </div>
-            <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-            <div class="row justify-content-center">
-              <div class="custom-control custom-checkbox col-md-12 mb-6">
-                  <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
-             </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </form>
+   
     <div class="row">
         <div class="col-md-12 order-md-1">
             
@@ -106,7 +57,6 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category_edition">Editar Categorías</a></li>
                 </ul>
             </div>
             </nav>
@@ -117,7 +67,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Categoria</th>
-                    <th scope="col">Edicion</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -145,16 +94,6 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
                         <?php echo $_smarty_tpl->tpl_vars['product']->value->cat_name;?>
 
                       </td>
-                      <td>
-                      <button class="btn-delete">
-                          <a href="delete/<?php echo $_smarty_tpl->tpl_vars['product']->value->id;?>
-">Borrar</a>
-                      </button>
-                      <button class="btn-delete">
-                          <a href="detail/<?php echo $_smarty_tpl->tpl_vars['product']->value->id;?>
-">Actualizar</a>
-                      </button>
-                                            </td>
                   </tr>
               <?php
 }

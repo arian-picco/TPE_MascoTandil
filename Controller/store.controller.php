@@ -1,36 +1,48 @@
 <?php
 
 include_once 'Views/store.view.php';
+include_once 'Views/store.public.view.php';
+include_once 'Controller/auth.controller.php';
 
 class StoreController {
 
 
  private $view;
+ private $publicView;
  private $model;
  private $categoryModel;
+ private $authController;
+
 
     function __construct() {
         $this->view = new StoreView();
+        $this->publicView = new StorePublicView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
+        $this->authController = new AuthController();
 
-        // $this->checkLogged();
-        // var_dump($_SESSION);
-        // Error  ERR_TOO_MANY_REDIRECTS
     }
 
     function showProducts(){
        
-        //verificar que el usuario esté loggeado
-        $this->checkLogged();
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $this->view->showProducts($products,$categories);
-        
+
+        $loggeado = $this->authController->checkLoggedIn();
+
+          if($loggeado){
+            session_start();
+            $this->view->showProducts($products,$categories);
+            var_dump($loggeado);
+        } else {
+            $this->publicView->showPublicProducts($products,$categories);
+            var_dump($loggeado);
+        }
+     
     }
 
     function showProductDetail($productSelected){
-        $this->checkLogged();
+        
         $productDetail= $this->model->getProductDetail($productSelected);
         $this->view->showProductDetail($productDetail);
     }
@@ -38,7 +50,13 @@ class StoreController {
     function showProductByCategory($categorySelected){
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
         $categories = $this->categoryModel->getCategories();
-        $this->view->showProductByCategory($productsByCatogory,$categories);
+        $loggeado = $this->authController->checkLoggedIn();
+        if($loggeado){
+            $this->view->showProductByCategory($productsByCatogory,$categories);
+        } else {
+            $this->publicView->showProductByCategoryPublic($productsByCatogory,$categories);
+        }
+       
     }
 
     function DeleteProduct($product_id){
@@ -86,10 +104,12 @@ class StoreController {
     function checkLogged(){
         session_start();
         if(!isset($_SESSION['ID_USER'])){
-            header("Location: " . BASE_URL . "admin");
+            header("Location: " . BASE_URL . "store");
             die();
         }
     }
+
+
 
 }
 

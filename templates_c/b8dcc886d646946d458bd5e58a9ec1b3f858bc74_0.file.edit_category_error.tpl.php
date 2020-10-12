@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 00:40:33
-  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/edit_category.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 00:51:35
+  from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/edit_category_error.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8389e1d218e1_83390364',
+  'unifunc' => 'content_5f838c77632ee1_97692873',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '91a5a957f7897af9eb973d7d71c81cfeaf33b758' => 
+    'b8dcc886d646946d458bd5e58a9ec1b3f858bc74' => 
     array (
-      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/edit_category.tpl',
-      1 => 1602455996,
+      0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/edit_category_error.tpl',
+      1 => 1602456579,
       2 => 'file',
     ),
   ),
@@ -22,8 +22,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f8389e1d218e1_83390364 (Smarty_Internal_Template $_smarty_tpl) {
-?>   <?php $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5f838c77632ee1_97692873 (Smarty_Internal_Template $_smarty_tpl) {
+?>  <?php $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <div  class="container">
@@ -72,6 +72,12 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
                       <td>
                         <div>
                             <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
+                        </div>
+                      </td>
+                           <td>
+                        <div>
+                            <h2><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</h2>
                         </div>
                       </td>
                       </form>

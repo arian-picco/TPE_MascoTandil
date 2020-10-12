@@ -57,15 +57,15 @@ class CategoriesController {
         $this->view->showCategoriesEditionPanel($categories);
         
     }
-
+    
     function checkLogged(){
         session_start();
         if(!isset($_SESSION['ID_USER'])){
             header("Location: " . BASE_URL . "admin");
             die();
         }
-    }    
-
+    }     
+ 
 }
 
 ?>

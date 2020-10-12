@@ -23,7 +23,7 @@ $params = explode('/', $action);
 $homeController = new HomeController();
 $storeController = new StoreController();
 $categoriesController = new CategoriesController();
-$loginController = new LoginController();
+$loginController = new AuthController();
 
 switch($params[0]) {
     case 'admin':

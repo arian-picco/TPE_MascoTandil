@@ -2,7 +2,7 @@
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Bienvenido a la tienda Online</h1>
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online SEÑOR EDITOR</h1>
       <p class="lead text-muted">
         Encuentre aquí los mejores productos dedicados a su mascota
       </p>

@@ -3,7 +3,7 @@
 include_once 'Views/auth.view.php';
 include_once 'Model/user.model.php';
 
-Class LoginController{
+Class AuthController{
 
     private $view;
     private $userModel;
@@ -34,9 +34,9 @@ Class LoginController{
                 session_start();
                 $_SESSION['ID_USER'] = $user->id;
                 $_SESSION['EMAIL_USER'] = $user->email;
-                $_SESSION['ID_NAME'] = $user->name;
+                $_SESSION['USER_NAME'] = $user->name;
                 //redirigimos a la home
-                header("Location: " . BASE_URL); // le puedo agregar .home si quiero que entre desde login
+                header("Location: " . BASE_URL .store); // le puedo agregar .home si quiero que entre desde login
                 
             } else {
                 //envio por parametro el error a la vista.
@@ -48,6 +48,13 @@ Class LoginController{
         session_start();
         session_destroy();
         header("Location: " .BASE_URL . 'admin');
+    }
+
+    function checkLoggedIn(){
+        session_start();
+        if(!isset($_SESSION['EMAIL'])){
+            return false;
+        }else return true;
     }
     
 
