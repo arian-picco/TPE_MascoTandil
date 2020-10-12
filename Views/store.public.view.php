@@ -20,7 +20,7 @@ class StorePublicView {
         $this->smarty->display('templates/products_public.tpl'); 
     }
     
-    function showProductDetail($productDetail){
+    function showProductPublicDetail($productDetail){
         $this->smarty->assign('title','Detalle');
         $this->smarty->assign('productDetail', $productDetail);
         $this->smarty->display('templates/detail_public.tpl'); 

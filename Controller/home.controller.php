@@ -14,7 +14,6 @@ Class HomeController{
 
     function showHome(){
         $loggedIn = $this->checkLoggedIn();
-        var_dump($loggedIn);
         if($loggedIn){
             $this->view->showHome();
         } else {

@@ -11,6 +11,7 @@ class StoreController {
  private $publicView;
  private $model;
  private $categoryModel;
+ private $authController;
 
 
 
@@ -19,29 +20,27 @@ class StoreController {
         $this->publicView = new StorePublicView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
-
     }
 
     function showProducts(){
- 
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-
         $loggedIn = $this->checkLoggedIn();
         if($loggedIn){
             $this->view->showProducts($products,$categories);
         } else {
         $this->publicView->showPublicProducts($products,$categories);
         }
-
-
-     
     }
 
     function showProductDetail($productSelected){
-        
         $productDetail= $this->model->getProductDetail($productSelected);
-        $this->view->showProductDetail($productDetail);
+        $loggedIn = $this->checkLoggedIn();
+        if($loggedIn){
+            $this->view->showProductDetail($productDetail);
+        } else {
+            $this->publicView->showProductPublicDetail($productDetail);
+        }      
     }
 
     function showProductByCategory($categorySelected){
@@ -53,15 +52,20 @@ class StoreController {
         } else {
             $this->publicView->showProductByCategoryPublic($productsByCatogory,$categories);
         }
-       
     }
 
     function DeleteProduct($product_id){
         $this->model->DeleteProduct($product_id);
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $this->view->showProducts($products, $categories);
+        $loggedIn = $this->checkLoggedIn();
+        if($loggedIn){
+            $this->view->showProducts($products, $categories);
+        } else {
+            $this->publicView->showPublicProducts($products,$categories);
+        }
     }
+       
 
     function insertProduct(){
         $name = $_REQUEST['input_name'];
@@ -78,7 +82,12 @@ class StoreController {
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $this->view->showProducts($products, $categories);
+        if($loggedIn){
+            $this->view->showProducts($products, $categories);
+        } else {
+            $this->publicView->showPublicProducts($products,$categories);
+        }
+    
 
     }
 
@@ -94,7 +103,11 @@ class StoreController {
         } 
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
         $productDetailUpdated= $this->model->getProductDetail($id);
-        $this->view->showProductDetail($productDetailUpdated);
+        if($loggedIn){
+            $this->view->showProductDetail($productDetailUpdated);
+        } else {
+            $this->publicView->showProductPublicDetail($productDetail);
+        }
     }
 
 
