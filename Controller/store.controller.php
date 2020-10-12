@@ -59,6 +59,7 @@ class StoreController {
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
         $loggedIn = $this->checkLoggedIn();
+        $loggedIn = $this->checkLoggedIn();
         if($loggedIn){
             $this->view->showProducts($products, $categories);
         } else {
@@ -81,6 +82,7 @@ class StoreController {
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
+        $loggedIn = $this->checkLoggedIn();
         if($loggedIn){
             $this->view->showProducts($products, $categories);
         } else {
@@ -100,6 +102,7 @@ class StoreController {
         } 
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
         $productDetailUpdated= $this->model->getProductDetail($id);
+        $loggedIn = $this->checkLoggedIn();
         if($loggedIn){
             $this->view->showProductDetail($productDetailUpdated);
         } else {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:24:23
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:36:24
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header_public.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f849f575ba440_05348133',
+  'unifunc' => 'content_5f84a22834c367_48175737',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '72c95f576d55105aa1ef134fd6a064c2f8515026' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header_public.tpl',
-      1 => 1602527038,
+      1 => 1602527557,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f849f575ba440_05348133 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f84a22834c367_48175737 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -53,7 +53,7 @@ function content_5f849f575ba440_05348133 (Smarty_Internal_Template $_smarty_tpl)
               <a class="nav-link" href="store">Tienda</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin">Admin</a>
+                <a class="nav-link" href="admin">Login</a>
               </li>
           </ul>
         </div>

@@ -29,7 +29,7 @@
               <a class="nav-link" href="store">Tienda</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin">Admin</a>
+                <a class="nav-link" href="admin">Login</a>
               </li>
           </ul>
         </div>

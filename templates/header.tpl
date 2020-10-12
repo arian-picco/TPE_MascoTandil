@@ -28,9 +28,6 @@
             <li class="nav-item">
               <a class="nav-link" href="store">Tienda</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="admin">Admin</a>
-              </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">{$smarty.session.USER_NAME}</a>
                 </li>
