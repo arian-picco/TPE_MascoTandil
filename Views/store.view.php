@@ -18,8 +18,9 @@ class StoreView {
         $this->smarty->display('templates/products.tpl'); 
     }
     
-    function showProductDetail($productDetail){
+    function showProductDetail($productDetail,$categories){
         $this->smarty->assign('title','Detalle');
+        $this->smarty->assign('categories', $categories);
         $this->smarty->assign('productDetail', $productDetail);
         $this->smarty->display('templates/detail.tpl'); 
     }
@@ -38,14 +39,30 @@ class StoreView {
     }
 
     
-     //apuntar a un tpl de error - Show Error
+    
 
-    //  function showError($message){
-    //     $smarty = new Smarty();
-    //     $smarty->assign('Mascotandil',$this->title);
-    //     $smarty->assign('error', $message);
-    //     $smarty->display('templates/products.tpl'); 
-    //  }
+      function showError($message){
+         $smarty = new Smarty();
+         $this->smarty->assign('title','Error');
+         $smarty->assign('error', $message);
+         $smarty->display('templates/error.tpl'); 
+      }
+
+      function showErrorDetail($message){
+        $smarty = new Smarty();
+        $this->smarty->assign('title','Error');
+        $smarty->assign('error', $message);
+        $smarty->display('templates/error.tpl'); 
+     }
+
+     function showCategoryError($message){
+        $smarty = new Smarty();
+        $this->smarty->assign('title','Error');
+        $smarty->assign('error', $message);
+        $smarty->display('templates/errorCategory.tpl'); 
+     }
+
+
 
     //  function showErrorDetail($message){
     //     $smarty = new Smarty();

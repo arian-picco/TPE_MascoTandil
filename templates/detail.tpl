@@ -1,6 +1,16 @@
 {include file="header.tpl"}
- 
- <div class="container">
+
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online - {$smarty.session.USER_NAME}</h1>
+      <h2 class="lead text-muted">
+        Usted ha seleccionado - {$productDetail[0]->name}
+      </h2>
+    </div>
+  </section>
+
+
      <div class="row justify-content-center">
         <div class="col-md-8 order-md-1">
     <form action="update/{$productDetail[0]->id}" class="form">
@@ -24,31 +34,17 @@
                         <input type="text" name="input_price" class="form-control" id="price"> 
                     </div>
                 </div>
-                <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="1" >
-                    <label class="form-check-label" for="exampleRadios1">
-                    Producto para Gatos
-                    </label>
+                
+                {foreach from=$categories item=category}
+                <div class="custom-control custom-checkbox col-md-12 mb-2">
+                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="{$category->id}" >
+                    <label class="form-check-label" for="exampleRadios1">{$category->category_name}</label>
                 </div>
-                <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
-                    <label class="form-check-label" for="exampleRadios1">
-                    Producto para Perros
-                    </label>
-                </div>
-                <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="3" >
-                    <label class="form-check-label" for="exampleRadios1">
-                    Producto para animales Pequeños
-                    </label>
-                </div>
+                {/foreach}
                 <div class="row justify-content-center">
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
                 </div>
-                  {* <div class="col-md-12 mb-6">
-                        <h3>{$Error}</h3>
-                  </div> *}
                 </div>
             </div>
         </div>
@@ -56,7 +52,8 @@
     </form>
     </div>
     </div>
-</div>
+
+
 <div class="container">
 
     <div class="col-md-12 mb-3">
@@ -75,7 +72,6 @@
                   <p>
                     {$productDetail[0]->description}
                   </p>
-                  {* agregar una columna para la categoria  *}
                   <div class="product_meta">
                       <span class="posted_in"> <strong>Category:{$productDetail[0]->cat_name}</strong> 
                   </div>
@@ -90,8 +86,6 @@
       </div>
 
 </div>
-
- 
 
 
 {include file="footer.tpl"}

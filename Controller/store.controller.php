@@ -34,12 +34,13 @@ class StoreController {
     }
 
     function showProductDetail($productSelected){
+        $categories = $this->categoryModel->getCategories();
         $productDetail= $this->model->getProductDetail($productSelected);
         $loggedIn = $this->checkLoggedIn();
         if($loggedIn){
-            $this->view->showProductDetail($productDetail);
+            $this->view->showProductDetail($productDetail,$categories);
         } else {
-            $this->publicView->showProductPublicDetail($productDetail);
+            $this->publicView->showProductPublicDetail($productDetail,$categories);
         }      
     }
 
@@ -59,7 +60,6 @@ class StoreController {
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
         $loggedIn = $this->checkLoggedIn();
-        $loggedIn = $this->checkLoggedIn();
         if($loggedIn){
             $this->view->showProducts($products, $categories);
         } else {
@@ -73,16 +73,21 @@ class StoreController {
         $description = $_REQUEST['input_description'];
         $price = $_REQUEST['input_price'];
         $id_category = $_REQUEST['input_category'];
-
+       
+        //ERROR INPUT CATEGORY - SI ESTA VACIO APARECE COMO UNDEFINED
+        $loggedIn = $this->checkLoggedIn();
+        
         if(empty($name) || empty($description) ||
-           empty($price) || empty($id_category) ) {
-        //    $this->view->showError('faltan datos obligatorios');
-           die();
+           empty($price) || ($id_category == null) ) {
+            if($loggedIn){
+            $this->view->showError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
+            die();
            } 
+        } 
         $this->model->InsertProduct($name,$description,$price,$id_category);
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $loggedIn = $this->checkLoggedIn();
+        
         if($loggedIn){
             $this->view->showProducts($products, $categories);
         } else {
@@ -95,14 +100,17 @@ class StoreController {
         $description = $_REQUEST['input_description'];
         $price = $_REQUEST['input_price'];
         $id_category = $_REQUEST['input_category'];
+        $loggedIn = $this->checkLoggedIn();  
         if(empty($name) || empty($description) ||
         empty($price) || empty($id_category) ) {
-        // $this->view->showErrorDetail('faltan datos obligatorios');
-        die();
+            if($loggedIn){
+            $this->view->showErrorDetail('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
+            die();
+           }
         } 
         $this->model->updateProduct($name,$description,$price,$id_category,$id);
         $productDetailUpdated= $this->model->getProductDetail($id);
-        $loggedIn = $this->checkLoggedIn();
+      
         if($loggedIn){
             $this->view->showProductDetail($productDetailUpdated);
         } else {

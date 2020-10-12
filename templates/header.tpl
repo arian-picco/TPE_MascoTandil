@@ -22,18 +22,18 @@
       
         <div class="menu">
           <ul class="navbar-nav d-flex w-100">
-            <li class="nav-item ml-auto">
+            <li class="nav-item  ml-auto">
+              <p class="nav-link">{$smarty.session.USER_NAME}</p>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="home">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="store">Tienda</a>
             </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">{$smarty.session.USER_NAME}</a>
-                </li>
-                <li class="nav-item">
+             <li class="nav-item">
                   <a class="nav-link" href="logout">Logout</a>
-                </li>
+             </li>
           </ul>
         </div>
       </nav>

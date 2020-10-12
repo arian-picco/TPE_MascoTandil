@@ -1,12 +1,13 @@
 {include 'header_public.tpl'}
+
  <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Bienvenido a la tienda Online - Modo Editor</h1>
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online</h1>
       <h2 class="lead text-muted">
         Usted ha seleccionado - {$productDetail[0]->name}
       </h2>
     </div>
-  </section>
+</section>
 
 <div class="container">
     <div class="col-md-12 mb-3">
@@ -25,7 +26,6 @@
                   <p>
                     {$productDetail[0]->description}
                   </p>
-                  {* agregar una columna para la categoria  *}
                   <div class="product_meta">
                       <span class="posted_in"> <strong>Category:{$productDetail[0]->cat_name}</strong> 
                   </div>
@@ -38,9 +38,7 @@
         </div>
       </section>
       </div>
-
-</div>
-
+ </div>
  
 
 

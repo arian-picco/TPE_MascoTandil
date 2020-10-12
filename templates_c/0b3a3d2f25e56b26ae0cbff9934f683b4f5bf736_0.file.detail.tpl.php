@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-09 15:40:00
+/* Smarty version 3.1.34-dev-7, created on 2020-10-13 01:22:11
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f806830cb5964_92101618',
+  'unifunc' => 'content_5f84e523e71a36_30213255',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0b3a3d2f25e56b26ae0cbff9934f683b4f5bf736' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl',
-      1 => 1602250799,
+      1 => 1602544925,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f806830cb5964_92101618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f84e523e71a36_30213255 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
- 
- <div class="container">
+
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online - <?php echo $_SESSION['USER_NAME'];?>
+</h1>
+      <h2 class="lead text-muted">
+        Usted ha seleccionado - <?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->name;?>
+
+      </h2>
+    </div>
+  </section>
+
+
      <div class="row justify-content-center">
         <div class="col-md-8 order-md-1">
     <form action="update/<?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->id;?>
@@ -51,36 +63,35 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                         <input type="text" name="input_price" class="form-control" id="price"> 
                     </div>
                 </div>
-                <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="1" >
-                    <label class="form-check-label" for="exampleRadios1">
-                    Producto para Gatos
-                    </label>
+                
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
+$_smarty_tpl->tpl_vars['category']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
+$_smarty_tpl->tpl_vars['category']->do_else = false;
+?>
+                <div class="custom-control custom-checkbox col-md-12 mb-2">
+                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
+" >
+                    <label class="form-check-label" for="exampleRadios1"><?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
+</label>
                 </div>
-                <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="2" >
-                    <label class="form-check-label" for="exampleRadios1">
-                    Producto para Perros
-                    </label>
-                </div>
-                <div class="custom-control custom-checkbox col-md-4 mb-3">
-                    <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="3" >
-                    <label class="form-check-label" for="exampleRadios1">
-                    Producto para animales Pequeños
-                    </label>
-                </div>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="row justify-content-center">
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
                 </div>
-                                  </div>
+                </div>
             </div>
         </div>
         </div>
     </form>
     </div>
     </div>
-</div>
+
+
 <div class="container">
 
     <div class="col-md-12 mb-3">
@@ -102,7 +113,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     <?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->description;?>
 
                   </p>
-                                    <div class="product_meta">
+                  <div class="product_meta">
                       <span class="posted_in"> <strong>Category:<?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->cat_name;?>
 </strong> 
                   </div>
@@ -118,8 +129,6 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
       </div>
 
 </div>
-
- 
 
 
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

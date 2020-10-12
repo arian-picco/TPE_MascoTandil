@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 19:47:29
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 23:47:10
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8496b12ffc25_58585149',
+  'unifunc' => 'content_5f84cedebf6651_35146006',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602524293,
+      1 => 1602539196,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f8496b12ffc25_58585149 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f84cedebf6651_35146006 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Bienvenido a la tienda Online - Modo Editor</h1>
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online -  <?php echo $_SESSION['USER_NAME'];?>
+</h1>
       <p class="lead text-muted">
         Encuentre aquí los mejores productos dedicados a su mascota
       </p>
@@ -69,10 +70,8 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
             <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
 " >
-                <label class="form-check-label" for="exampleRadios1">
-                <?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
-
-                </label>
+                <label class="form-check-label" for="exampleRadios1"><?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
+</label>
             </div>
             <?php
 }

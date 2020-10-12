@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:32:42
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 21:02:18
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f84a14a26f534_49849276',
+  'unifunc' => 'content_5f84a83a2be6d2_81022493',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cfab8f8697279e9c369b929587f85f331259ada' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/header.tpl',
-      1 => 1602527516,
+      1 => 1602529336,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f84a14a26f534_49849276 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f84a83a2be6d2_81022493 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>  
     <head>
@@ -46,19 +46,19 @@ function content_5f84a14a26f534_49849276 (Smarty_Internal_Template $_smarty_tpl)
       
         <div class="menu">
           <ul class="navbar-nav d-flex w-100">
-            <li class="nav-item ml-auto">
+            <li class="nav-item  ml-auto">
+              <p class="nav-link"><?php echo $_SESSION['USER_NAME'];?>
+</p>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="home">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="store">Tienda</a>
             </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><?php echo $_SESSION['USER_NAME'];?>
-</a>
-                </li>
-                <li class="nav-item">
+             <li class="nav-item">
                   <a class="nav-link" href="logout">Logout</a>
-                </li>
+             </li>
           </ul>
         </div>
       </nav>

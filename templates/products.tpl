@@ -2,7 +2,7 @@
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Bienvenido a la tienda Online - Modo Editor</h1>
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online -  {$smarty.session.USER_NAME}</h1>
       <p class="lead text-muted">
         Encuentre aquí los mejores productos dedicados a su mascota
       </p>
@@ -37,9 +37,7 @@
             {foreach from=$categories item=category}
             <div class="custom-control custom-checkbox col-md-3 mb-2">
                 <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="{$category->id}" >
-                <label class="form-check-label" for="exampleRadios1">
-                {$category->category_name}
-                </label>
+                <label class="form-check-label" for="exampleRadios1">{$category->category_name}</label>
             </div>
             {/foreach}
             <div class="row justify-content-center">

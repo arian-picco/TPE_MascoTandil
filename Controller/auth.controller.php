@@ -29,7 +29,7 @@ Class AuthController{
         //obtengo el user
         $user = $this->userModel->getUserByMail($email);
         //comparo con el objeto que traigo del modelo
-        if($user && password_verify($password, $user->password)){
+        if($user && password_verify($password, $user->password) && ($user->name === 'Administrador')){
                 //armo la sesion del usuario
                 session_start();
                 $_SESSION['ID_USER'] = $user->id;

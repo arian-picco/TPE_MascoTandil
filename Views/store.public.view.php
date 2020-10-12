@@ -34,19 +34,5 @@ class StorePublicView {
     }
 
     
-     //apuntar a un tpl de error - Show Error
 
-    //  function showError($message){
-    //     $smarty = new Smarty();
-    //     $smarty->assign('Mascotandil',$this->title);
-    //     $smarty->assign('error', $message);
-    //     $smarty->display('templates/products.tpl'); 
-    //  }
-
-    //  function showErrorDetail($message){
-    //     $smarty = new Smarty();
-    //     $smarty->assign('Mascotandil',$this->title);
-    //     $smarty->assign('error', $message);
-    //     $smarty->display('templates/detail.tpl'); 
-    //  }
 }
