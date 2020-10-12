@@ -36,7 +36,7 @@ Class AuthController{
                 $_SESSION['EMAIL_USER'] = $user->email;
                 $_SESSION['USER_NAME'] = $user->name;
                 //redirigimos a la home
-                header("Location: " . BASE_URL .store); // le puedo agregar .home si quiero que entre desde login
+                header("Location: " . BASE_URL .home); // le puedo agregar .home si quiero que entre desde login
                 
             } else {
                 //envio por parametro el error a la vista.
@@ -47,7 +47,7 @@ Class AuthController{
     function logOutUser(){
         session_start();
         session_destroy();
-        header("Location: " .BASE_URL . 'admin');
+        header("Location: " .BASE_URL . 'home');
     }
 
     function checkLoggedIn(){

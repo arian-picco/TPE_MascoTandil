@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-11 15:01:56
+/* Smarty version 3.1.34-dev-7, created on 2020-10-12 03:32:49
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8302445ce682_97192364',
+  'unifunc' => 'content_5f83b241450c86_40403332',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7706fac341d6adabc4cb70a8a66cfe906b0712a7' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products.tpl',
-      1 => 1602371769,
+      1 => 1602462585,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f8302445ce682_97192364 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f83b241450c86_40403332 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Bienvenido a la tienda Online</h1>
+      <h1 class="jumbotron-heading">Bienvenido a la tienda Online SEÑOR EDITOR</h1>
       <p class="lead text-muted">
         Encuentre aquí los mejores productos dedicados a su mascota
       </p>

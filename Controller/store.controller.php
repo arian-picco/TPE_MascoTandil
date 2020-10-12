@@ -2,7 +2,7 @@
 
 include_once 'Views/store.view.php';
 include_once 'Views/store.public.view.php';
-include_once 'Controller/auth.controller.php';
+
 
 class StoreController {
 
@@ -11,7 +11,7 @@ class StoreController {
  private $publicView;
  private $model;
  private $categoryModel;
- private $authController;
+
 
 
     function __construct() {
@@ -19,25 +19,22 @@ class StoreController {
         $this->publicView = new StorePublicView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
-        $this->authController = new AuthController();
 
     }
 
     function showProducts(){
-       
+ 
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
 
-        $loggeado = $this->authController->checkLoggedIn();
-
-          if($loggeado){
-            session_start();
+        $loggedIn = $this->checkLoggedIn();
+        if($loggedIn){
             $this->view->showProducts($products,$categories);
-            var_dump($loggeado);
         } else {
-            $this->publicView->showPublicProducts($products,$categories);
-            var_dump($loggeado);
+        $this->publicView->showPublicProducts($products,$categories);
         }
+
+
      
     }
 
@@ -50,8 +47,8 @@ class StoreController {
     function showProductByCategory($categorySelected){
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
         $categories = $this->categoryModel->getCategories();
-        $loggeado = $this->authController->checkLoggedIn();
-        if($loggeado){
+        $loggedIn = $this->checkLoggedIn();
+        if($loggedIn){
             $this->view->showProductByCategory($productsByCatogory,$categories);
         } else {
             $this->publicView->showProductByCategoryPublic($productsByCatogory,$categories);
@@ -101,12 +98,11 @@ class StoreController {
     }
 
 
-    function checkLogged(){
+    function checkLoggedIn(){
         session_start();
-        if(!isset($_SESSION['ID_USER'])){
-            header("Location: " . BASE_URL . "store");
-            die();
-        }
+        if(!isset($_SESSION['EMAIL_USER'])){
+            return false;
+        } else return true;
     }
 
 

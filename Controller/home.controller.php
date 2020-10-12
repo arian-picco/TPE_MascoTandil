@@ -2,39 +2,32 @@
 
 include_once 'Views/main.view.php';
 include_once 'Views/public.view.php';
-include_once 'Controller/auth.controller.php';
 
 Class HomeController{
-
-    private $view;
     private $publicView;
-    private $authController;
+    private $view;
 
     function __construct() {
-        $this->view = new MainView();
-        $this->publicView = new PublicView();
-        $this->authController = new AuthController();
-    }
+        $this->view = new MainView(); 
+        $this->publicView = new PublicView(); 
+       }
 
     function showHome(){
-
-        $loggeado = $this->checkLoggedIn();
-        if($loggeado){
+        $loggedIn = $this->checkLoggedIn();
+        var_dump($loggedIn);
+        if($loggedIn){
             $this->view->showHome();
-            var_dump($loggeado);
         } else {
-           $this->publicView->showPublicHome();
-           var_dump($loggeado);
+        $this->publicView->showPublicHome();
         }
-     
     }
-
 
     function checkLoggedIn(){
         session_start();
-        if(!isset($_SESSION['EMAIL'])){
+        if(!isset($_SESSION['EMAIL_USER'])){
             return false;
-        }else return true;
+        } else return true;
     }
+ 
     
 }
