@@ -31,16 +31,24 @@ class CategoriesController {
 
    
     function deleteCategory($category_id){
-        $this->categoryModel->deleteCategory($category_id);
+        $hayRelacion = $this->categoryModel->getProductByCategory($category_id);
+        $loggedIn = $this->checkLoggedIn();
+        if(count($hayRelacion) == 0 && $loggedIn ) {
+            $this->categoryModel->deleteCategory($category_id);
+        } else {
+            $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
+        }
+               
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $loggedIn = $this->checkLoggedIn();
+       
         if($loggedIn){
             $this->view->showCategoriesEditionPanel($categories);
         } else {
         $this->publicView->showPublicProducts($products,$categories);
         }
         
+        //si uso BASE URL y dirijo al user a la página de edición lo desloggea
     }
 
 
