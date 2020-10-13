@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-
+<main>
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading" style="background-color:pink;">{$error}</h1>
@@ -8,5 +8,5 @@
        Vuelva a la  <a href="store"> tienda </a>
       </p>
   </section>
-
+</main>
 {include file="footer.tpl"}

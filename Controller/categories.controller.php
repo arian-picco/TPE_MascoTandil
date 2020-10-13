@@ -57,7 +57,7 @@ class CategoriesController {
         if($loggedIn){
             $this->view->showCategoriesEditionPanel($categories);
         } else {
-        $this->publicView->showPublicProducts($products,$categories);
+            $this->publicView->showPublicProducts($products,$categories);
         }
     }
 

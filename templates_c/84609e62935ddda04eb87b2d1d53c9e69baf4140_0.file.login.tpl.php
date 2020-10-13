@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-13 00:19:49
+/* Smarty version 3.1.34-dev-7, created on 2020-10-13 21:32:51
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f84d685557276_09641381',
+  'unifunc' => 'content_5f8600e348e034_83198939',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '84609e62935ddda04eb87b2d1d53c9e69baf4140' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/login.tpl',
-      1 => 1602541142,
+      1 => 1602617564,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f84d685557276_09641381 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8600e348e034_83198939 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header_public.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<main>
+<main class="main">
     <div class="container">
     <div class="body-login">
-    <div class="row">
+    <div class="row justify-content-center">
+    <div class="col-md-12 mb-3 ">
     <form action="verify_user" class="form" method="post">
         <h3 class="mb-5">Ingrese nombre de usuario y contraseña</h3>
             <div class="row justify-content-between">
@@ -69,6 +70,7 @@ $_smarty_tpl->_subTemplateRender("file:header_public.tpl", $_smarty_tpl->cache_i
     </form>
     </div>
       </div>
+</div>
 </div>
  </main>   
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-
+<main>
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading" style="background-color:pink;">Faltaron campos obligatorios - Por favor vuelva e intente nuevamente</h1>
@@ -8,5 +8,5 @@
        Vuelva al  <a href="category_edition"> Panel de edicion </a>
       </p>
   </section>
-
+</main>
 {include file="footer.tpl"}

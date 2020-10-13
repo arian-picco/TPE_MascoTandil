@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+<body>
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
@@ -97,10 +98,7 @@
                       <button class="btn-delete">
                           <a href="detail/{$product->id}">Actualizar</a>
                       </button>
-                      {* <button class="btn-delete">
-                          <a href="category_edition/{$product->id_category}">Actualizar Categoría</a>
-                      </button> *}
-                      </td>
+                        </td>
                   </tr>
               {/foreach}
                 </tbody>

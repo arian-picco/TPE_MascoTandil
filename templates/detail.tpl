@@ -12,10 +12,10 @@
 
 
      <div class="row justify-content-center">
-        <div class="col-md-8 order-md-1">
+        <div class="col-md-6 ">
     <form action="update/{$productDetail[0]->id}" class="form">
         <h3 class="mb-5">Edite el producto seleccionado</h3>
-            <div class="row justify-content-around">
+            <div class="row justify-content-around" style="margin:2%;">
                 <div class="col-md-4 mb-3">
                     <div class="form-group">
                         <label for="name">Nombre</label>
@@ -34,13 +34,13 @@
                         <input type="text" name="input_price" class="form-control" id="price"> 
                     </div>
                 </div>
-                
                 {foreach from=$categories item=category}
-                <div class="custom-control custom-checkbox col-md-12 mb-2">
+                <div class="custom-control custom-checkbox col-md-4 mb-2">
                     <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="{$category->id}" >
                     <label class="form-check-label" for="exampleRadios1">{$category->category_name}</label>
                 </div>
                 {/foreach}
+               </div>
                 <div class="row justify-content-center">
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>

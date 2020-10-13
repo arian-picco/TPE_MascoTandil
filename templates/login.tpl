@@ -1,9 +1,10 @@
 
 {include file="header_public.tpl"}
-<main>
+<main class="main">
     <div class="container">
     <div class="body-login">
-    <div class="row">
+    <div class="row justify-content-center">
+    <div class="col-md-12 mb-3 ">
     <form action="verify_user" class="form" method="post">
         <h3 class="mb-5">Ingrese nombre de usuario y contraseña</h3>
             <div class="row justify-content-between">
@@ -43,6 +44,7 @@
     </form>
     </div>
       </div>
+</div>
 </div>
  </main>   
 {include file="footer.tpl"}
