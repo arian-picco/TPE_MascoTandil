@@ -53,7 +53,9 @@ class CategoriesController {
 
 
     function insertCategory(){
-        $name = $_REQUEST['input_category_name'];
+        if(isset($_REQUEST['input_category_name'])){
+            $id_category = $_REQUEST['input_category_name'];
+            }
         $loggedIn = $this->checkLoggedIn();
         if(empty($name) && ($loggedIn)) {
             $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
@@ -70,9 +72,10 @@ class CategoriesController {
     }
 
     function updateCategories() {
-
-        $name = $_REQUEST['input_name'];
-        $id = $_REQUEST['input_id'];
+        if(isset($_REQUEST['input_category_name'])&&(isset($_REQUEST['input_id']))){
+            $id_category = $_REQUEST['input_category_name'];
+            $id = $_REQUEST['input_id'];
+            }
         $loggedIn = $this->checkLoggedIn();
         if(empty($name) && ($loggedIn)) {
             $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
