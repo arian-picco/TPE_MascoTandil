@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<main>
+<main style="min-height:750px;">
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading" style="background-color:pink;">{$error}</h1>

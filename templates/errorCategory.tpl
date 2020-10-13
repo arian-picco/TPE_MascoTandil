@@ -1,6 +1,6 @@
 {include file="header.tpl"}
-<main>
-  <section class="jumbotron text-center">
+<main style="min-height:750px;">
+  <section class="jumbotron text-center ">
     <div class="container">
       <h1 class="jumbotron-heading" style="background-color:pink;">Faltaron campos obligatorios - Por favor vuelva e intente nuevamente</h1>
     </div>

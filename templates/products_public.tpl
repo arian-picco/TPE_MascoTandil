@@ -11,7 +11,7 @@
 
   <div class="container">
    
-    <div class="row">
+    <div class="row product-table">
         <div class="col-md-12 order-md-1">
             
             <h2> Lista de productos </h2>

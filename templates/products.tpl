@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<body>
+
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
@@ -50,7 +50,7 @@
       </div>
     </div>
   </form>
-    <div class="row">
+    <div class="row product-table">
         <div class="col-md-12 order-md-1">
             
             <h2> Lista de productos </h2>
@@ -61,7 +61,7 @@
                     <li class="nav-item"><a class="nav-link" href="category/{$category->id}">{$category->category_name}</a></li>
                  {/foreach}
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category_edition">Editar Categorías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="category_edition"><span style="color:red">Editar Categorías</span></a></li>
                 </ul>
             </div>
             </nav>

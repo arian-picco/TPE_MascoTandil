@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 03:37:55
+/* Smarty version 3.1.34-dev-7, created on 2020-10-13 22:18:09
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f83b373d88ce5_49757816',
+  'unifunc' => 'content_5f860b81660530_85235576',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '19776d155901c43bb46a406dd1dfaed2d637b6ed' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/main.tpl',
-      1 => 1602466573,
+      1 => 1602620254,
       2 => 'file',
     ),
   ),
@@ -22,10 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f83b373d88ce5_49757816 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f860b81660530_85235576 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<body>
         <article class="main-body bg-image " style="background-image: url(imagenes/background.jpg)">
           <div class="container">
             <div class="row">
