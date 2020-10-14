@@ -119,7 +119,7 @@ class StoreController {
         $categories = $this->categoryModel->getCategories();
         
         if($loggedIn){
-            $this->view->showProductDetail($productDetailUpdated);
+            $this->view->showProductDetail($productDetailUpdated,$categories);
         } else {
             $this->publicView->showPublicProducts($products,$categories);
         }
