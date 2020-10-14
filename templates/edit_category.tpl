@@ -23,7 +23,7 @@
                   <form action="updateCategories" method="post">
                       <td>
                           <div class="form-group">
-                            <input type="text" name="input_name" class="form-control" id="name" value="{$category->category_name}"> 
+                            <input type="text" name="input_category_name" class="form-control" id="name" value="{$category->category_name}"> 
                           </div>
                       </td>
                       <td>

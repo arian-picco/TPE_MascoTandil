@@ -60,11 +60,13 @@ class StoreController {
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
         $loggedIn = $this->checkLoggedIn();
-        if($loggedIn){
-            $this->view->showProducts($products, $categories);
-        } else {
-            $this->publicView->showPublicProducts($products,$categories);
-        }
+        header("Location:  " .  BASE_URL . "store");
+        // if($loggedIn){
+        //     $this->view->showProducts($products, $categories);
+        // } else {
+        //     $this->publicView->showPublicProducts($products,$categories);
+        // }
+        
     }
        
 
@@ -85,14 +87,16 @@ class StoreController {
            } 
         } 
         $this->model->InsertProduct($name,$description,$price,$id_category);
-        $products = $this->model->getProducts();
-        $categories = $this->categoryModel->getCategories();
+        header("Location:  " .  BASE_URL . "store");
+        // $products = $this->model->getProducts();
+        // $categories = $this->categoryModel->getCategories();
         
-        if($loggedIn){
-            $this->view->showProducts($products, $categories);
-        } else {
-            $this->publicView->showPublicProducts($products,$categories);
-        }
+        // if($loggedIn){
+        //     $this->view->showProducts($products, $categories);
+        // } else {
+        //     $this->publicView->showPublicProducts($products,$categories);
+        // }
+        
     }
 
     function updateProduct($id) {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-12 20:42:17
+/* Smarty version 3.1.34-dev-7, created on 2020-10-14 14:39:13
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/edit_category.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f84a3890374f4_93898832',
+  'unifunc' => 'content_5f86f171e36aa8_99745413',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91a5a957f7897af9eb973d7d71c81cfeaf33b758' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/edit_category.tpl',
-      1 => 1602528122,
+      1 => 1602679140,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f84a3890374f4_93898832 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f86f171e36aa8_99745413 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -53,7 +53,7 @@ $_smarty_tpl->tpl_vars['category']->do_else = false;
                   <form action="updateCategories" method="post">
                       <td>
                           <div class="form-group">
-                            <input type="text" name="input_name" class="form-control" id="name" value="<?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
+                            <input type="text" name="input_category_name" class="form-control" id="name" value="<?php echo $_smarty_tpl->tpl_vars['category']->value->category_name;?>
 "> 
                           </div>
                       </td>

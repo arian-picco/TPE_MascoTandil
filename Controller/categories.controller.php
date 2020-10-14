@@ -76,7 +76,7 @@ class CategoriesController {
 
     function updateCategories() {
         if(isset($_REQUEST['input_category_name'])&&(isset($_REQUEST['input_id']))){
-            $id_category = $_REQUEST['input_category_name'];
+            $name = $_REQUEST['input_category_name'];
             $id = $_REQUEST['input_id'];
             }
         $loggedIn = $this->checkLoggedIn();
