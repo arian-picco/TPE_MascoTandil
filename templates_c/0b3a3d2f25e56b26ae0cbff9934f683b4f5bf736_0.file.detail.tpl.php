@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-13 21:20:12
+/* Smarty version 3.1.34-dev-7, created on 2020-10-14 19:09:43
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f85fdec2121f9_34314055',
+  'unifunc' => 'content_5f8730d76a3b42_40282758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0b3a3d2f25e56b26ae0cbff9934f683b4f5bf736' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/detail.tpl',
-      1 => 1602616810,
+      1 => 1602695362,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f85fdec2121f9_34314055 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f8730d76a3b42_40282758 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -39,7 +39,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
   </section>
 
 
-     <div class="row justify-content-center">
+     <div class="row justify-content-center" style="widht:100%;">
         <div class="col-md-6 ">
     <form action="update/<?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->id;?>
 " class="form">
@@ -105,11 +105,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                   </div>
               </div>
               <div class="col-md-6">
-                  <h4 class="pro-d-title">
+                  <h2 class="pro-d-title">
                     <?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->name;?>
 
-                  </h4>
-                  <p>
+                  </h2>
+                  <p class="description">
                     <?php echo $_smarty_tpl->tpl_vars['productDetail']->value[0]->description;?>
 
                   </p>

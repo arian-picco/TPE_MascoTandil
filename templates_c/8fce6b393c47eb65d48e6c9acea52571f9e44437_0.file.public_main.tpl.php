@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-13 22:08:56
+/* Smarty version 3.1.34-dev-7, created on 2020-10-14 19:12:59
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/public_main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f860958e5e816_07876525',
+  'unifunc' => 'content_5f87319b944478_95179699',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8fce6b393c47eb65d48e6c9acea52571f9e44437' => 
     array (
       0 => '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/public_main.tpl',
-      1 => 1602619735,
+      1 => 1602695578,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f860958e5e816_07876525 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f87319b944478_95179699 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header_public.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <body>
@@ -37,7 +37,7 @@ $_smarty_tpl->_subTemplateRender('file:header_public.tpl', $_smarty_tpl->cache_i
                     <span class="color-b">Masco </span> Cuidados
                     <br>Productos para recreación y peluqería</h1>
                   <p class="intro-subtitle intro-price">
-                    <a href="store"><span class="price-a">Visite nuestra tienda</span></a>
+                    <a href="store" style="text-decoration:none;"><span class="price-a">Visite nuestra tienda</span></a>
                   </p>
                 </div>
               </div>

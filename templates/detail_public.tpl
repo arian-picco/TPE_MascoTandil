@@ -23,7 +23,7 @@
                   <h4 class="pro-d-title">
                     {$productDetail[0]->name}
                   </h4>
-                  <p>
+                  <p class="description">
                     {$productDetail[0]->description}
                   </p>
                   <div class="product_meta">

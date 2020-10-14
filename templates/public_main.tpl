@@ -11,7 +11,7 @@
                     <span class="color-b">Masco </span> Cuidados
                     <br>Productos para recreación y peluqería</h1>
                   <p class="intro-subtitle intro-price">
-                    <a href="store"><span class="price-a">Visite nuestra tienda</span></a>
+                    <a href="store" style="text-decoration:none;"><span class="price-a">Visite nuestra tienda</span></a>
                   </p>
                 </div>
               </div>

@@ -11,7 +11,7 @@
   </section>
 
 
-     <div class="row justify-content-center">
+     <div class="row justify-content-center" style="widht:100%;">
         <div class="col-md-6 ">
     <form action="update/{$productDetail[0]->id}" class="form">
         <h3 class="mb-5">Edite el producto seleccionado</h3>
@@ -66,10 +66,10 @@
                   </div>
               </div>
               <div class="col-md-6">
-                  <h4 class="pro-d-title">
+                  <h2 class="pro-d-title">
                     {$productDetail[0]->name}
-                  </h4>
-                  <p>
+                  </h2>
+                  <p class="description">
                     {$productDetail[0]->description}
                   </p>
                   <div class="product_meta">
