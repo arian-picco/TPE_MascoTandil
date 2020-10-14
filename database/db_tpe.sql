@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2020 at 05:18 PM
+-- Generation Time: Oct 14, 2020 at 05:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -39,7 +39,7 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `category_name`) VALUES
 (1, 'Productos Gatos'),
 (2, 'Productos para Perros'),
-(3, 'Animales Pequeños');
+(3, 'Pequeños Animales 8');
 
 -- --------------------------------------------------------
 
@@ -60,15 +60,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `id_category`) VALUES
-(4, 'Rascador topo', 'test', 500000, 2),
-(5, 'nuevo producto', 'nuevo', 22, 2),
-(7, 'test', 'Rascador Loro', 7000, 2),
-(28, 'Rascador Pequeño', 'Rascador de hilo SM', 1200, 1),
-(30, 'Viejo Rascador', 'Usado por el gato del vecino', 12, 1),
-(35, 'Pelota Extra Dura3', 'Rascador Loro', 3333, 2),
-(36, ' Rascador topo333 ', 'Rascador de hilo Tamaño L', 222, 2),
-(37, 'Peuqeñio ', 'testest', 33, 3),
-(40, 'Gran Jaula', 'Para pájarracos', 5000, 3);
+(43, 'Rueda Corredora', 'Rueda corredora para roedores pequeños', 1200, 3),
+(45, 'Rueda Corredora Grande', 'Rueda corredora para muchos hámsters', 2000, 3),
+(47, 'Hueso de goma mediano', 'Hueso de goma re-utilizable y se puede lavar', 33, 2),
+(50, 'Cucha', 'Grande ', 5800, 2),
+(54, 'Rascador', 'Rascador de hilo Tamaño L', 15000, 1),
+(56, 'Vacuna', 'Anti rábica', 123, 2),
+(63, 'test', 'test', 1, 2),
+(64, 'test', 'Rascador de hilo Tamaño L', 7000, 3);
 
 -- --------------------------------------------------------
 
@@ -88,7 +87,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(1, 'admin', 'admin@test.com', '$2y$10$rfIjGwim.sB2heoUSReK9OXheFx0FjSgICiPIemLGxJoA5LkTist6');
+(1, 'Administrador', 'admin@test.com', '$2y$10$rfIjGwim.sB2heoUSReK9OXheFx0FjSgICiPIemLGxJoA5LkTist6');
 
 --
 -- Indexes for dumped tables
@@ -122,13 +121,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `users`

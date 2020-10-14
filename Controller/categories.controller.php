@@ -42,7 +42,6 @@ class CategoriesController {
                
         // $products = $this->model->getProducts();
         // $categories = $this->categoryModel->getCategories();
-       
         // if($loggedIn){
         //     $this->view->showCategoriesEditionPanel($categories);
         // } else {
@@ -51,7 +50,6 @@ class CategoriesController {
 
         header("Location:  " .  BASE_URL . "category_edition");
        
-        //si uso BASE URL y dirijo al user a la página de edición lo desloggea
     }
 
 
@@ -65,13 +63,15 @@ class CategoriesController {
             die();
         }     
         $this->categoryModel->insertCategory($name);
-        $products = $this->model->getProducts();
-        $categories = $this->categoryModel->getCategories();
-        if($loggedIn){
-            $this->view->showCategoriesEditionPanel($categories);
-        } else {
-            $this->publicView->showPublicProducts($products,$categories);
-        }
+        header("Location:  " .  BASE_URL . "category_edition");
+
+        // $products = $this->model->getProducts();
+        // $categories = $this->categoryModel->getCategories();
+        // if($loggedIn){
+        //     $this->view->showCategoriesEditionPanel($categories);
+        // } else {
+        //     $this->publicView->showPublicProducts($products,$categories);
+        // }
     }
 
     function updateCategories() {
@@ -85,13 +85,14 @@ class CategoriesController {
             die();
         }     
         $this->categoryModel->updateCategories($name,$id);
-        $categories = $this->categoryModel->getCategories();
-        $products = $this->model->getProducts();
-            if($loggedIn){
-                $this->view->showCategoriesEditionPanel($categories);
-            } else {
-            $this->publicView->showPublicProducts($products,$categories);
-            }
+        header("Location:  " .  BASE_URL . "category_edition");
+        // $categories = $this->categoryModel->getCategories();
+        // $products = $this->model->getProducts();
+        //     if($loggedIn){
+        //         $this->view->showCategoriesEditionPanel($categories);
+        //     } else {
+        //     $this->publicView->showPublicProducts($products,$categories);
+        //     }
         
         
     }
