@@ -26,7 +26,13 @@
                         <input type="password" name="input_password" class="form-control" id="input_password"> 
                     </div>
                 </div>
-                {if $error}
+            </div>
+              <div class="row justify-content-center">
+            <div class="custom-control custom-checkbox col-md-12 mb-3">
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+              </div>
+                              {if $error}
                 <div class="row justify-content-center">
                     <div class="col-md-12 mb-3">
                         <div class="alert alert-danger ">
@@ -35,12 +41,6 @@
                     <div>    
                 <div>
                 {/if}
-            </div>
-              <div class="row justify-content-center">
-            <div class="custom-control custom-checkbox col-md-12 mb-3">
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-            </div>
-              </div>
     </form>
     </div>
       </div>

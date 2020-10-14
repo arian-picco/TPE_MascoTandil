@@ -23,7 +23,7 @@ Class AuthController{
         $password = $_POST['input_password'];
         $name = $_POST['input_name']; 
         if(empty($email) || empty($password) || empty($name) ){
-            $this->view->showLogin("Campos vacíos");
+            $this->view->showLogin("Campos vacíos - Por favor complete el formulario y vuelva a intentar");
             die();
         }      
             
@@ -41,7 +41,7 @@ Class AuthController{
                 
             } else {
                 //envio por parametro el error a la vista.
-                $this->view->showLogin("Credenciales inválidas");
+                $this->view->showLogin("Credenciales inválidas - Ingrese los datos nuevamente");
             }
     }
 

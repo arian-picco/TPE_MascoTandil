@@ -12,7 +12,7 @@
 
 
      <div class="row justify-content-center" style="widht:100%;">
-        <div class="col-md-6 ">
+        <div class="col-md-10 ">
     <form action="update/{$productDetail[0]->id}" class="form" method="post">
         <h3 class="mb-5">Edite el producto seleccionado</h3>
             <div class="row justify-content-around" style="margin:2%;">
