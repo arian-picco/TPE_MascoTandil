@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-13 22:15:54
+/* Smarty version 3.1.34-dev-7, created on 2020-10-14 20:58:34
   from '/opt/lampp/htdocs/SegundoCuatrimestre/TPE/templates/products_public.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f860afa22e738_81266459',
+  'unifunc' => 'content_5f874a5aab4041_58150347',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f860afa22e738_81266459 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f874a5aab4041_58150347 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header_public.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main role="main">
