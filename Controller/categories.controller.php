@@ -37,24 +37,27 @@ class CategoriesController {
             $this->categoryModel->deleteCategory($category_id);
         } else {
             $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
+            die();
         }
                
-        $products = $this->model->getProducts();
-        $categories = $this->categoryModel->getCategories();
+        // $products = $this->model->getProducts();
+        // $categories = $this->categoryModel->getCategories();
        
-        if($loggedIn){
-            $this->view->showCategoriesEditionPanel($categories);
-        } else {
-        $this->publicView->showPublicProducts($products,$categories);
-        }
-        
+        // if($loggedIn){
+        //     $this->view->showCategoriesEditionPanel($categories);
+        // } else {
+        // $this->publicView->showPublicProducts($products,$categories);
+        // }
+
+        header("Location:  " .  BASE_URL . "category_edition");
+       
         //si uso BASE URL y dirijo al user a la página de edición lo desloggea
     }
 
 
     function insertCategory(){
         if(isset($_REQUEST['input_category_name'])){
-            $id_category = $_REQUEST['input_category_name'];
+            $name = $_REQUEST['input_category_name'];
             }
         $loggedIn = $this->checkLoggedIn();
         if(empty($name) && ($loggedIn)) {
