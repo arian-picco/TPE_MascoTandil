@@ -18,6 +18,7 @@ Class AuthController{
     }
 
     function loginUser(){
+              
         $email = $_POST['input_email'];
         $password = $_POST['input_password'];
         $name = $_POST['input_name']; 

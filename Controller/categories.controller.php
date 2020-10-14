@@ -31,70 +31,56 @@ class CategoriesController {
 
    
     function deleteCategory($category_id){
-        $hayRelacion = $this->categoryModel->getProductByCategory($category_id);
         $loggedIn = $this->checkLoggedIn();
-        if(count($hayRelacion) == 0 && $loggedIn ) {
-            $this->categoryModel->deleteCategory($category_id);
+        if(!$loggedIn){
+            header("Location:  " .  BASE_URL . "store");
         } else {
-            $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
-            die();
+            $hayRelacion = $this->categoryModel->getProductByCategory($category_id);
+            if(count($hayRelacion) == 0) {
+                $this->categoryModel->deleteCategory($category_id);
+            } else {
+                $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
+                die();
+            }              
+           header("Location:  " .  BASE_URL . "category_edition");
         }
-               
-        // $products = $this->model->getProducts();
-        // $categories = $this->categoryModel->getCategories();
-        // if($loggedIn){
-        //     $this->view->showCategoriesEditionPanel($categories);
-        // } else {
-        // $this->publicView->showPublicProducts($products,$categories);
-        // }
-
-        header("Location:  " .  BASE_URL . "category_edition");
-       
     }
 
 
     function insertCategory(){
-        if(isset($_REQUEST['input_category_name'])){
-            $name = $_REQUEST['input_category_name'];
-            }
         $loggedIn = $this->checkLoggedIn();
-        if(empty($name) && ($loggedIn)) {
-            $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
-            die();
-        }     
-        $this->categoryModel->insertCategory($name);
+        if(!$loggedIn){
+            header("Location:  " .  BASE_URL . "store");
+            } else {
+                if(isset($_REQUEST['input_category_name'])){
+                $name = $_REQUEST['input_category_name'];
+                }   
+                if(empty($name)) {
+                $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
+                die();
+                }     
+       $this->categoryModel->insertCategory($name);
         header("Location:  " .  BASE_URL . "category_edition");
-
-        // $products = $this->model->getProducts();
-        // $categories = $this->categoryModel->getCategories();
-        // if($loggedIn){
-        //     $this->view->showCategoriesEditionPanel($categories);
-        // } else {
-        //     $this->publicView->showPublicProducts($products,$categories);
-        // }
-    }
+        }
+    }   
 
     function updateCategories() {
-        if(isset($_REQUEST['input_category_name'])&&(isset($_REQUEST['input_id']))){
-            $name = $_REQUEST['input_category_name'];
-            $id = $_REQUEST['input_id'];
-            }
         $loggedIn = $this->checkLoggedIn();
-        if(empty($name) && ($loggedIn)) {
-            $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
-            die();
-        }     
-        $this->categoryModel->updateCategories($name,$id);
-        header("Location:  " .  BASE_URL . "category_edition");
-        // $categories = $this->categoryModel->getCategories();
-        // $products = $this->model->getProducts();
-        //     if($loggedIn){
-        //         $this->view->showCategoriesEditionPanel($categories);
-        //     } else {
-        //     $this->publicView->showPublicProducts($products,$categories);
-        //     }
-        
-        
+        if(!$loggedIn){
+            header("Location:  " .  BASE_URL . "store");
+            } else {
+                if(isset($_REQUEST['input_category_name'])&&(isset($_REQUEST['input_id']))){
+                 $name = $_REQUEST['input_category_name'];
+                 $id = $_REQUEST['input_id'];
+                    }
+            
+                if(empty($name)) {
+                $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
+                die();
+                }     
+            $this->categoryModel->updateCategories($name,$id);
+            header("Location:  " .  BASE_URL . "category_edition");
+        }
     }
     
     function checkLoggedIn(){
