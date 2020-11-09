@@ -30,7 +30,8 @@ class CategoriesController {
     }
 
    
-    function deleteCategory($category_id){
+    function deleteCategory($params = null){
+        $category_id = $params[':ID'];
         $loggedIn = $this->checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");

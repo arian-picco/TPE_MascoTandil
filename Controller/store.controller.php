@@ -34,7 +34,8 @@ class StoreController {
         }
     }
 
-    function showProductDetail($productSelected){
+    function showProductDetail($params = null){
+        $productSelected = $params[':ID'];
         $categories = $this->categoryModel->getCategories();
         $productDetail= $this->model->getProductDetail($productSelected);
         $loggedIn = $this->checkLoggedIn();
@@ -45,7 +46,8 @@ class StoreController {
         }      
     }
 
-    function showProductByCategory($categorySelected){
+    function showProductByCategory($params = null){
+        $categorySelected = $params[':ID'];
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
         $categories = $this->categoryModel->getCategories();
         $loggedIn = $this->checkLoggedIn();
@@ -56,7 +58,8 @@ class StoreController {
         }
     }
 
-    function DeleteProduct($product_id){
+    function DeleteProduct($params = null){
+        $product_id = $params[':ID'];
         $loggedIn = $this->checkLoggedIn(); 
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
@@ -97,7 +100,8 @@ class StoreController {
         }
     }
 
-    function updateProduct($id) {
+    function updateProduct($params = null) {
+        $id = $params[':ID'];
         $loggedIn = $this->checkLoggedIn(); 
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
