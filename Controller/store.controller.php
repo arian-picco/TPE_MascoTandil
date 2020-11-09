@@ -1,5 +1,6 @@
 <?php
 
+
 include_once 'Views/store.view.php';
 include_once 'Views/store.public.view.php';
 
