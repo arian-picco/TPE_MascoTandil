@@ -3,26 +3,35 @@
 
 class AuthHelper {
 
-    function __construct() {} 
+    // function __construct() {} 
 
 
-    function logOutUser(){
-        session_start();
+    static function logOutUser(){
+        self::start();
         session_destroy();
-        header("Location: " .BASE_URL . 'home');
     }
+    
+//sigleton
 
-    function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION['EMAIL'])){
+// metodos staticos, todos los controllers lo usan.
+// Tanto un controller como el otro puede usarlo y ver la unica instancia que tiene
+
+    static function checkLoggedIn(){
+        self::start();
+        if(!isset($_SESSION['EMAIL_USER'])){
             return false;
         }else {  
              return true;
          }
     }
+// checkea si tenes una sesion activa.
+    static private function start() {
+        if (session_status() != PHP_SESSION_ACTIVE)
+            session_start();
+    }
     
-    function login($user){
-        session_start();
+    static function login($user){
+        self::start();
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['EMAIL_USER'] = $user->email;
         $_SESSION['USER_NAME'] = $user->name;

@@ -23,7 +23,7 @@ class StoreController {
         $this->categoryModel = new CategoriesModel();
     }
 
-    function showProducts(){
+    function showProducts($products, $categories, $error = null){
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
         $loggedIn = $this->checkLoggedIn();
@@ -91,8 +91,9 @@ class StoreController {
             if(empty($name) || empty($description) ||
             empty($price) || empty($id_category)) {
                 if($loggedIn){
-                $this->view->showError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
-                die();
+                // $this->view->showError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
+                $error = "incluilo";
+                $this->view->showProducts($products,$categories,$error);
                 } 
             } 
             $this->model->InsertProduct($name,$description,$price,$id_category);

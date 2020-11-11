@@ -2,6 +2,8 @@
 
 include_once 'Views/auth.view.php';
 include_once 'Model/user.model.php';
+include_once 'Helpers/auth.helper.php';
+
 
 Class AuthController{
 
@@ -17,7 +19,7 @@ Class AuthController{
         $this->view->showLogin();
     }
 
-    function loginUser(){
+     function loginUser(){
               
         $email = $_POST['input_email'];
         $password = $_POST['input_password'];
@@ -32,10 +34,10 @@ Class AuthController{
         //comparo con el objeto que traigo del modelo
         if($user && password_verify($password, $user->password) && ($user->name === 'Administrador')){
                 //armo la sesion del usuario
-                session_start();
-                $_SESSION['ID_USER'] = $user->id;
-                $_SESSION['EMAIL_USER'] = $user->email;
-                $_SESSION['USER_NAME'] = $user->name;
+                AuthHelper::login($user);
+                // $_SESSION['ID_USER'] = $user->id;
+                // $_SESSION['EMAIL_USER'] = $user->email;
+                // $_SESSION['USER_NAME'] = $user->name;
                 //redirigimos a la home
                 header("Location: " . BASE_URL . "home"); 
                 
@@ -46,16 +48,8 @@ Class AuthController{
     }
 
     function logOutUser(){
-        session_start();
-        session_destroy();
+        AuthHelper::logOutUser();
         header("Location: " .BASE_URL . 'home');
-    }
-
-    function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION['EMAIL'])){
-            return false;
-        }else return true;
     }
     
 
