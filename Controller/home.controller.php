@@ -7,7 +7,7 @@ include_once 'Helpers/auth.helper.php';
 Class HomeController{
     private $publicView;
     private $view;
-    private $helper;
+
 
     function __construct() {
         $this->view = new MainView(); 
@@ -17,8 +17,7 @@ Class HomeController{
        }
 
     function showHome(){
-        // $loggedIn = $this->helper->checkLoggedIn();
-        // $loggedIn = $this->checkLoggedIn();
+
        $loggedIn =  AuthHelper::checkLoggedIn();
         if($loggedIn){
             $this->view->showHome();
@@ -27,12 +26,6 @@ Class HomeController{
         }
     }
 
-    // function checkLoggedIn(){
-    //     session_start();
-    //     if(!isset($_SESSION['EMAIL_USER'])){
-    //         return false;
-    //     } else return true;
-    // }
- 
+
     
 }

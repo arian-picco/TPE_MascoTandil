@@ -3,9 +3,6 @@
 
 class AuthHelper {
 
-    // function __construct() {} 
-
-
     static function logOutUser(){
         self::start();
         session_destroy();

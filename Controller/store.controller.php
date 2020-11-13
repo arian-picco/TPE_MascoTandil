@@ -3,6 +3,7 @@
 
 include_once 'Views/store.view.php';
 include_once 'Views/store.public.view.php';
+include_once 'Helpers/auth.helper.php';
 
 
 class StoreController {
@@ -12,7 +13,6 @@ class StoreController {
  private $publicView;
  private $model;
  private $categoryModel;
- private $authController;
 
 
 
@@ -23,10 +23,10 @@ class StoreController {
         $this->categoryModel = new CategoriesModel();
     }
 
-    function showProducts($products, $categories, $error = null){
+    function showProducts($products = null, $categories = null, $error = null){
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if($loggedIn){
             $this->view->showProducts($products,$categories);
         } else {
@@ -38,7 +38,7 @@ class StoreController {
         $productSelected = $params[':ID'];
         $categories = $this->categoryModel->getCategories();
         $productDetail= $this->model->getProductDetail($productSelected);
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if($loggedIn){
             $this->view->showProductDetail($productDetail,$categories);
         } else {
@@ -50,7 +50,7 @@ class StoreController {
         $categorySelected = $params[':ID'];
         $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
         $categories = $this->categoryModel->getCategories();
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if($loggedIn){
             $this->view->showProductByCategory($productsByCatogory,$categories);
         } else {
@@ -60,22 +60,20 @@ class StoreController {
 
     function DeleteProduct($params = null){
         $product_id = $params[':ID'];
-        $loggedIn = $this->checkLoggedIn(); 
+        $loggedIn =  AuthHelper::checkLoggedIn(); 
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
             }
             else {
                 $this->model->DeleteProduct($product_id);
-                $products = $this->model->getProducts();
-                $categories = $this->categoryModel->getCategories();
-                $loggedIn = $this->checkLoggedIn();
+                $loggedIn =  AuthHelper::checkLoggedIn();
                 header("Location:  " .  BASE_URL . "store");
             }
     }
        
 
     function insertProduct(){
-        $loggedIn = $this->checkLoggedIn(); 
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
             }
@@ -93,6 +91,8 @@ class StoreController {
                 if($loggedIn){
                 // $this->view->showError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
                 $error = "incluilo";
+                $products = $this->model->getProducts();
+                $categories = $this->categoryModel->getCategories();
                 $this->view->showProducts($products,$categories,$error);
                 } 
             } 
@@ -103,7 +103,7 @@ class StoreController {
 
     function updateProduct($params = null) {
         $id = $params[':ID'];
-        $loggedIn = $this->checkLoggedIn(); 
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
         } else {
@@ -128,13 +128,6 @@ class StoreController {
 
     }
 
-
-    function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION['EMAIL_USER'])){
-            return false;
-        } else return true;
-    }
 
 
 

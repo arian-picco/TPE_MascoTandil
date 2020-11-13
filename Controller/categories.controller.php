@@ -2,6 +2,7 @@
 
 include_once 'Views/store.view.php';
 include_once 'Views/store.public.view.php';
+include_once 'Helpers/auth.helper.php';
 
 class CategoriesController {
 
@@ -21,7 +22,7 @@ class CategoriesController {
     function showCategoryEditionPanel(){
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if($loggedIn){
             $this->view->showCategoriesEditionPanel($categories);
         } else {
@@ -32,7 +33,7 @@ class CategoriesController {
    
     function deleteCategory($params = null){
         $category_id = $params[':ID'];
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
         } else {
@@ -49,7 +50,7 @@ class CategoriesController {
 
 
     function insertCategory(){
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
             } else {
@@ -66,7 +67,7 @@ class CategoriesController {
     }   
 
     function updateCategories() {
-        $loggedIn = $this->checkLoggedIn();
+        $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
             } else {
@@ -84,13 +85,7 @@ class CategoriesController {
         }
     }
     
-    function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION['EMAIL_USER'])){
-            return false;
-        } else return true;
-    }
- 
+
 }
 
 ?>

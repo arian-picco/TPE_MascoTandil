@@ -45,6 +45,7 @@
               <div class="custom-control custom-checkbox col-md-12 mb-6">
                   <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
              </div>
+             
             </div>
         </div>
       </div>

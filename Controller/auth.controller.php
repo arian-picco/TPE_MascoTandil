@@ -35,12 +35,7 @@ Class AuthController{
         if($user && password_verify($password, $user->password) && ($user->name === 'Administrador')){
                 //armo la sesion del usuario
                 AuthHelper::login($user);
-                // $_SESSION['ID_USER'] = $user->id;
-                // $_SESSION['EMAIL_USER'] = $user->email;
-                // $_SESSION['USER_NAME'] = $user->name;
-                //redirigimos a la home
-                header("Location: " . BASE_URL . "home"); 
-                
+                header("Location: " . BASE_URL . "home");               
             } else {
                 //envio por parametro el error a la vista.
                 $this->view->showLogin("Credenciales inválidas - Ingrese los datos nuevamente");
