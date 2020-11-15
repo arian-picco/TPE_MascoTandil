@@ -19,6 +19,10 @@ Class AuthController{
         $this->view->showLogin();
     }
 
+    function showRegistrationPage(){
+        $this->view->showRegistrationPage();
+    }
+
      function loginUser(){
               
         $email = $_POST['input_email'];

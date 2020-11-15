@@ -1,6 +1,8 @@
 
 {include file="header_public.tpl"}
-<main class="main">
+
+{* <main class="main-container">
+
     <div class="container">
     <div class="body-login">
     <div class="row justify-content-center">
@@ -31,6 +33,10 @@
             <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Ingresar</button>
             </div>
+             <div class="row justify-content-center">
+            <div class="custom-control custom-checkbox col-md-12 mb-3">
+                <button class="btn btn-primary"><a href="register_user" style="color:white">Registrarme</a></button>
+            </div>
               </div>
                               {if $error}
                 <div class="row justify-content-center">
@@ -46,5 +52,44 @@
       </div>
 </div>
 </div>
- </main>   
+ </main>    *}
+
+<main class="main-container">
+
+<div class="container">
+
+<div class="signup-form">
+    <form action="verify_user" method="post">
+		<h2>Bienvenido</h2>
+		<p>Ingrese  nombre de usuario y contraseña</p>
+		<hr>
+		<div class="form-group">
+			<input type="text" class="form-control" name="input_name" placeholder="Nombre de Usuario" required="required">
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" name="input_email" placeholder="Email" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="input_password" placeholder="Contraseña" required="required">
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
+        </div>
+        {if $error}
+        <div class="row justify-content-center">
+            <div class="col-md-12 mb-3">
+                <div class="alert alert-danger ">
+                {$error}
+                <div>
+            <div>    
+        <div>
+    {/if}
+    </form>
+	<div class="hint-text">No posee una cuenta? Haga click en <a href="register_user" style="color:black">Registrarse</a></div>
+</div>
+
+</div>
+
+</main>
+
 {include file="footer.tpl"}

@@ -18,6 +18,9 @@ class AuthView {
         $this->smarty->display('templates/login.tpl'); 
     }
 
+    function showRegistrationPage(){
+        $this->smarty->display('templates/registration.tpl');
+    }
 
 }
 
