@@ -17,7 +17,7 @@ class StoreView {
         $this->smarty->assign('products', $products);
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('error', $error);
-        $this->smarty->display('templates/products.tpl'); 
+        $this->smarty->display('templates/products_cards.tpl'); 
     }
     
     function showProductDetail($productDetail,$categories){
@@ -31,7 +31,7 @@ class StoreView {
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('products', $productsByCatogory);
-        $this->smarty->display('templates/products.tpl'); 
+        $this->smarty->display('templates/products_cards.tpl'); 
     }
 
     function showCategoriesEditionPanel($categories){

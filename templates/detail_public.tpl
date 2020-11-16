@@ -1,4 +1,4 @@
-{include 'header_public.tpl'}
+{include file="header_public.tpl"}		
 
  <section class="jumbotron text-center">
     <div class="container">

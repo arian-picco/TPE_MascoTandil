@@ -30,7 +30,7 @@ class StorePublicView {
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('products', $productsByCatogory);
-        $this->smarty->display('templates/products_public.tpl'); 
+        $this->smarty->display('templates/products_cards.tpl'); 
     }
 
     

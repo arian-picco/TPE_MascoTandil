@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
         <span class="navbar-brand mb-0 h1">MascoCuidados</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
@@ -23,9 +23,11 @@
       
         <div class="menu">
           <ul class="navbar-nav d-flex w-100">
+             {if isset({$smarty.session.USER_NAME})}
             <li class="nav-item  ml-auto">
               <p class="nav-link">{$smarty.session.USER_NAME}</p>
             </li>
+              {/if} 
             <li class="nav-item">
               <a class="nav-link" href="home">Inicio<span class="sr-only">(current)</span></a>
             </li>
