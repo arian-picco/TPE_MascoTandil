@@ -18,7 +18,8 @@ class AuthView {
         $this->smarty->display('templates/login.tpl'); 
     }
 
-    function showRegistrationPage(){
+    function showRegistrationPage($error = null){
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/registration.tpl');
     }
 

@@ -1,5 +1,6 @@
 <?php
     require_once 'Controller/home.controller.php';
+    require_once 'Controller/usersHandler.controller.php';
     require_once 'Controller/store.controller.php';
     require_once 'Controller/auth.controller.php';
     require_once 'Controller/categories.controller.php';
@@ -15,7 +16,9 @@
     // rutas - 
     $r->addRoute("admin", "GET", "AuthController", "showLogin");
     $r->addRoute("verify_user", "POST", "AuthController", "loginUser");
-    $r->addRoute("register_user", "GET", "AuthController", "showRegistrationPage");
+    $r->addRoute("registration_form", "GET", "AuthController", "showRegistrationPage");
+    $r->addRoute("register", "POST", "AuthController", "registerUser");
+    $r->addRoute("edit_users", "GET", "UserHandlerController", "showUserEditionPanel");
     $r->addRoute("logout", "GET", "AuthController", "logOutUser");
 
     $r->addRoute("home", "GET", "HomeController", "showHome");

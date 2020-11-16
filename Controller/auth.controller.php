@@ -23,27 +23,43 @@ Class AuthController{
         $this->view->showRegistrationPage();
     }
 
-     function loginUser(){
-              
+    function loginUser(){
         $email = $_POST['input_email'];
         $password = $_POST['input_password'];
         $name = $_POST['input_name']; 
+
         if(empty($email) || empty($password) || empty($name) ){
             $this->view->showLogin("Campos vacíos - Por favor complete el formulario y vuelva a intentar");
             die();
-        }      
-            
-        //obtengo el user
+        }
         $user = $this->userModel->getUserByMail($email);
-        //comparo con el objeto que traigo del modelo
-        if($user && password_verify($password, $user->password) && ($user->name === 'Administrador')){
-                //armo la sesion del usuario
+         if($user && password_verify($password, $user->password) && ($email == $user->email)){
+                var_dump($user);
                 AuthHelper::login($user);
                 header("Location: " . BASE_URL . "home");               
             } else {
-                //envio por parametro el error a la vista.
                 $this->view->showLogin("Credenciales inválidas - Ingrese los datos nuevamente");
-            }
+        }
+    }
+
+    function registerUser(){
+        $email = $_POST['input_email'];
+        $password = $_POST['input_password'];
+        $passwordConfirm = $_POST['confirm_password'];
+        $name = $_POST['input_name']; 
+        $admin = 0;
+        if(empty($email) || empty($password) || empty($name) ){
+            $this->view->showRegistrationPage("Campos vacíos - Por favor complete el formulario y vuelva a intentar");
+            die();
+        } else if ($password != $passwordConfirm){
+            $this->view->showRegistrationPage("Verifique la confirmación de contraseña y vuelva a intentar");
+            die();
+        }   
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $userId = $this->userModel->insertNewUser($email,$hash,$name,$admin);
+        $user = $this->userModel->getUserByiD($userId);
+        AuthHelper::login($user);
+        header("Location: " . BASE_URL . "home"); 
     }
 
     function logOutUser(){

@@ -11,9 +11,10 @@
   </section>
 
   <div class="container">
-  
+      {if {$smarty.session.IS_ADMIN} == 1}
     <div class="row justify-content-center">
       <div class="col-md-8 order-md-1">
+
       <form action="insert" method="post" class="form">
         <h3 class="mb-5">Ingrese un nuevo Producto</h3>
         <div class="row justify-content-around">
@@ -44,13 +45,19 @@
             <div class="row justify-content-center">
               <div class="custom-control custom-checkbox col-md-12 mb-6">
                   <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
+                 {if isset($error)}
+                <div class="alert alert-danger">
+                  {$error}
+                </div>
+              {/if}
              </div>
-             
-            </div>
+          </div>
+           </form>
         </div>
-      </div>
+       </div>
     </div>
-  </form>
+     {/if}
+
     <div class="row product-table">
         <div class="col-md-12 order-md-1">
             
@@ -62,7 +69,9 @@
                     <li class="nav-item"><a class="nav-link" href="category/{$category->id}">{$category->category_name}</a></li>
                  {/foreach}
                     <li class="nav-item"><a class="nav-link" href="store">Ver Todos</a></li>
+                       {if {$smarty.session.IS_ADMIN} == 1}
                     <li class="nav-item"><a class="nav-link" href="category_edition"><span style="color:red">Editar Categorías</span></a></li>
+                     {/if}
                 </ul>
             </div>
             </nav>
@@ -73,7 +82,9 @@
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Categoria</th>
+                    {if {$smarty.session.IS_ADMIN} == 1}
                     <th scope="col">Edicion</th>
+                    {/if}
                   </tr>
                 </thead>
                 <tbody>
@@ -93,6 +104,7 @@
                         {$product->cat_name}
                       </td>
                       <td>
+                       {if {$smarty.session.IS_ADMIN} == 1}
                       <button class="btn-delete">
                           <a href="delete/{$product->id}">Borrar</a>
                       </button>
@@ -100,6 +112,7 @@
                           <a href="detail/{$product->id}">Actualizar</a>
                       </button>
                         </td>
+                      {/if}
                   </tr>
               {/foreach}
                 </tbody>

@@ -15,12 +15,23 @@ class AuthHelper {
 
     static function checkLoggedIn(){
         self::start();
-        if(!isset($_SESSION['EMAIL_USER'])){
+        if(!isset($_SESSION['USER_NAME'])){
             return false;
         }else {  
              return true;
          }
     }
+
+    static function checkAdmin(){
+        self::start();
+        if($_SESSION['IS_ADMIN'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
 // checkea si tenes una sesion activa.
     static private function start() {
         if (session_status() != PHP_SESSION_ACTIVE)
@@ -32,6 +43,7 @@ class AuthHelper {
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['EMAIL_USER'] = $user->email;
         $_SESSION['USER_NAME'] = $user->name;
+        $_SESSION['IS_ADMIN'] = $user->admin;
     }
 
 

@@ -13,5 +13,25 @@ Class UserModel {
         return $selectedUser = $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
-    
+    function getUserByiD($id) {
+        $sentencia = $this->db->prepare('SELECT * FROM users WHERE id = ?');
+        $sentencia->execute(array($id));
+        return $newUser = $sentencia->fetch(PDO::FETCH_OBJ);
+    }
+
+    function getAllUsers(){
+        $sentencia = $this->db->prepare('SELECT * FROM users');
+        $sentencia->execute();
+        return $users =  $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function insertNewUser($email,$hash,$name,$admin){
+        $sentencia = $this->db->prepare("INSERT INTO users(name, email, password, admin) VALUES(?,?,?,?)");
+        $sentencia->execute(array($name,$email,$hash,$admin));
+         return $this->db->lastInsertId();
+    }
+
+
+
+
 }

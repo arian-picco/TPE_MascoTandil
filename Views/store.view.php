@@ -11,10 +11,12 @@ class StoreView {
     } 
 
 
-    function ShowProducts($products, $categories){
+    function ShowProducts($products, $categories,$error = null){
+     
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/products.tpl'); 
     }
     

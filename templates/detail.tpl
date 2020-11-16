@@ -10,7 +10,9 @@
     </div>
   </section>
 
+    <main class="main-container">
 
+      {if {$smarty.session.IS_ADMIN} == 1}
      <div class="row justify-content-center" style="widht:100%;">
         <div class="col-md-10 ">
     <form action="update/{$productDetail[0]->id}" class="form" method="post">
@@ -52,7 +54,7 @@
     </form>
     </div>
     </div>
-
+      {/if}
 
 <div class="container">
 
@@ -86,6 +88,6 @@
       </div>
 
 </div>
-
+</main>
 
 {include file="footer.tpl"}

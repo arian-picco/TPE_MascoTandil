@@ -32,9 +32,16 @@
             <li class="nav-item">
               <a class="nav-link" href="store">Tienda</a>
             </li>
+            {if {$smarty.session.IS_ADMIN} == 1}
+             <li class="nav-item">
+                  <a class="nav-link" href="edit_users">Gestionar Usuarios</a>
+             </li>
+             {/if}
+             {if isset({$smarty.session.USER_NAME})}
              <li class="nav-item">
                   <a class="nav-link" href="logout">Logout</a>
              </li>
+             {/if}  
           </ul>
         </div>
       </nav>

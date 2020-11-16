@@ -75,7 +75,10 @@
 		<div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
         </div>
-        {if $error}
+    </form>
+	<div class="hint-text">No posee una cuenta? Haga click en <a href="registration_form" style="color:black">Registrarse</a></div>
+
+{if $error}
         <div class="row justify-content-center">
             <div class="col-md-12 mb-3">
                 <div class="alert alert-danger ">
@@ -84,12 +87,8 @@
             <div>    
         <div>
     {/if}
-    </form>
-	<div class="hint-text">No posee una cuenta? Haga click en <a href="register_user" style="color:black">Registrarse</a></div>
 </div>
-
 </div>
-
 </main>
 
 {include file="footer.tpl"}
