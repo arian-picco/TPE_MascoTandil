@@ -25,6 +25,49 @@ Class UserHandlerController{
             header("Location:  " .  BASE_URL . "store");
         }
     }
+
+
+    function deleteUser($params = null){
+        $user_id = $params[':ID'];
+        $loggedIn =  AuthHelper::checkLoggedIn(); 
+        if(!$loggedIn){
+            header("Location:  " .  BASE_URL . "store");
+            }
+            else {
+                $this->userModel->deleteUser($user_id);
+                $loggedIn =  AuthHelper::checkLoggedIn();
+                header("Location:  " .  BASE_URL . "edit_users");
+            }
+    }
+
+    function grantPermissions($params = null){
+        $user_id = $params[':ID'];
+        $loggedIn =  AuthHelper::checkLoggedIn(); 
+        if(!$loggedIn){
+            header("Location:  " .  BASE_URL . "edit_users");
+            echo("NO FUNCIONO");
+            }
+            else {
+                $this->userModel->grantPermissions($user_id);
+                $loggedIn =  AuthHelper::checkLoggedIn();
+                header("Location:  " .  BASE_URL . "edit_users");
+            }
+    }
+
+
+    function removePermissions($params = null){
+        $user_id = $params[':ID'];
+        $loggedIn =  AuthHelper::checkLoggedIn(); 
+        if(!$loggedIn){
+            header("Location:  " .  BASE_URL . "store");
+            }
+            else {
+                $this->userModel->removePermissions($user_id);
+                $loggedIn =  AuthHelper::checkLoggedIn();
+                header("Location:  " .  BASE_URL . "edit_users");
+            }
+    }
+
    
 
 

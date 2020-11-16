@@ -20,6 +20,9 @@
     $r->addRoute("register", "POST", "AuthController", "registerUser");
     $r->addRoute("edit_users", "GET", "UserHandlerController", "showUserEditionPanel");
     $r->addRoute("logout", "GET", "AuthController", "logOutUser");
+    $r->addRoute("grantAdmin/:ID", "GET", "UserHandlerController", "grantPermissions");
+    $r->addRoute("quitAdmin/:ID", "GET", "UserHandlerController", "removePermissions");
+    $r->addRoute("deleteUser/:ID", "GET", "UserHandlerController", "deleteUser");
 
     $r->addRoute("home", "GET", "HomeController", "showHome");
    
@@ -30,8 +33,8 @@
     $r->addRoute("delete/:ID", "GET", "StoreController", "DeleteProduct");
     $r->addRoute("update/:ID", "GET", "StoreController", "updateProduct");
 
-    $r->addRoute("category_edition", "GET", "CategoriesController", "updateProduct");
-    $r->addRoute("updateCategories", "GET", "CategoriesController", "updateCategories");
+    $r->addRoute("category_edition", "GET", "CategoriesController", "showCategoryEditionPanel");
+    $r->addRoute("updateCategories", "POST", "CategoriesController", "updateCategories");
     $r->addRoute("insertCategory", "POST", "CategoriesController", "insertCategory");
     $r->addRoute("deleteCategory/:ID", "GET", "CategoriesController", "deleteCategory");
 

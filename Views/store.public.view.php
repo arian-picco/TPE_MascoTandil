@@ -17,7 +17,7 @@ class StorePublicView {
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/products_public.tpl'); 
+        $this->smarty->display('templates/products_cards.tpl'); 
     }
     
     function showProductPublicDetail($productDetail){

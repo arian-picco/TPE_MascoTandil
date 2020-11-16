@@ -48,18 +48,33 @@ Class AuthController{
         $passwordConfirm = $_POST['confirm_password'];
         $name = $_POST['input_name']; 
         $admin = 0;
+        $emailValidation = $this->verifyEmail($email);
         if(empty($email) || empty($password) || empty($name) ){
             $this->view->showRegistrationPage("Campos vacíos - Por favor complete el formulario y vuelva a intentar");
             die();
         } else if ($password != $passwordConfirm){
             $this->view->showRegistrationPage("Verifique la confirmación de contraseña y vuelva a intentar");
             die();
-        }   
+        } else if ($emailValidation){
+            $this->view->showRegistrationPage("Ya existe una cuenta con ese email - ingrese uno diferente");
+            die();
+        }
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $userId = $this->userModel->insertNewUser($email,$hash,$name,$admin);
         $user = $this->userModel->getUserByiD($userId);
         AuthHelper::login($user);
         header("Location: " . BASE_URL . "home"); 
+    }
+
+    function verifyEmail($userEmail){
+        $emailTaken = false;
+        $users = $this->userModel->getAllUsers(); 
+        foreach ($users as $user) {
+            if ($user->email == $userEmail){
+                $emailTaken = true;
+            }
+        }
+        return $emailTaken;
     }
 
     function logOutUser(){

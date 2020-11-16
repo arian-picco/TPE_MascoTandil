@@ -32,12 +32,14 @@
                       <td>
                         {$user->email}
                       </td>
-                      <td>
-                        {$user->admin}
+                      <td>{if {$user->admin} == 1 }
+                        Sí {else}
+                        No
+                        {/if}
                       </td>
                       <td>
                       <button class="btn-delete">
-                          <a href="delete/{$user->id}">Borrar</a>
+                          <a href="deleteUser/{$user->id}">Borrar</a>
                       </button>
                       <button class="btn-delete">
                           <a href="grantAdmin/{$user->id}">Otorgar Permiso</a>
@@ -45,7 +47,6 @@
                       <button class="btn-delete">
                           <a href="quitAdmin/{$user->id}">Quitar Permiso</a>
                       </button>
-
                         </td>
                   </tr>
               {/foreach}

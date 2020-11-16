@@ -31,7 +31,19 @@ Class UserModel {
          return $this->db->lastInsertId();
     }
 
+    function deleteUser($user_id){
+        $sentencia = $this->db->prepare( "DELETE FROM users WHERE id=?");
+        $sentencia->execute(array($user_id));
+    }
 
+    function grantPermissions($user_id){
+        $sentencia = $this->db->prepare( " UPDATE users SET admin = 1 WHERE id = ?");
+        $sentencia->execute(array($user_id));
+    }
 
+    function removePermissions($user_id){
+        $sentencia = $this->db->prepare( " UPDATE users SET admin = 0 WHERE id = ?");
+        $sentencia->execute(array($user_id));
+    }
 
 }
