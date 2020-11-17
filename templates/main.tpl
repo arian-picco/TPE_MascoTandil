@@ -4,7 +4,9 @@
             <div class="row">
               <div class="col-lg-8">
                 <div class="intro-body">
-                  <p class="intro-title-top">Bienvenido  {$smarty.session.USER_NAME}
+                  <p class="intro-title-top">Bienvenido 
+                      {if isset($smarty.session.USER_NAME)} {$smarty.session.USER_NAME}
+                         {/if} 
                     <br> Encuentre los mejores productos para su mascota!</p>
                   <h1 class="intro-title mb-4">
                     <span class="color-b">Masco </span> Cuidados
@@ -18,3 +20,5 @@
           </div>
         </article>
     {include 'footer.tpl'}
+
+

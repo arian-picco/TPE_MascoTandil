@@ -1,5 +1,5 @@
 
-{include file="header_public.tpl"}
+{include file="header.tpl"}	
 
 {* <main class="main-container">
 

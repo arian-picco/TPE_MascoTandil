@@ -22,9 +22,9 @@
         </button>
       
         <div class="menu">
-          <ul class="navbar-nav d-flex w-100">
-             {if isset({$smarty.session.USER_NAME})}
-            <li class="nav-item  ml-auto">
+          <ul class="navbar-nav d-flex justify-content-end w-100">
+             {if isset($smarty.session.USER_NAME)}
+            <li class="nav-item ">
               <p class="nav-link">{$smarty.session.USER_NAME}</p>
             </li>
               {/if} 
@@ -39,11 +39,15 @@
                   <a class="nav-link" href="edit_users">Gestionar Usuarios</a>
              </li>
              {/if}
-             {if isset({$smarty.session.USER_NAME})}
+             {if isset($smarty.session.USER_NAME)}
              <li class="nav-item">
                   <a class="nav-link" href="logout">Logout</a>
              </li>
-             {/if}  
+             {else}
+                <li class="nav-item">
+                <a class="nav-link" href="admin">Login</a>
+              </li>
+              {/if}
           </ul>
         </div>
       </nav>
