@@ -3,7 +3,7 @@ require_once "Model/comments.model.php";
 require_once "api/api.view.php";
 require_once "api/ApiController.php";
 
-class ApiTaskController extends ApiController{
+class ApiCommentsController extends ApiController{
     protected $model;
     protected $view;
 
@@ -45,16 +45,12 @@ class ApiTaskController extends ApiController{
 
     public function insertComment($params = null){
         //traer la data enviada por form - se puede generar en postman
-       
         //ponemos en una variable el body del request 
         $body = $this->getData();
 
         $comment = $body->comment;
-
         //insertComment retorna el id del último comment insertado
-
         $idComment = $this->commentModel->insertComment($comment);
-
         if($idComment){
             //te devuelve el comment
             $this->view->response($this->model->GetTask($idComment), 201);
