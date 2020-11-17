@@ -1,7 +1,7 @@
 <?php
 require_once "Model/comments.model.php";
 require_once "api/api.view.php";
-require_once "api/ApiController.php";
+require_once "api/api.controller.php";
 
 class ApiCommentsController extends ApiController{
     protected $model;
@@ -10,31 +10,32 @@ class ApiCommentsController extends ApiController{
 
     function __construct(){
         parent::__construct();
-        $this->commentsModel = new CommentsModel();
+        $this->model = new CommentsModel();
         $this->view = new APIview();
 
     }
 
     public function getComments(){
-        $comments = $this->commentsModel->getComments();
+        $comments = $this->model->getComments();
         //La vista de la api me devuelve un Json
         $this->view->response($comments,200);
     }
 
-    public function getComment($params = null){
-        $idComment = $params[':ID'];
-        $comment = $this->commentModel->getComment($idComment);
-        if($comment) {
-            $this->view->response($comment, 200);
+    public function getCommentsOfaProduct($params = null){
+        $id_product = $params[':ID'];
+        $comments = $this->model->getCommentsOfaProduct($id_product);
+        if($comments) {
+            $this->view->response($comments, 250);
         } else {
             $this->view->response("No existe el comentario solicitado", 404);
         }
     }
 
+  
     public function deleteComment($params = null) {
         $idComment = $params[':ID'];
         //declaramos success con la acción de borrar un comentario
-        $success =  $this->model->DeleteTask($idComment);
+        $success =  $this->model->deleteComment($idComment);
         if($success){
             $this->view->response("El comentario con id $idComment se borró satisfactoriamente",200);
         } else {
@@ -49,13 +50,16 @@ class ApiCommentsController extends ApiController{
         $body = $this->getData();
 
         $comment = $body->comment;
+        $score = $body->score;
+        $id_product = $body->id_product;
+        $id_user = $body->id_user;
         //insertComment retorna el id del último comment insertado
-        $idComment = $this->commentModel->insertComment($comment);
+        $idComment = $this->model->insertComment($comment,$score,$id_product,$id_user);
         if($idComment){
             //te devuelve el comment
-            $this->view->response($this->model->GetTask($idComment), 201);
+            $this->view->response($this->model->getCommentById($idComment), 201);
         } else {
-            $this->view->response("la tarea no se insertó", 404);
+            $this->view->response("el comentario no se insertó", 404);
         }
     }   
 

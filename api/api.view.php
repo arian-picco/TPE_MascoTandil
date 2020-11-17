@@ -17,6 +17,7 @@ class APIview{
         $status = array (
             200 => "OK",
             201 => "Created",
+            250 => "TEST",
             400 => "Not Found",
             500 => "Internal Server Error"
         );
