@@ -12,7 +12,7 @@ class PublicView{
 
     function showPublicHome(){
         $this->smarty->assign('title','MascoTandil');
-        $this->smarty->display('templates/public_main.tpl'); 
+        $this->smarty->display('templates/main.tpl'); 
     }
 
 
