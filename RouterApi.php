@@ -6,11 +6,14 @@ require_once 'api/api-comments.controller.php';
 $router = new Router();
 
 //armo la tabla de ruteo
-$router->addRoute('detail/:ID','GET','ApiCommentsController','getCommentsOfaProduct');
-$router->addRoute('detail/:ID','DELETE','ApiCommentsController','deleteComment');
-$router->addRoute('detail/:ID','POST','ApiCommentsController','insertComment');
+$router->addRoute('detail/:ID/comments','GET','ApiCommentsController','getCommentsOfaProduct');
+$router->addRoute('detail/:ID/comments','DELETE','ApiCommentsController','deleteComment');
+$router->addRoute('detail/:ID/comments','POST','ApiCommentsController','insertComment');
 
 //run - rutea - va resource porqué es el de la API
 $router->route($_REQUEST['resource'],  $_SERVER['REQUEST_METHOD']);
+
+
+
 
 ?>

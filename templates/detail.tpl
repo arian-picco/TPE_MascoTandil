@@ -96,7 +96,7 @@
          </div>
 
 
-
+      {if isset($smarty.session.USER_NAME)}
         <div class="row justify-content-center" style="padding:10px; margin-bottom: 3%;" >
  
                             <form action="comment" class="form" method="post">
@@ -122,10 +122,9 @@
                         </div>
                     </div>
                     </div>
-                </form>
-
-         
+                </form>         
          </div>
+         {/if}
 </main>
 
 {include file="footer.tpl"}
