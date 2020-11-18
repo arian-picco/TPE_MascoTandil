@@ -30,7 +30,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <label for="description">Descripción</label>
-                                <input type="text" name="input_description" class="form-control" id="description"> 
+                                <input type="text" name="input_description" class="form-control" id="description" maxlength="40"> 
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -103,8 +103,8 @@
         <div class="row">		
                  {foreach from=$products item=product}		
                <div class="col-md-4">		
-                   <div class="card card mb-4 shadow-sm"  style="min-width: 350px; max-width:350px !important;  min-height: 450px; max-height:450px !important;" >		
-                     <img class="card-img-top" style="min-width: 350px; max-width:350px !important;  min-height: 275px; max-height:275px !important;" src="imagenes/{$product->cat_id}.png" alt="Card image cap">		
+                   <div class="card card mb-4 shadow-sm"  style="min-width: 350px; max-width:350px !important;  min-height: 500px; max-height:500px !important;" >		
+                     <img class="card-img-top" style="min-width: 350px; max-width:350px !important;  min-height: 300px; max-height:300px !important;" src="imagenes/{$product->cat_id}.png" alt="Card image cap">		
                      {* {$products|@print_r} *}
                        <div class="card-body">		
                            <h5 class="card-title"><a href="detail/{$product->id}">{$product->name}</a></h5>
@@ -118,12 +118,14 @@
                            <p class="card-text">Categoría: {$product->cat_name}</p>
                            </div>
                            {if {$smarty.session.IS_ADMIN} == 1}
-                             <button class="btn btn-sm btn-outline-secondary">		
+                          <div class="row" style="margin:2%;">
+                                 <button class="btn btn-sm btn-outline-secondary " style="margin:1%;">		
                                <a href="delete/{$product->id}">Borrar</a>		
                              </button>  		
-                             <button class="btn btn-sm btn-outline-secondary">		
+                             <button class="btn btn-sm btn-outline-secondary"style="margin:1%;">		
                                <a href="detail/{$product->id}">Actualizar</a>		
-                              </button>  		
+                              </button> 
+                           </div>
                            {/if}
                        </div>		
                    </div>		

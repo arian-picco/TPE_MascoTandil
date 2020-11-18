@@ -17,7 +17,7 @@
   <main class="main-container">
 
       {if {$smarty.session.IS_ADMIN} == 1}
-    <div class="row justify-content-center" style="widht:100%;">
+    <div class="row justify-content-center" style="margin:none;">
       <div class="col-md-10 ">
       <form action="update/{$productDetail[0]->id}" class="form" method="post">
           <h3 class="mb-5">Edite el producto seleccionado</h3>
@@ -91,8 +91,39 @@
           </section>
           </div>
 
-      </div>
 
+
+
+
+        <div class="row justify-content-center" style="padding:10px; margin-bottom: 3%;" >
+ 
+                            <form action="comment" class="form" method="post">
+                      <div class="row justify-content-between" style="width:900px;" >
+                            <div class="col-md-11 mb-1">
+                                <div class="form-group">
+                                    <label for="name">Comentario</label>
+                                    <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px"> 
+                                </div>
+                            </div>
+                            <div class="col-md-1 mb-1">
+                                <div class="form-group">
+                                    <label for="price">Puntaje</label>
+                                    <input type="number" name="input_score" class="form-control" id="score"  style="width: 70px">  
+                                </div>
+                            </div>
+                          </div>
+                            <div class="row justify-content-center">
+                            <div class="custom-control custom-checkbox col-md-12 mb-3">
+                                <button type="submit" class="btn btn-primary">Comentar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+
+         
+         </div>
 </main>
 
 {include file="footer.tpl"}
