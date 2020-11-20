@@ -41,7 +41,10 @@ class CategoriesController {
             if(count($hayRelacion) == 0) {
                 $this->categoryModel->deleteCategory($category_id);
             } else {
-                $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
+                $categories = $this->categoryModel->getCategories();
+                $error =  'No puede eliminar una categoría con productos relacionados';
+                $this->view->showCategoriesEditionPanel($categories,$error);
+                // $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
                 die();
             }              
            header("Location:  " .  BASE_URL . "category_edition");
@@ -58,7 +61,10 @@ class CategoriesController {
                 $name = $_REQUEST['input_category_name'];
                 }   
                 if(empty($name)) {
-                $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
+                $categories = $this->categoryModel->getCategories();
+                $error =  'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
+                $this->view->showCategoriesEditionPanel($categories,$error);   
+                // $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
                 die();
                 }     
        $this->categoryModel->insertCategory($name);
@@ -75,13 +81,13 @@ class CategoriesController {
                  $name = $_REQUEST['input_category_name'];
                  $id = $_REQUEST['input_id'];
                     }
-            
                 if(empty($name)) {
                 $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
                 die();
-                }     
+                }     else {
             $this->categoryModel->updateCategories($name,$id);
             header("Location:  " .  BASE_URL . "category_edition");
+            }
         }
     }
     

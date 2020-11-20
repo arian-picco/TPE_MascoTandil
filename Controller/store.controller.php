@@ -95,8 +95,8 @@ class StoreController {
                 $this->view->showProducts($products,$categories,$error);
                 } 
             } else { 
-                $this->model->InsertProduct($name,$description,$price,$id_category);
-                header("Location:  " .  BASE_URL . "store");      
+              $this->model->InsertProduct($name,$description,$price,$id_category);  
+              header("Location:  " .  BASE_URL . "store");      
             }
         }
     }

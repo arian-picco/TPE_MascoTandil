@@ -15,7 +15,7 @@ Class CommentsModel {
     }
 
     function getCommentsOfaProduct($id_product){
-        $sentencia = $this->db->prepare("SELECT comment, score, id_user, id_product FROM comments JOIN products on products.id = comments.id_product WHERE products.id = ?");
+        $sentencia = $this->db->prepare("SELECT comment, score, id_product, id_user FROM comments AS commentsInfo INNER JOIN products AS productInfo ON commentsInfo.id_product = productInfo.id INNER JOIN users AS u ON commentsInfo.id_user = u.id WHERE products.id = ?");
         $sentencia->execute(array($id_product));
         return $commentsOfAProduct = $sentencia->fetch(PDO::FETCH_OBJ);
     }

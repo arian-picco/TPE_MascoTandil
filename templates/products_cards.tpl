@@ -14,7 +14,50 @@
 
 <main class="main-container">
 
-                  {if {$smarty.session.IS_ADMIN} == 1}
+
+{if {$smarty.session.IS_ADMIN} == 1}
+    <div class="signup-form">
+      <form action="insert" method="post">
+        <h2>Editor de productos</h2>
+            <hr>
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" name="input_name" class="form-control" id="name"> 
+              </div>
+              <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" name="input_description" class="form-control" id="description" maxlength="40"> 
+              </div>
+              <div class="form-group">
+                <label for="price">Precio</label>
+                <input type="text" name="input_price" class="form-control" id="price"> 
+              </div>
+              <div class="form-group">
+                <label for="category">Categoría</label>
+                <select class="form-control" id="category" name="input_category">
+                  {foreach from=$categories item=category}
+                  <option value="{$category->id}">{$category->category_name}</option>
+                  {/foreach}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Suba una imagen</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+              <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
+                 {if $error}
+               <div class="form-group" style="margin:5%;">
+                 <div class="alert alert-danger">
+                  {$error}
+                 </div>
+               </div>
+                 {/if}
+       </form> 
+      </div>
+{/if}
+
+{* 
+       {if {$smarty.session.IS_ADMIN} == 1}
                 <div class="row justify-content-center">
                   <div class="col-md-8 order-md-1">
 
@@ -59,7 +102,7 @@
                     </div>
                   </div>
                 </div>
-                {/if}
+                {/if}  *}
 
 
 
@@ -75,7 +118,7 @@
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                         Categorias
                       </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu">
                             {foreach from=$categories item=category}
                             <a class="dropdown-item" href="category/{$category->id}">{$category->category_name}</a>
                             {/foreach}

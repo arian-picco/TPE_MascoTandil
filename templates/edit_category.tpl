@@ -47,7 +47,13 @@
                 </tbody>
            </table>
    
-
+                             {if $error}
+                    <div class="form-group" style="margin:5%;">
+                        <div class="alert alert-danger">
+                        {$error}
+                        </div>
+                    </div>
+                 {/if}
 
         <form action="insertCategory" class="form" method="post">
         <h3 class="mb-5">Agregue una nueva categoria</h3>
@@ -62,10 +68,12 @@
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
                 </div>
-        
             </div>
+            
         </div>
+      
         </div>
+        
     </form>
 
       

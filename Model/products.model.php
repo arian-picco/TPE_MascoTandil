@@ -50,8 +50,13 @@ Class ProductsModel {
     }
 
     function InsertProduct($name,$description,$price,$id_category){
+        var_dump($name);
+        var_dump($description);
+        var_dump($price);
+        var_dump($id_category);
         $sentencia = $this->db->prepare("INSERT INTO products(name, description, price, id_category) VALUES(?,?,?,?)");
         $sentencia->execute(array($name,$description,$price,$id_category));
+        return $this->db->lastInsertId();
     }
 
     function updateProduct($name,$description,$price,$id_category,$id){   

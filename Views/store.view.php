@@ -34,9 +34,10 @@ class StoreView {
         $this->smarty->display('templates/products_cards.tpl'); 
     }
 
-    function showCategoriesEditionPanel($categories){
+    function showCategoriesEditionPanel($categories, $error = null){
         $this->smarty->assign('title','Panel de Edicion');
         $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/edit_category.tpl'); 
     }
 
