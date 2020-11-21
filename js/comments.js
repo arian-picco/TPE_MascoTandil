@@ -26,47 +26,12 @@ document.addEventListener("DOMContentLoaded", iniciarPagina);
 
 function iniciarPagina() {
 
+    let id_product = document.querySelector('#input_product_id').value;
    
-   
- 
-    function crearComentarioDiv() {
-        "use strict"
-        event.preventDefault();
-
-        let comentario = document.getElementById("input");
-        let divComentario = document.createElement('div');
-        //crear el comentario y atributos
-        divComentario.setAttribute("class", "estiloComentario");
-        divComentario.setAttribute("id", "comentarioId");
-        divComentario.innerHTML = comentario.value;
-        //crear el boton y atributos
-        let botonDelete = document.createElement('button');
-        botonDelete.setAttribute("class", "botonDelete");
-        botonDelete.innerHTML = "Borrar Comentario";
-        //añade el div al body y añade el boton al div
-        let contenedorComentario = document.getElementById("noticia1");
-        contenedorComentario.appendChild(divComentario);
-        divComentario.appendChild(botonDelete);
-        
-        //le añado a todos los botones una función anonima que declara en una variable al elemento padre del botón.
-        //THIS hace refencia al boton, y .parentElement al padre del botón.
-        //Cuando hace click en el botón se aplica el remove sobre el padre.
-        botonDelete.addEventListener("click", function(e){
-            let element = this.parentElement;
-            element.remove();
-        } );
-
-
-      
+         console.log(id_product);
        
 
     }
 
 
     
-
-    let enviar = document.getElementById("botonEnviar");
-    enviar.addEventListener("click", crearComentarioDiv);
-
-
-}

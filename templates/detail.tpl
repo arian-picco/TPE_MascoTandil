@@ -48,9 +48,9 @@
                   {/foreach}
                 </div>
                   <div class="row justify-content-center">
-                  <div class="custom-control custom-checkbox col-md-12 mb-3">
-                      <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
-                  </div>
+                    <div class="custom-control custom-checkbox col-md-12 mb-3">
+                        <button type="submit" class="btn btn-primary">Aplicar Cambios</button>
+                    </div>
                   </div>
               </div>
           </div>
@@ -91,38 +91,47 @@
           </section>
           </div>
 
-        <div class="row justify-content-center" id="comments-box" style="padding:10px; margin-bottom: 3%;" >
-             
+          <div class="row justify-content-center" id="comments-box" style="padding:10px; margin-bottom: 3%;" >
          </div>
+
 
 
       {if isset($smarty.session.USER_NAME)}
         <div class="row justify-content-center" style="padding:10px; margin-bottom: 3%;" >
- 
-                            <form action="comment" class="form" method="post">
-                      <div class="row justify-content-between" style="width:900px;" >
-                            <div class="col-md-11 mb-1">
-                                <div class="form-group">
-                                    <label for="name">Comentario</label>
-                                    <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px"> 
-                                </div>
-                            </div>
-                            <div class="col-md-1 mb-1">
-                                <div class="form-group">
-                                    <label for="price">Puntaje</label>
-                                    <input type="number" name="input_score" class="form-control" id="score"  style="width: 70px">  
-                                </div>
-                            </div>
-                          </div>
-                            <div class="row justify-content-center">
-                            <div class="custom-control custom-checkbox col-md-12 mb-3">
-                                <button type="submit" class="btn btn-primary">Comentar</button>
-                            </div>
-                            </div>
-                        </div>
+     
+          <form id="formComments" class="form" method="post">
+               <h2 style="border: solid 1px black;"> Comentario de {$smarty.session.USER_NAME}<h2>
+            <div class="row justify-content-between" style="width:900px;" >
+                <div class="col-md-11 mb-1">
+              
+                    <div class="form-group">
+                      <label for="name">Comentario</label>
+                        <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px"> 
                     </div>
+                </div>
+                <div class="col-md-1 mb-1">
+                    <div class="form-group">
+                        <label for="price">Puntaje</label>
+                          <input type="number" name="input_score" class="form-control" id="score"  style="width: 70px">  
                     </div>
-                </form>         
+                </div>
+             </div>
+              <div class="form-group" style="display:none">
+                <input type="int" name="input_product_id" class="form-control" id="input_product_id" value="{$productDetail[0]->id}"> 
+              </div>
+              <div class="form-group" style="display:none">
+                <input type="int" name="input_user_id" class="form-control" id="input_user_id" value="{$smarty.session.ID_USER}"> 
+              </div>
+              
+            <div class="row justify-content-center">
+                <div class="custom-control custom-checkbox col-md-12 mb-3">
+                    <button type="submit" class="btn btn-primary">Comentar</button>
+                </div>
+              </div>
+             </div>
+                    {* </div>
+                    </div> *}
+           </form>         
          </div>
          {/if}
 </main>

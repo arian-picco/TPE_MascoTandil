@@ -24,7 +24,7 @@ class ApiCommentsController extends ApiController{
     public function getCommentsOfaProduct($params = null){
         $id_product = $params[':ID'];
         $comments = $this->model->getCommentsOfaProduct($id_product);
-        if($comments) {
+          if($comments) {
             $this->view->response($comments, 250);
         } else {
             $this->view->response("No existe el comentario solicitado", 404);

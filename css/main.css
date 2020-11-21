@@ -192,3 +192,12 @@ a:hover {
   text-align:right;
   padding-left: 10px;
 }
+
+.estiloComentario{
+  height: 150px;
+  width: 700px;
+  border: solid 1px blue;
+  margin:1%;
+}
+
+
