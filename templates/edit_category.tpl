@@ -46,8 +46,7 @@
                   {/foreach}
                 </tbody>
            </table>
-   
-                             {if $error}
+                {if $error}
                     <div class="form-group" style="margin:5%;">
                         <div class="alert alert-danger">
                         {$error}

@@ -1,7 +1,6 @@
 <?php
 
 include_once 'Views/store.view.php';
-include_once 'Views/store.public.view.php';
 include_once 'Helpers/auth.helper.php';
 
 class CategoriesController {
@@ -9,11 +8,10 @@ class CategoriesController {
  private $view;
  private $model;
  private $categoryModel;
- private $publicView;
+
 
     function __construct() {
         $this->view = new StoreView();
-        $this->publicView = new StorePublicView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
     }
@@ -26,7 +24,7 @@ class CategoriesController {
         if($loggedIn){
             $this->view->showCategoriesEditionPanel($categories);
         } else {
-        $this->publicView->showPublicProducts($products,$categories);
+            $this->view->showProducts($products,$categories);
         }
     }
 
@@ -44,7 +42,6 @@ class CategoriesController {
                 $categories = $this->categoryModel->getCategories();
                 $error =  'No puede eliminar una categoría con productos relacionados';
                 $this->view->showCategoriesEditionPanel($categories,$error);
-                // $this->view->showCategoryError('No puede eliminar una categoría con productos relacionados');
                 die();
             }              
            header("Location:  " .  BASE_URL . "category_edition");
@@ -64,12 +61,11 @@ class CategoriesController {
                 $categories = $this->categoryModel->getCategories();
                 $error =  'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
                 $this->view->showCategoriesEditionPanel($categories,$error);   
-                // $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
-                die();
-                }     
-       $this->categoryModel->insertCategory($name);
-        header("Location:  " .  BASE_URL . "category_edition");
-        }
+                } else { 
+                    $this->categoryModel->insertCategory($name);
+                        header("Location:  " .  BASE_URL . "category_edition");
+                        }
+                    }
     }   
 
     function updateCategories() {
@@ -82,8 +78,9 @@ class CategoriesController {
                  $id = $_REQUEST['input_id'];
                     }
                 if(empty($name)) {
-                $this->view->showCategoryError('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
-                die();
+                    $categories = $this->categoryModel->getCategories();
+                    $error =  'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
+                    $this->view->showCategoriesEditionPanel($categories,$error);
                 }     else {
             $this->categoryModel->updateCategories($name,$id);
             header("Location:  " .  BASE_URL . "category_edition");

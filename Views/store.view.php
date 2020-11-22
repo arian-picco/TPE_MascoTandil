@@ -20,8 +20,9 @@ class StoreView {
         $this->smarty->display('templates/products_cards.tpl'); 
     }
     
-    function showProductDetail($productDetail,$categories){
+    function showProductDetail($productDetail,$categories, $error = null){
         $this->smarty->assign('title','Detalle');
+        $this->smarty->assign('error', $error);
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('productDetail', $productDetail);
         $this->smarty->display('templates/detail.tpl'); 

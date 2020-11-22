@@ -30,11 +30,10 @@ Class AuthController{
 
         if(empty($email) || empty($password) || empty($name) ){
             $this->view->showLogin("Campos vacíos - Por favor complete el formulario y vuelva a intentar");
-            die();
+            
         }
         $user = $this->userModel->getUserByMail($email);
-         if($user && password_verify($password, $user->password) && ($email == $user->email)){
-                var_dump($user);
+         if($user && password_verify($password, $user->password) && ($email == $user->email) && ($name == $user->name)){
                 AuthHelper::login($user);
                 header("Location: " . BASE_URL . "home");               
             } else {

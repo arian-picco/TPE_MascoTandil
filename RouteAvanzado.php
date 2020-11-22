@@ -14,7 +14,7 @@
     $r = new Router();
 
     // rutas - 
-    $r->addRoute("admin", "GET", "AuthController", "showLogin");
+    $r->addRoute("login", "GET", "AuthController", "showLogin");
     $r->addRoute("verify_user", "POST", "AuthController", "loginUser");
     $r->addRoute("registration_form", "GET", "AuthController", "showRegistrationPage");
     $r->addRoute("register", "POST", "AuthController", "registerUser");
@@ -31,7 +31,7 @@
     $r->addRoute("detail/:ID", "GET", "StoreController", "showProductDetail");
     $r->addRoute("insert", "POST", "StoreController", "insertProduct");
     $r->addRoute("delete/:ID", "GET", "StoreController", "DeleteProduct");
-    $r->addRoute("update/:ID", "GET", "StoreController", "updateProduct");
+    $r->addRoute("update/:ID", "POST", "StoreController", "updateProduct");
 
     $r->addRoute("category_edition", "GET", "CategoriesController", "showCategoryEditionPanel");
     $r->addRoute("updateCategories", "POST", "CategoriesController", "updateCategories");

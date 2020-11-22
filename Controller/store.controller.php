@@ -2,7 +2,6 @@
 
 
 include_once 'Views/store.view.php';
-include_once 'Views/store.public.view.php';
 include_once 'Helpers/auth.helper.php';
 
 
@@ -10,7 +9,6 @@ class StoreController {
 
 
  private $view;
- private $publicView;
  private $model;
  private $categoryModel;
 
@@ -18,7 +16,6 @@ class StoreController {
 
     function __construct() {
         $this->view = new StoreView();
-        $this->publicView = new StorePublicView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
     }
@@ -30,7 +27,7 @@ class StoreController {
         if($loggedIn){
             $this->view->showProducts($products,$categories);
         } else {
-        $this->publicView->showPublicProducts($products,$categories);
+            $this->view->showProducts($products,$categories);
         }
     }
 
@@ -42,8 +39,7 @@ class StoreController {
         if($loggedIn){
             $this->view->showProductDetail($productDetail,$categories);
         } else {
-            $this->publicView->showProductPublicDetail($productDetail,$categories);
-        }      
+            $this->view->showProductDetail($productDetail,$categories);        }      
     }
 
     function showProductByCategory($params = null){
@@ -54,7 +50,7 @@ class StoreController {
         if($loggedIn){
             $this->view->showProductByCategory($productsByCatogory,$categories);
         } else {
-            $this->publicView->showProductByCategoryPublic($productsByCatogory,$categories);
+            $this->view->showProductByCategory($productsByCatogory,$categories);
         }
     }
 
@@ -119,15 +115,19 @@ class StoreController {
                 }
             if(empty($name) || empty($description) ||
             empty($price) || empty($id_category) ) {  
-                $this->view->showErrorDetail('Faltaron campos obligatorios - Por favor vuelva e intente nuevamente');
-                die();
-                } 
+
+                $categories = $this->categoryModel->getCategories();
+                $productDetail= $this->model->getProductDetail($id);
+                $error = 'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
+                $this->view->showProductDetail($productDetail,$categories,$error);  
+
+                } else { 
             $this->model->updateProduct($name,$description,$price,$id_category,$id);
             $productDetailUpdated= $this->model->getProductDetail($id);
             $categories = $this->categoryModel->getCategories();
             $this->view->showProductDetail($productDetailUpdated,$categories);
-         }
-
+                }
+        }
     }
 
 
