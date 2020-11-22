@@ -13,52 +13,69 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-function getComments(){
-    let product = document.querySelector('#input_product_id').value;
-    fetch('api/detail/'+ product +'/comments')
-    //obtengo la data en forma de json
-    .then(response => response.json())
-    //trabajo con la informacion obtenida
-    .then(comments => render(comments))
-    .catch(error => console.log(error))
+function getComments() {
+    let productId = document.querySelector('#product_id').value;
+    fetch('api/detail/' + productId + '/comments')
+        //obtengo la data en forma de json
+        .then(response => response.json())
+        //trabajo con la informacion obtenida
+        .then(comments => render(comments))
+        .catch(error => console.log(error))
 }
 
-function addComment(){
+function addComment() {
 
-    let product = document.querySelector('#input_product_id').value;
+    let product = document.querySelector('#product_id').value;
 
     const commentBody = {
         comment: document.querySelector('#comment').value,
         score: document.querySelector('#score').value,
-        id_product: document.querySelector('#input_product_id').value,
-        id_user: document.querySelector('#input_user_id').value
+        id_product: document.querySelector('#product_id').value,
+        id_user: document.querySelector('#user_id').value
     }
 
-     fetch('api/detail/'+product+'/comments', {
+    fetch('api/detail/' + product + '/comments', {
         method: 'POST',
-        headers: { "Contetn-Type":"application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(commentBody)
     })
-    .then(response => response.json())
-    .then(commentBody => console.log(commentBody))
-    .catch(error => console.log(error));
+        .then(response => response.json())
+        .then(commentBody => console.log(commentBody))
+        //llamada asincronica - me aseguro que hacer el getComents después del cambio
+        .then( () => getComments())
+        .catch(error => console.log(error));
 
-    getComments();
+ 
 }
 
-    function deleteComment(commentID){
+function deleteComment(e) {
+    let commentId = e.target.parentElement.id;
+    let productId = document.querySelector('#product_id').value;
+    fetch('api/detail/' + productId + '/comments/' + commentId, {
+        method: "Delete",
+        mode: "cors",
+    })
+        .then((response) => {
+            if (!response.ok) {
+                console.log("error");
+            }
+            return response.json();
+        })
+        .then((json) => {
+            getComments();
+        });
+}
 
-    }
-
-
-function render(comments){
-     if(verifyComment(comments)) { 
-        const container = document.querySelector('#comments-box');
-        for(let comment of comments){
+function render(comments) {
+    const container = document.querySelector('#comments-box');
+    container.innerHTML = "";
+    if (verifyComment(comments)) {
+        const isAdmin = document.querySelector('#isAdmin').value;
+         for (let comment of comments) {
             let divComentario = document.createElement('div');
             //crear el comentario y atributos
             divComentario.setAttribute("class", "estiloComentario");
-            divComentario.setAttribute("id", "comentarioId");
+            divComentario.setAttribute("id", comment.id);
             divComentario.innerHTML = comment.comment;
             //genero la el cuadrito del autor
             let divAutor = document.createElement('div');
@@ -66,29 +83,27 @@ function render(comments){
             divAutor.setAttribute("id", "cuadroAutor");
             divAutor.innerHTML = comment.username;
             //crear el boton y atributos
-            let botonDelete = document.createElement('button');
-            botonDelete.setAttribute("class", "botonDelete");
-            botonDelete.innerHTML = "Borrar Comentario";
+            if (isAdmin == 1) {
+                let botonDelete = document.createElement('button');
+                botonDelete.setAttribute("class", "botonDelete");
+                botonDelete.innerHTML = "Borrar Comentario";
+                divComentario.appendChild(botonDelete);
+                botonDelete.addEventListener("click", deleteComment);
+            }
             //añade el div al body y añade el boton al div
-            container.appendChild(divComentario);
             divComentario.appendChild(divAutor);
-            divComentario.appendChild(botonDelete);
+            container.appendChild(divComentario);
         }
-
     } else {
         noCommentsSign();
     }
 }
 
-function verifyComment(comments){
-    let existComment = true;
-    if(comments == 'No existe el comentario solicitado'){
-        existComment = false;
-    }
-    return existComment;
+function verifyComment(comments) {
+  return comments.length>0;
 }
 
-function noCommentsSign(){
+function noCommentsSign() {
     const container = document.querySelector('#comments-box');
     let divComentario = document.createElement('div');
     divComentario.setAttribute("class", "estiloComentario");
@@ -98,9 +113,9 @@ function noCommentsSign(){
     let text = "No existen comentarios para éste artículo";
 
     signText.innerHTML = text;
-    
+
     container.appendChild(divComentario);
     divComentario.appendChild(signText);
-   
+
 }
 

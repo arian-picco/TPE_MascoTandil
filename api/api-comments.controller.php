@@ -15,20 +15,26 @@ class ApiCommentsController extends ApiController{
 
     }
 
-    public function getComments(){
-        $comments = $this->model->getComments();
-        //La vista de la api me devuelve un Json
-        $this->view->response($comments,200);
-    }
+    // public function getComments(){
+    //     $comments = $this->model->getComments();
+    //     //La vista de la api me devuelve un Json
+    //     $this->view->response($comments,200);
+    // }
+
+
+    //Devolver error si no existe producto
+
+    //verificar los path al detail
 
     public function getCommentsOfaProduct($params = null){
         $id_product = $params[':ID'];
         $comments = $this->model->getCommentsOfaProduct($id_product);
-          if($comments) {
-            $this->view->response($comments, 250);
-        } else {
-            $this->view->response("No existe el comentario solicitado", 404);
-        }
+        //   if($comments) {
+            $this->view->response($comments, 200);
+        // } 
+        // else {
+        //     $this->view->response("No existe el comentario solicitado", 200);
+        // }
     }
 
   

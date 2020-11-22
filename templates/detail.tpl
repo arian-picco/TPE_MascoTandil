@@ -86,6 +86,10 @@
                         <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
                       </p>
                   </div>
+              <div style="display:none"><input id="product_id" value="{$productDetail[0]->id}"></div>
+              <div style="display:none"><input id="user_id" value="{$smarty.session.ID_USER}"></div>
+              <div style="display:none"><input id="isAdmin" value="{$smarty.session.IS_ADMIN}"></div> 
+
               </div>
             </div>
           </section>
@@ -112,17 +116,10 @@
                 <div class="col-md-1 mb-1">
                     <div class="form-group">
                         <label for="price">Puntaje</label>
-                          <input type="number" name="input_score" class="form-control" id="score"  style="width: 70px">  
+                          <input type="number" name="input_score" class="form-control" id="score"  maxlength="5" style="width: 70px">  
                     </div>
                 </div>
              </div>
-              <div class="form-group" style="display:none">
-                <input type="int" name="input_product_id" class="form-control" id="input_product_id" value="{$productDetail[0]->id}"> 
-              </div>
-              <div class="form-group" style="display:none">
-                <input type="int" name="input_user_id" class="form-control" id="input_user_id" value="{$smarty.session.ID_USER}"> 
-              </div>
-              
             <div class="row justify-content-center">
                 <div class="custom-control custom-checkbox col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary">Comentar</button>
@@ -135,5 +132,10 @@
          </div>
          {/if}
 </main>
+
+
+
+              
+
 
 {include file="footer.tpl"}

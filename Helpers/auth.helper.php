@@ -2,7 +2,6 @@
 
 
 class AuthHelper {
-
     static function logOutUser(){
         self::start();
         session_destroy();

@@ -34,7 +34,8 @@ Class CommentsModel {
 
     function deleteComment($id_comment){
         $sentencia = $this->db->prepare("DELETE FROM comments WHERE id=?");
-        $sentencia->execute(array($id_comment));
+        $deteled = $sentencia->execute(array($id_comment));
+        return $deteled;
     }
 
     function insertComment($comment,$score,$id_product,$id_user){ 

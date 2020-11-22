@@ -7,7 +7,7 @@ $router = new Router();
 
 //armo la tabla de ruteo
 $router->addRoute('detail/:ID/comments','GET','ApiCommentsController','getCommentsOfaProduct');
-$router->addRoute('detail/:ID/comments','DELETE','ApiCommentsController','deleteComment');
+$router->addRoute('detail/:ID/comments/:ID','DELETE','ApiCommentsController','deleteComment');
 $router->addRoute('detail/:ID/comments','POST','ApiCommentsController','insertComment');
 
 //run - rutea - va resource porqué es el de la API
