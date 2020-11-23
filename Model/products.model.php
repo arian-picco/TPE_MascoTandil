@@ -9,7 +9,7 @@ Class ProductsModel {
 
 
     function getProducts(){
-        $sentencia = $this->db->prepare( "SELECT products.id,products.name,
+        $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM
         products inner JOIN categories ON products.id_category = categories.id");
         $sentencia->execute();
@@ -49,9 +49,9 @@ Class ProductsModel {
         $sentencia->execute(array($product_id));
     }
 
-    function InsertProduct($name,$description,$price,$id_category, $ImgTemp){
+    function InsertProduct($name,$description,$price,$id_category, $realPath){
         $sentencia = $this->db->prepare("INSERT INTO products(name, description, price, id_category, imagen ) VALUES(?,?,?,?,?)");
-        $sentencia->execute(array($name,$description,$price,$id_category,$ImgTemp));
+        $sentencia->execute(array($name,$description,$price,$id_category,$realPath));
         return $this->db->lastInsertId();
     }
 

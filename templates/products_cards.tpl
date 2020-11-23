@@ -97,9 +97,9 @@
                  {foreach from=$products item=product}		
                <div class="col-md-4">		
                    <div class="card card mb-4 shadow-sm"  style="min-width: 350px; max-width:350px !important;  min-height: 500px; max-height:500px !important;" >		
-                     <img class="card-img-top" style="min-width: 350px; max-width:350px !important;  min-height: 300px; max-height:300px !important;" src="imagenes/{$product->prodImg}" alt="Card image cap">		
-                     {* {$products|@print_r} *}
-                       <div class="card-body">		
+                     <img class="card-img-top" style="min-width: 350px; max-width:350px !important;  
+                     min-height: 300px; max-height:300px !important;" src="{$product->prodImg}" alt="Card image cap">		
+                         <div class="card-body">		
                            <h5 class="card-title"><a href="detail/{$product->id}">{$product->name}</a></h5>
                            <div class="row">
                            <p class="card-text" style="text-align:left;">Descripción: {$product->description}</p>

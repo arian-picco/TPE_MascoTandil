@@ -96,7 +96,8 @@ class StoreController {
                     $name = $_REQUEST['input_name'];
                     $description = $_REQUEST['input_description'];
                     $price = $_REQUEST['input_price'];
-                    $realPath = 'imagenes/'.$_FILES['input_image']['name'];
+
+                    $realPath = 'imagenes/'.uniqid("",true).".".strtolower(pathinfo( $_FILES['input_image']['name'],PATHINFO_EXTENSION));               
                     $ImgTemp = $_FILES["input_image"]["tmp_name"];
                     move_uploaded_file($ImgTemp,$realPath);
                 }        
