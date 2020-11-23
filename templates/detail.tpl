@@ -76,7 +76,7 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="pro-img-details">
-                          <img src="imagenes/{$productDetail[0]->id_category}.png">
+                          <img src="{$productDetail[0]->prodImg}">
                       </div>
                   </div>
                   <div class="col-md-6">
