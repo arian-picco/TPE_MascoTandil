@@ -55,9 +55,10 @@ Class ProductsModel {
         return $this->db->lastInsertId();
     }
 
-    function updateProduct($name,$description,$price,$id_category,$id){   
-        $sentencia = $this->db->prepare("UPDATE products SET name=?, description=?, price=?, id_category=? WHERE id=?");
-        $sentencia->execute(array($name,$description,$price,$id_category,$id));
+    function updateProduct($name,$description,$price,$id_category,$id,$realPath){   
+        $sentencia = $this->db->prepare("UPDATE products SET name=?, description=?, price=?, id_category=?, imagen=? WHERE id=?");
+        $test = $sentencia->execute(array($name,$description,$price,$id_category,$realPath,$id));
+        return $test;
       }
 
 }

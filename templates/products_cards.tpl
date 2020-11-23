@@ -19,15 +19,14 @@
     <div class="signup-form">
       <form action="insert" method="post" enctype="multipart/form-data">
         <h2>Editor de productos</h2>
-            <hr>
-              <div class="form-group">
+            <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" name="input_name" class="form-control" id="name"> 
-              </div>
-              <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label for="description">Descripción</label>
                 <input type="text" name="input_description" class="form-control" id="description" maxlength="40"> 
-              </div>
+             </div>
               <div class="form-group">
                 <label for="price">Precio</label>
                 <input type="text" name="input_price" class="form-control" id="price"> 
@@ -52,8 +51,8 @@
                  </div>
                </div>
                  {/if}
-       </form> 
-      </div>
+      </form> 
+    </div>
 {/if}
 
 {* //BARRA DE NAVEGACION DE LAS CARDS *}
