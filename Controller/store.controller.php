@@ -32,14 +32,26 @@ class StoreController {
     }
 
     function showProductDetail($params = null){
+        //toma el id y lo introduce en una variable
         $productSelected = $params[':ID'];
+        //guardo las categorias en una variable
         $categories = $this->categoryModel->getCategories();
+        //guardo el producto seleccionado en una variable
         $productDetail= $this->model->getProductDetail($productSelected);
+        //genero una variable que verifica si esta loggeado o no
         $loggedIn =  AuthHelper::checkLoggedIn();
-        if($loggedIn){
+        //valido que exista el producto
+        if(!$productDetail){
+            //sino existe se dirige a la store
+            header("Location:  " .  BASE_URL . "store");  
+            //valido que esté inicada la session
+        } else if($loggedIn){
+            //si está iniciada se carga la página con session
             $this->view->showProductDetail($productDetail,$categories);
         } else {
-            $this->view->showProductDetail($productDetail,$categories);        }      
+            //sino esta iniciada se carga sin session
+            $this->view->showProductDetail($productDetail,$categories);   
+             }      
     }
 
     function showProductByCategory($params = null){
@@ -67,23 +79,29 @@ class StoreController {
             }
     }
        
-
     function insertProduct(){
+
         $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
             }
             else {
                 if(isset($_REQUEST['input_category']) && isset($_REQUEST['input_name'])
-                && isset($_REQUEST['input_description']) && isset($_REQUEST['input_price']))
-                {
+                && isset($_REQUEST['input_description']) && isset($_REQUEST['input_price'])
+                && $_FILES['input_image']['type'] == "image/jpg" ||
+                $_FILES['input_image']['type'] == "image/jpeg" || $_FILES['input_image']['type'] 
+                 == "image/png") 
+               {
                     $id_category = $_REQUEST['input_category'];
                     $name = $_REQUEST['input_name'];
                     $description = $_REQUEST['input_description'];
                     $price = $_REQUEST['input_price'];
+                    $realPath = 'imagenes/'.$_FILES['input_image']['name'];
+                    $ImgTemp = $_FILES["input_image"]["tmp_name"];
+                    move_uploaded_file($ImgTemp,$realPath);
                 }        
             if(empty($name) || empty($description) ||
-            empty($price) || empty($id_category)) {
+            empty($price) || empty($id_category) || empty($realPath)){
                 if($loggedIn){
                 $error = "Por favor complete todos los campos";
                 $products = $this->model->getProducts();
@@ -91,8 +109,8 @@ class StoreController {
                 $this->view->showProducts($products,$categories,$error);
                 } 
             } else { 
-              $this->model->InsertProduct($name,$description,$price,$id_category);  
-              header("Location:  " .  BASE_URL . "store");      
+              $this->model->InsertProduct($name,$description,$price,$id_category,$realPath);   
+              header("Location:  " .  BASE_URL . "store"); 
             }
         }
     }

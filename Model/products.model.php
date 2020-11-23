@@ -38,7 +38,7 @@ Class ProductsModel {
 
     function getProductDetail($productDetail){
         $sentencia = $this->db->prepare("SELECT products.id,products.name,
-        products.description,products.price, products.id_category, categories.category_name as cat_name FROM
+        products.description,products.price, products.id_category, categories.category_name as cat_name, products.imagen as prodImg FROM
         products inner JOIN categories ON products.id_category = categories.id where products.id = ?");
         $sentencia->execute(array($productDetail));
         return $productDetail = $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -49,13 +49,9 @@ Class ProductsModel {
         $sentencia->execute(array($product_id));
     }
 
-    function InsertProduct($name,$description,$price,$id_category){
-        var_dump($name);
-        var_dump($description);
-        var_dump($price);
-        var_dump($id_category);
-        $sentencia = $this->db->prepare("INSERT INTO products(name, description, price, id_category) VALUES(?,?,?,?)");
-        $sentencia->execute(array($name,$description,$price,$id_category));
+    function InsertProduct($name,$description,$price,$id_category, $ImgTemp){
+        $sentencia = $this->db->prepare("INSERT INTO products(name, description, price, id_category, imagen ) VALUES(?,?,?,?,?)");
+        $sentencia->execute(array($name,$description,$price,$id_category,$ImgTemp));
         return $this->db->lastInsertId();
     }
 

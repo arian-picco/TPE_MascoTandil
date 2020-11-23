@@ -14,10 +14,10 @@
 
 <main class="main-container">
 
-
+{* FORM DE NUEVO PRODUCTO *}
 {if {$smarty.session.IS_ADMIN} == 1}
     <div class="signup-form">
-      <form action="insert" method="post">
+      <form action="insert" method="post" enctype="multipart/form-data">
         <h2>Editor de productos</h2>
             <hr>
               <div class="form-group">
@@ -42,7 +42,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Suba una imagen</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" id="imageToUpload" name="input_image">
               </div>
               <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
                  {if $error}
@@ -56,98 +56,48 @@
       </div>
 {/if}
 
-{* 
-       {if {$smarty.session.IS_ADMIN} == 1}
-                <div class="row justify-content-center">
-                  <div class="col-md-8 order-md-1">
-
-                  <form action="insert" method="post" class="form">
-                    <h3 class="mb-5">Ingrese un nuevo Producto</h3>
-                    <div class="row justify-content-around">
-                        <div class="col-md-4 mb-3">
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" name="input_name" class="form-control" id="name"> 
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="form-group">
-                                <label for="description">Descripción</label>
-                                <input type="text" name="input_description" class="form-control" id="description" maxlength="40"> 
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="form-group">
-                                <label for="price">Precio</label>
-                                <input type="text" name="input_price" class="form-control" id="price"> 
-                            </div>
-                        </div>
-                        {foreach from=$categories item=category}
-                        <div class="custom-control custom-checkbox col-md-3 mb-2">
-                            <input class="form-check-input" type="radio" name="input_category" id="exampleRadios1" value="{$category->id}" >
-                            <label class="form-check-label" for="exampleRadios1">{$category->category_name}</label>
-                        </div>
-                        {/foreach}
-                        <div class="row justify-content-center">
-                          <div class="custom-control custom-checkbox col-md-12 mb-6">
-                              <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
-                            {if isset($error)}
-                            <div class="alert alert-danger">
-                              {$error}
-                            </div>
-                          {/if}
-                        </div>
-                      </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                {/if}  *}
-
-
-
-              <div class="container">
-              <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-md-center" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">Tienda Online</a>
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        Categorias
-                      </a>
-                        <div class="dropdown-menu">
-                            {foreach from=$categories item=category}
-                            <a class="dropdown-item" href="category/{$category->id}">{$category->category_name}</a>
-                            {/foreach}
-                            <a class="dropdown-item" href="store">Ver Todos</a>
-                        </div>
-                    </li>
-                    {if {$smarty.session.IS_ADMIN} == 1}
-                    <li class="nav-item"><a class="nav-link" href="category_edition">
-                    <span style="color:red">Editar Categorías</span></a>
-                    </li>
-                    {/if}
-
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+{* //BARRA DE NAVEGACION DE LAS CARDS *}
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Tienda Online</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+              Categorias
+            </a>
+              <div class="dropdown-menu">
+                  {foreach from=$categories item=category}
+                  <a class="dropdown-item" href="category/{$category->id}">{$category->category_name}</a>
+                  {/foreach}
+                  <a class="dropdown-item" href="store">Ver Todos</a>
               </div>
-            </nav>
-            </div>
+          </li>
+          {if {$smarty.session.IS_ADMIN} == 1}
+          <li class="nav-item"><a class="nav-link" href="category_edition">
+          <span style="color:red">Editar Categorías</span></a>
+          </li>
+          {/if}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  </div>
 
-
+{* CARDS CON INFORMACION Y ACCESO A LA EDICION *}
     <div class="album py-5 bg-light">		
       <div class="container">		
         <div class="row">		
                  {foreach from=$products item=product}		
                <div class="col-md-4">		
                    <div class="card card mb-4 shadow-sm"  style="min-width: 350px; max-width:350px !important;  min-height: 500px; max-height:500px !important;" >		
-                     <img class="card-img-top" style="min-width: 350px; max-width:350px !important;  min-height: 300px; max-height:300px !important;" src="imagenes/{$product->cat_id}.png" alt="Card image cap">		
+                     <img class="card-img-top" style="min-width: 350px; max-width:350px !important;  min-height: 300px; max-height:300px !important;" src="imagenes/{$product->prodImg}" alt="Card image cap">		
                      {* {$products|@print_r} *}
                        <div class="card-body">		
                            <h5 class="card-title"><a href="detail/{$product->id}">{$product->name}</a></h5>

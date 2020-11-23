@@ -6,10 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     getComments();
 
+
+    
     let form = document.querySelector('#formComments')
     form.addEventListener('submit', e => {
         e.preventDefault();
         addComment();
+        form.reset();
     })
 })
 
@@ -67,6 +70,7 @@ function deleteComment(e) {
 }
 
 function render(comments) {
+  
     const container = document.querySelector('#comments-box');
     container.innerHTML = "";
     if (verifyComment(comments)) {
