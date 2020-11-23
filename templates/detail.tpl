@@ -74,9 +74,12 @@
                   {$productDetail[0]->description}
                 </p>
                 <div class="product_meta">
-                    <span class="posted_in"> <strong>Category:{$productDetail[0]->cat_name}</strong> 
+                    <span class="posted_in"> <strong>Categoría: {$productDetail[0]->cat_name}</strong> 
                 </div>
-                <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">{$productDetail[0]->price}</span></div>
+                 <div class="product_meta">
+                    <span class="posted_in"> <strong>Puntaje Promedio:{$productDetail[0]->cat_name}</strong> 
+                </div>
+                <div class="m-bot15"> <strong>Precio : </strong> <span class="amount-old">{$productDetail[0]->price}</span></div>
                 <p>
                   <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
                 </p>
@@ -90,14 +93,20 @@
  </div>
 
     {* CAJA DE COMENTARIOS *}
-   <div class="row justify-content-center form" id="comments-box" style="width:inherit;" >
+   <div class="row justify-content-center form" id="comments-box" style="width:inherit;">
    </div>
 
+
+
+       
+        
+    
+    
  {* FORM DE COMENTARIOS *}
   {if isset($smarty.session.USER_NAME)}
     <div class="row justify-content-center" style="padding:10px; margin-bottom: 3%;" > 
       <form id="formComments" class="form" method="post">
-            <h2 style="border: solid 1px black;"> Comentario de {$smarty.session.USER_NAME}<h2>
+            <h2> Comentario de {$smarty.session.USER_NAME}<h2>
         <div class="row justify-content-between" style="width:900px;" >
             <div class="col-md-11 mb-1">
                 <div class="form-group">

@@ -15,7 +15,7 @@ Class CommentsModel {
     }
 
     function getCommentsOfaProduct($id_product){
-        $sentencia = $this->db->prepare("SELECT comments.id, comments.id_product, comments.comment, comments.id_user, users.name as username, users.email, products.name 
+        $sentencia = $this->db->prepare("SELECT comments.id, comments.id_product, comments.comment, comments.score, comments.id_user, users.name as username, users.email, products.name 
         FROM ((comments
         INNER JOIN products ON comments.id_product = products.id)
         INNER JOIN users ON comments.id_user = users.id) WHERE products.id = ?");

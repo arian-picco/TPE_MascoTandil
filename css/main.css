@@ -193,11 +193,50 @@ a:hover {
   padding-left: 10px;
 }
 
-.estiloComentario{
+.commentStyle{
   height: 150px;
-  width: 700px;
-  border: solid 1px blue;
+  width: 1000px;
   margin:1%;
+  display:flex;
+  justify-content: space-between;
+  flex-flow: row;
+  align-items: center;
+  align-content: center;
 }
+
+.comment{
+  height: 125px;
+  width: 550px;
+  border: solid 1px black;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.prg{
+  margin-left: 5px;
+}
+
+
+.AuthorBox{
+  height: 145px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+ }
+
+.score{
+  height: 125px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+
+
+
+
 
 
