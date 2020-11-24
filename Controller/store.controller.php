@@ -81,7 +81,8 @@ class StoreController {
        
     function insertProduct(){
         $loggedIn =  AuthHelper::checkLoggedIn();
-        if(!$loggedIn){
+        $isAdmin = AuthHelper::checkAdmin();
+        if(!$loggedIn && !$isAdmin){
             header("Location:  " .  BASE_URL . "store");
             }
             else {
@@ -120,7 +121,8 @@ class StoreController {
     function updateProduct($params = null) {
         $id = $params[':ID'];
         $loggedIn =  AuthHelper::checkLoggedIn();
-        if(!$loggedIn){
+        $isAdmin = AuthHelper::checkAdmin();
+        if(!$loggedIn && !$isAdmin){
             header("Location:  " .  BASE_URL . "store");
         } else {
             if(isset($_REQUEST['input_category']) && isset($_REQUEST['input_name'])

@@ -206,7 +206,7 @@ a:hover {
 
 .comment{
   height: 125px;
-  width: 550px;
+  width: 600px;
   border: solid 1px black;
   display: flex;
   align-items: center;
@@ -220,21 +220,23 @@ a:hover {
 
 .AuthorBox{
   height: 145px;
-  width: 120px;
+  width: 125px;
   display: flex;
   align-items: center;
  }
 
 .score{
   height: 125px;
-  width: 20px;
+  width: 15px;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
 }
 
+.deleteBoton{
 
+}
 
 
 

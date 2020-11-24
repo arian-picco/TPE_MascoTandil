@@ -11,8 +11,9 @@ Class CategoriesModel {
 
 
     function getProductByCategory($categorySelected){
-        $sentencia = $this->db->prepare( "SELECT products.id,products.name,
-        products.description,products.price, categories.category_name as cat_name, categories.id as cat_id FROM
+        $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
+        products.description,products.price, categories.category_name as cat_name, 
+        categories.id as cat_id FROM
         products inner JOIN categories ON products.id_category = categories.id where id_category = ?");
         $sentencia->execute(array($categorySelected));
         return $productsByCatogory = $sentencia->fetchAll(PDO::FETCH_OBJ);

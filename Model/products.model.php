@@ -38,7 +38,8 @@ Class ProductsModel {
 
     function getProductDetail($productDetail){
         $sentencia = $this->db->prepare("SELECT products.id,products.name,
-        products.description,products.price, products.id_category, categories.category_name as cat_name, products.imagen as prodImg FROM
+        products.description,products.price, products.id_category,
+         categories.category_name as cat_name, products.imagen as prodImg FROM
         products inner JOIN categories ON products.id_category = categories.id where products.id = ?");
         $sentencia->execute(array($productDetail));
         return $productDetail = $sentencia->fetchAll(PDO::FETCH_OBJ);

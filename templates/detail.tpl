@@ -95,11 +95,6 @@
     {* CAJA DE COMENTARIOS *}
    <div class="row justify-content-center form" id="comments-box" style="width:inherit;">
    </div>
-
-
-
-       
-        
     
     
  {* FORM DE COMENTARIOS *}
@@ -111,13 +106,13 @@
             <div class="col-md-11 mb-1">
                 <div class="form-group">
                   <label for="name">Comentario</label>
-                    <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px"> 
+                    <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px" maxlength="150"> 
                 </div>
             </div>
             <div class="col-md-1 mb-1">
                 <div class="form-group">
                     <label for="price">Puntaje</label>
-                      <input type="number" name="input_score" class="form-control" id="score"  maxlength="5" style="width: 70px">  
+                      <input type="number" name="input_score" class="form-control" id="score"  max="5" min="0" style="width: 70px">  
                 </div>
             </div>
           </div>
