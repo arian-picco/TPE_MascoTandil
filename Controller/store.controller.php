@@ -20,16 +20,21 @@ class StoreController {
         $this->categoryModel = new CategoriesModel();
     }
 
-    function showProducts($error = null){
-        $products = $this->model->getProducts();
-        $categories = $this->categoryModel->getCategories();
+    function showProducts($params = null){
+        
+        if (isset($_GET['priceASC'])){
+            $order = $_GET['priceASC'];
+        } else{
+            $order = null;
+        }
         $loggedIn =  AuthHelper::checkLoggedIn();
         if($loggedIn){
-            $this->view->showProducts($products,$categories);
+            $this->orderSearch($order);
         } else {
-            $this->view->showProducts($products,$categories);
+            $this->orderSearch($order);
         }
     }
+
 
     function showProductDetail($params = null){
         //toma el id y lo introduce en una variable
@@ -160,7 +165,36 @@ class StoreController {
         }
     }
 
-
+     
+    function orderSearch($order = null){
+        $products = $this->model->getProducts();
+        $categories = $this->categoryModel->getCategories();
+        var_dump($order);
+        switch ($order) {
+            case 'byScore':
+                $productsByScore = $this->model->getProductsByScore();
+                $this->view->showProducts($productsByScore,$categories,$order);
+                break;
+            case 'priceASC':
+                $order = 'ASC';
+                $productsByPriceASC = $this->model->getProductsByPrice($order);
+                die();
+                $this->view->showProducts($productsByPriceASC,$categories);
+                break;
+            case 'priceDESC':
+                $order = 'DESC';
+                $productsByPriceDESC = $this->model->getProductsByPrice($order);
+                 $this->view->showProducts($productsByPriceDESC,$categories);
+                break;
+            case 'store':
+                $this->view->showProducts($products,$categories);
+                break;
+            default:
+                $this->view->showProducts($products,$categories);
+                echo('Entro acá');
+                break;
+        } 
+    }
 
 
 }

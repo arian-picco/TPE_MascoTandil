@@ -27,6 +27,10 @@
     $r->addRoute("home", "GET", "HomeController", "showHome");
    
     $r->addRoute("store", "GET", "StoreController", "showProducts");
+    $r->addRoute("byScore", "GET", "StoreController", "showProducts");
+    $r->addRoute("store/:priceASC", "GET", "StoreController", "showProducts");
+    $r->addRoute("priceDESC", "GET", "StoreController", "showProducts");
+
     $r->addRoute("category/:ID", "GET", "StoreController", "showProductByCategory");
     $r->addRoute("detail/:ID", "GET", "StoreController", "showProductDetail");
     $r->addRoute("insert", "POST", "StoreController", "insertProduct");
