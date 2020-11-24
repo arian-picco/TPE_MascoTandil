@@ -74,15 +74,26 @@
                   {/foreach}
                   <a class="dropdown-item" href="store">Ver Todos</a>
               </div>
-          </li>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+          Ordenar por:
+          </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="byScore">Relevancia</a>
+                  <a class="dropdown-item" href="priceASC">Precio: de menor a mayor</a>
+                  <a class="dropdown-item" href="priceDESC">Precio: de mayor a menor</a>
+                  <a class="dropdown-item" href="store">Ver Todos</a>
+              </div>
+        </li>
           {if {$smarty.session.IS_ADMIN} == 1}
           <li class="nav-item"><a class="nav-link" href="category_edition">
           <span style="color:red">Editar Categorías</span></a>
           </li>
           {/if}
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" action="search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="input_sear">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>

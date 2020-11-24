@@ -7,13 +7,11 @@ class CategoriesController
 {
 
     private $view;
-    private $model;
     private $categoryModel;
 
     public function __construct()
     {
         $this->view = new StoreView();
-        $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
     }
 

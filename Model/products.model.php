@@ -36,12 +36,12 @@ Class ProductsModel {
 
     //sacar la cuenta ofset = p*2 -2
 
-    function getProductDetail($productDetail){
+    function getProductDetail($productSelected){
         $sentencia = $this->db->prepare("SELECT products.id,products.name,
         products.description,products.price, products.id_category,
          categories.category_name as cat_name, products.imagen as prodImg FROM
         products inner JOIN categories ON products.id_category = categories.id where products.id = ?");
-        $sentencia->execute(array($productDetail));
+        $sentencia->execute(array($productSelected));
         return $productDetail = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -62,6 +62,11 @@ Class ProductsModel {
         return $test;
       }
 
+      function getProductAverageScore($productSelected){
+        $sentencia = $this->db->prepare("SELECT AVG(score) as average from comments where id_product = ?");
+        $sentencia->execute(array($productSelected));
+        return $productAvg = $sentencia->fetchAll(PDO::FETCH_OBJ);
+      }
 }
 
 

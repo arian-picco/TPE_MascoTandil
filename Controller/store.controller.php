@@ -38,6 +38,8 @@ class StoreController {
         $categories = $this->categoryModel->getCategories();
         //guardo el producto seleccionado en una variable
         $productDetail= $this->model->getProductDetail($productSelected);
+        //guardo el promedio en una variable 
+        $average = $this->model->getProductAverageScore($productSelected);
         //genero una variable que verifica si esta loggeado o no
         $loggedIn =  AuthHelper::checkLoggedIn();
         //valido que exista el producto
@@ -47,10 +49,10 @@ class StoreController {
             //valido que esté inicada la session
         } else if($loggedIn){
             //si está iniciada se carga la página con session
-            $this->view->showProductDetail($productDetail,$categories);
+            $this->view->showProductDetail($productDetail,$categories,$average);
         } else {
             //sino esta iniciada se carga sin session
-            $this->view->showProductDetail($productDetail,$categories);   
+            $this->view->showProductDetail($productDetail,$categories,$average);   
              }      
     }
 
@@ -152,7 +154,8 @@ class StoreController {
             $this->model->updateProduct($name,$description,$price,$id_category,$id,$realPath);
             $productDetailUpdated= $this->model->getProductDetail($id);
             $categories = $this->categoryModel->getCategories();
-            $this->view->showProductDetail($productDetailUpdated,$categories);
+            $average = $this->model->getProductAverageScore($productDetailUpdated);
+            $this->view->showProductDetail($productDetailUpdated,$categories,$average);
                 }
         }
     }

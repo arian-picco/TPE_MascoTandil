@@ -77,7 +77,16 @@
                     <span class="posted_in"> <strong>Categoría: {$productDetail[0]->cat_name}</strong> 
                 </div>
                  <div class="product_meta">
-                    <span class="posted_in"> <strong>Puntaje Promedio:{$productDetail[0]->cat_name}</strong> 
+                    <span class="posted_in"> <strong>Puntaje Promedio:
+                    {if isset($average)}
+                    
+                    {$printAVG = $average[0]->average}
+    
+                    {$printAVG|string_format:"%.2f"}
+                    {else if $printAVG = 0}
+                    'No hay puntaje en éste producto'
+                    {/if}
+                    </strong> 
                 </div>
                 <div class="m-bot15"> <strong>Precio : </strong> <span class="amount-old">{$productDetail[0]->price}</span></div>
                 <p>
@@ -106,13 +115,13 @@
             <div class="col-md-11 mb-1">
                 <div class="form-group">
                   <label for="name">Comentario</label>
-                    <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px" maxlength="150"> 
+                    <input type="textarea" name="input_comment" class="form-control" id="comment" style="height: 100px" maxlength="150" required="required"> 
                 </div>
             </div>
             <div class="col-md-1 mb-1">
                 <div class="form-group">
                     <label for="price">Puntaje</label>
-                      <input type="number" name="input_score" class="form-control" id="score"  max="5" min="0" style="width: 70px">  
+                      <input type="number" name="input_score" class="form-control" id="score"  max="5" min="0" style="width: 70px" required="required">  
                 </div>
             </div>
           </div>
