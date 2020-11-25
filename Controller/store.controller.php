@@ -53,6 +53,7 @@ class StoreController {
                 break;
             case 'orderDESC':
                 $order = 'DESC';
+                //cambiar nombres
                 $productsByPriceDESC = $this->model->getProductsByPrice($order);
                  $this->view->showProducts($productsByPriceDESC,$categories);
                 break;

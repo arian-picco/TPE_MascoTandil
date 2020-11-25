@@ -57,8 +57,10 @@ Class ProductsModel {
         var_dump($productsByPrice);
     }
 
+    //SUSPENDIDO
     function getProductsByScore() {
-        $sentencia = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg, p.description, p.price,
+        $sentencia = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg,
+         p.description, p.price,
          p.id_category, c.id, AVG(c.score), cat.category_name as cat_name, cat.id as cat_id
         FROM comments as c 
         INNER JOIN products as p
@@ -72,6 +74,14 @@ Class ProductsModel {
     }
 
 
+    // INPUT RANGO DE PRECIOS 
+    // HACER ANDAR EL SEARCH
+    //va a ser todo el mismo formulario, recibe un desde/hasta y un string.
+    //poner la lógica en el modelo, pasarle por parametros los inputs 
+    //y armar la query de acuerdo a los campos que recibió
+   
+
+    // Deslogearme o no mostrar el botón en caso de ser admin    
 
 }
     //crear una consulta que traiga los 3 primeros elementos
