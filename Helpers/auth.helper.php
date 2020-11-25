@@ -2,6 +2,8 @@
 
 
 class AuthHelper {
+
+
     static function logOutUser(){
         self::start();
         session_destroy();
@@ -30,7 +32,6 @@ class AuthHelper {
         }
     }
 
-    
 // checkea si tenes una sesion activa.
     static private function start() {
         if (session_status() != PHP_SESSION_ACTIVE)

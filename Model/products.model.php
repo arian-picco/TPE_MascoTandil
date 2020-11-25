@@ -53,7 +53,7 @@ Class ProductsModel {
         $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM
         products inner JOIN categories ON products.id_category = categories.id ORDER BY products.price $order");
-        $sentencia->execute($order);
+        $sentencia->execute(array($order));
         return $productsByPrice = $sentencia->fetchAll(PDO::FETCH_OBJ);
         var_dump($productsByPrice);
     }

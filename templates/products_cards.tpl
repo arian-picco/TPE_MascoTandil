@@ -75,28 +75,14 @@
                   <a class="dropdown-item" href="store">Ver Todos</a>
               </div>
         </li>
-        {* <li class="nav-item">
-              <div class="form-group">
-              <form id="order-form"  action="input_order" method="post">
-                <label for="category">Ordenar por:</label>
-                <select class="form-control" id="order" name="myselect" >
-                  <option value="store">Ver Todos</option>
-                  <option value="byScore">Relevancia</option>
-                  <option value="priceASC">Precio: de menor a mayor</option>
-                  <option value="priceDESC">Precio: de mayor a menor</option>
-                </select>
-                <button type="submit">Click</button>
-                </form>
-              </div>
-        </li>  *}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
           Ordenar por:
           </a>
               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="byScore">Relevancia</a>
-                  <a class="dropdown-item" href="priceASC">Precio: de menor a mayor</a>
-                  <a class="dropdown-item" href="priceDESC">Precio: de mayor a menor</a>
+                  <a class="dropdown-item" href="store/byScore">Relevancia</a>
+                  <a class="dropdown-item" href="store/orderASC">Precio: de menor a mayor</a>
+                  <a class="dropdown-item" href="store/orderDESC">Precio: de mayor a menor</a>
                   <a class="dropdown-item" href="store">Ver Todos</a>
               </div>
         </li>
