@@ -21,7 +21,6 @@ class StoreController {
     }
 
     function showProducts($params = null){
-
         if(isset($params[':byScore'])){
             $order = $params[':byScore'];
         } else if (isset($params[':orderASC'])){
@@ -45,7 +44,7 @@ class StoreController {
         switch ($order) {
             case 'byScore':
                 $productsByScore = $this->model->getProductsByScore();
-                $this->view->showProducts($productsByScore,$categories,$order);
+                $this->view->showProducts($productsByScore,$categories);
                 break;
             case 'orderASC':
                 $order = 'ASC';
@@ -62,7 +61,6 @@ class StoreController {
                 break;
             default:
                 $this->view->showProducts($products,$categories);
-                echo('Entro acá');
                 break;
         } 
     }

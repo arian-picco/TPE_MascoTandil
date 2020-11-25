@@ -10,8 +10,8 @@ Class ProductsModel {
 
     function getProducts(){
         $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
-        products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM
-        products inner JOIN categories ON products.id_category = categories.id");
+        products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
+        FROM products inner JOIN categories ON products.id_category = categories.id ORDER BY products.id DESC ");
         $sentencia->execute();
         return $products = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
@@ -48,7 +48,6 @@ Class ProductsModel {
         return $productAvg = $sentencia->fetchAll(PDO::FETCH_OBJ);
       }
 
-
     function getProductsByPrice($order){
         $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM
@@ -59,8 +58,19 @@ Class ProductsModel {
     }
 
     function getProductsByScore() {
-
+        $sentencia = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg, p.description, p.price,
+         p.id_category, c.id, AVG(c.score), cat.category_name as cat_name, cat.id as cat_id
+        FROM comments as c 
+        INNER JOIN products as p
+        ON c.id_product = p.id
+        INNER JOIN categories as cat 
+        ON p.id_category = cat.id
+        GROUP BY c.id
+        ORDER BY AVG(c.score)");
+        $sentencia->execute();
+        return $productsByScore = $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
+
 
 
 }
