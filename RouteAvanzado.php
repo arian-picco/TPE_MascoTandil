@@ -30,13 +30,13 @@
     $r->addRoute("store/:byScore", "GET", "StoreController", "showProducts");
     $r->addRoute("store/:orderASC", "GET", "StoreController", "showProducts");
     $r->addRoute("store/:orderDESC", "GET", "StoreController", "showProducts");
-
-    $r->addRoute("category/:ID", "GET", "StoreController", "showProductByCategory");
-    $r->addRoute("detail/:ID", "GET", "StoreController", "showProductDetail");
-    $r->addRoute("insert", "POST", "StoreController", "insertProduct");
     $r->addRoute("delete/:ID", "GET", "StoreController", "DeleteProduct");
     $r->addRoute("update/:ID", "POST", "StoreController", "updateProduct");
+    $r->addRoute("insert", "POST", "StoreController", "insertProduct");
+    $r->addRoute("detail/:ID", "GET", "StoreController", "showProductDetail");
+    $r->addRoute("advance_search", "POST", "StoreController", "showProductsBySearch");
 
+    $r->addRoute("category/:ID", "GET", "StoreController", "showProductByCategory");
     $r->addRoute("category_edition", "GET", "CategoriesController", "showCategoryEditionPanel");
     $r->addRoute("updateCategories", "POST", "CategoriesController", "updateCategories");
     $r->addRoute("insertCategory", "POST", "CategoriesController", "insertCategory");

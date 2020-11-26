@@ -9,57 +9,55 @@ Class ProductsModel {
 
 
     function getProducts(){
-        $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
+        $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
         FROM products inner JOIN categories ON products.id_category = categories.id ORDER BY products.id DESC ");
-        $sentencia->execute();
-        return $products = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $query->execute();
+        return $products = $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function getProductDetail($productSelected){
-        $sentencia = $this->db->prepare("SELECT products.id,products.name,
+        $query = $this->db->prepare("SELECT products.id,products.name,
         products.description,products.price, products.id_category,
          categories.category_name as cat_name, products.imagen as prodImg FROM
         products inner JOIN categories ON products.id_category = categories.id where products.id = ?");
-        $sentencia->execute(array($productSelected));
-        return $productDetail = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $query->execute(array($productSelected));
+        return $productDetail = $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function DeleteProduct($product_id){
-        $sentencia = $this->db->prepare( "DELETE FROM products WHERE id=?");
-        $sentencia->execute(array($product_id));
+        $query = $this->db->prepare( "DELETE FROM products WHERE id=?");
+        $query->execute(array($product_id));
     }
 
     function InsertProduct($name,$description,$price,$id_category, $realPath){
-        $sentencia = $this->db->prepare("INSERT INTO products(name, description, price, id_category, imagen ) VALUES(?,?,?,?,?)");
-        $sentencia->execute(array($name,$description,$price,$id_category,$realPath));
+        $query = $this->db->prepare("INSERT INTO products(name, description, price, id_category, imagen ) VALUES(?,?,?,?,?)");
+        $query->execute(array($name,$description,$price,$id_category,$realPath));
         return $this->db->lastInsertId();
     }
 
     function updateProduct($name,$description,$price,$id_category,$id,$realPath){   
-        $sentencia = $this->db->prepare("UPDATE products SET name=?, description=?, price=?, id_category=?, imagen=? WHERE id=?");
-        $test = $sentencia->execute(array($name,$description,$price,$id_category,$realPath,$id));
-        return $test;
+        $query = $this->db->prepare("UPDATE products SET name=?, description=?, price=?, id_category=?, imagen=? WHERE id=?");
+        $query->execute(array($name,$description,$price,$id_category,$realPath,$id));
       }
 
       function getProductAverageScore($productSelected){
-        $sentencia = $this->db->prepare("SELECT AVG(score) as average from comments where id_product = ?");
-        $sentencia->execute(array($productSelected));
-        return $productAvg = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $query = $this->db->prepare("SELECT AVG(score) as average from comments where id_product = ?");
+        $query->execute(array($productSelected));
+        return $productAvg = $query->fetchAll(PDO::FETCH_OBJ);
       }
 
     function getProductsByPrice($order){
-        $sentencia = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
+        $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM
         products inner JOIN categories ON products.id_category = categories.id ORDER BY products.price $order");
-        $sentencia->execute(array($order));
-        return $productsByPrice = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        var_dump($productsByPrice);
+        $query->execute(array($order));
+        return $productsByPrice = $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     //SUSPENDIDO
     function getProductsByScore() {
-        $sentencia = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg,
+        $query = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg,
          p.description, p.price,
          p.id_category, c.id, AVG(c.score), cat.category_name as cat_name, cat.id as cat_id
         FROM comments as c 
@@ -69,8 +67,50 @@ Class ProductsModel {
         ON p.id_category = cat.id
         GROUP BY c.id
         ORDER BY AVG(c.score)");
-        $sentencia->execute();
-        return $productsByScore = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $query->execute();
+        return $productsByScore = $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+    function getProductsBySearch($minPrice,$maxPrice,$search){
+        $inputQuery ="";
+        $query = $this->db->prepare("SELECT products.id,products.name, products.imagen as prodImg,
+        products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
+        FROM products inner JOIN categories ON products.id_category = categories.id WHERE 1 AND products.price > ? AND products.price < ? AND products.name LIKE '?%");
+        $query->execute(array($minPrice, $maxPrice, $search));
+        return $productsBySearch2 = $query->fetchAll(PDO::FETCH_OBJ);
+
+    }
+      
+
+    function getProductsBySearch2($minPrice = null,$maxPrice = null,$search = null){
+        $inputQuery ="SELECT products.id,products.name, products.imagen as prodImg,
+        products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
+        FROM products inner JOIN categories ON products.id_category = categories.id WHERE 1";
+        $query = $this->db->prepare($inputQuery);
+        if(isset($minPrice)){
+           $inputQuery .= "AND products.price < ?";
+        } else if (isset(($maxPrice)) && isset($minPrice)){
+           $inputQuery .= "AND products.price > ?";
+        } else if  (isset(($maxPrice)) && isset($minPrice) && isset($search)) {
+            $inputQuery .= "AND products.name LIKE '?%'";
+        } 
+        
+        if(isset($minPrice)){
+            $query->execute(array($minPrice));
+            return $productsBySearch1 = $query->fetchAll(PDO::FETCH_OBJ);
+        } else if (isset(($maxPrice)) && isset($minPrice)){
+            $query->execute(array($minPrice,$maxPrice));
+            return $search =  $query->fetchAll(PDO::FETCH_OBJ);
+        } else if  (isset(($maxPrice)) && isset($minPrice) && isset($search)) {
+            $query->execute(array($minPrice, $maxPrice, $search));
+            return $productsBySearch2 = $query->fetchAll(PDO::FETCH_OBJ);
+        } else{
+            $query->execute();
+            return $productsBySearch3= $query->fetchAll(PDO::FETCH_OBJ); 
+        }
+    }
+
     }
 
 
@@ -83,7 +123,7 @@ Class ProductsModel {
 
     // Deslogearme o no mostrar el botón en caso de ser admin    
 
-}
+
     //crear una consulta que traiga los 3 primeros elementos
 
     // boton siguitente / store?page=4  / en misma query limitar 

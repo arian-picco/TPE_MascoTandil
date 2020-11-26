@@ -12,7 +12,6 @@ class StoreView {
 
 
     function ShowProducts($products, $categories,$error = null){
-     
         $this->smarty->assign('title','Tienda');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('categories', $categories);

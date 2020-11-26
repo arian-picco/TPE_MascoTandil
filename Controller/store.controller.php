@@ -66,18 +66,36 @@ class StoreController {
         } 
     }
 
+    function showProductsBySearch(){
+
+        if(isset($_REQUEST['input_minPrice']) && isset($_REQUEST['input_maxPrice'])
+        && isset($_REQUEST['input_search'])){ 
+            $minPrice = $_REQUEST['input_minPrice'];
+            $maxPrice = $_REQUEST['input_maxPrice'];
+            $search = $_REQUEST['input_search'];
+                }        
+            if($minPrice>$maxPrice){
+                $errorRange = "El precio mínimo no debe exceder al máximo";
+                $products = $this->model->getProducts();
+                $categories = $this->categoryModel->getCategories();
+                $this->view->showProducts($products,$categories,$errorRange);
+            } else { 
+            $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);   
+            var_dump($searchedProducts);
+            $categories = $this->categoryModel->getCategories();
+            $this->view->showProducts($searchedProducts,$categories);
+           
+             }
+        }
+    
+
+
     function showProductDetail($params = null){
-        //toma el id y lo introduce en una variable
         $productSelected = $params[':ID'];
-        //guardo las categorias en una variable
         $categories = $this->categoryModel->getCategories();
-        //guardo el producto seleccionado en una variable
         $productDetail= $this->model->getProductDetail($productSelected);
-        //guardo el promedio en una variable 
         $average = $this->model->getProductAverageScore($productSelected);
-        //genero una variable que verifica si esta loggeado o no
         $loggedIn =  AuthHelper::checkLoggedIn();
-        //valido que exista el producto
         if(!$productDetail){
             //sino existe se dirige a la store
             header("Location:  " .  BASE_URL . "store");  
@@ -175,10 +193,8 @@ class StoreController {
                 $ImgTemp = $_FILES["input_image"]["tmp_name"];
                 move_uploaded_file($ImgTemp,$realPath);
                 }
-
             if(empty($name) || empty($description) ||
             empty($price) || empty($id_category) || empty($realPath)) {  
-
                 $categories = $this->categoryModel->getCategories();
                 $productDetail= $this->model->getProductDetail($id);
                 $error = 'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
