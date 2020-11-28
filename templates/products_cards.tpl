@@ -44,25 +44,30 @@
                 <input type="file" class="form-control-file" id="imageToUpload" name="input_image">
               </div>
               <button type="submit" class="btn btn-primary">Cargar Nuevo Producto</button>
-                 {if $error}
-               <div class="form-group" style="margin:5%;">
-                 <div class="alert alert-danger">
-                  {$error}
-                 </div>
-               </div>
-                 {/if}
       </form> 
     </div>
 {/if}
 
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
+      <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo01">
+            {if $error}
+               <div class="row" style="margin:5%;">
+                 <div class="alert alert-danger">
+                  {$error}
+                 </div>
+               </div>
+            {/if}
+      </div>
+  </nav>
+
 {* //BARRA DE NAVEGACION DE LAS CARDS *}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-md-center" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Tienda Online</a>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
+      <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo01">
+        <a class="navbar-brand">Tienda Online</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -92,6 +97,25 @@
             </li>
             {/if}
         </ul>
+      </div>
+  </nav>
+
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+            Ordenar por Precio:
+            </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="store/byScore">Relevancia</a>
+                    <a class="dropdown-item" href="store/orderASC">Precio: de menor a mayor</a>
+                    <a class="dropdown-item" href="store/orderDESC">Precio: de mayor a menor</a>
+                    <a class="dropdown-item" href="store">Ver Todos</a>
+                </div>
+          </li>
+        </ul>
         <form class="form-inline my-2 my-lg-0" method="post" action="advance_search">
           <div>
             <input class="form-control mr-sm13" type="number" placeholder="Precio Mínimo"  name="input_minPrice" style="width:160px;">
@@ -101,13 +125,15 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Caracteristica" aria-label="Search" name="input_search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </div>
-
         </form>
       </div>
   </nav>
   </div>
 
-    <div class="container">
+
+
+
+    
 
 
 {* CARDS CON INFORMACION Y ACCESO A LA EDICION *}
@@ -147,7 +173,6 @@
        </div>		
       </div>		
     </div>		
-
   </main>		
 
 

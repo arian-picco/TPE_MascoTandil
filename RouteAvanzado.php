@@ -5,6 +5,7 @@
     require_once 'Controller/auth.controller.php';
     require_once 'Controller/categories.controller.php';
     require_once 'Model/products.model.php';
+    require_once 'Model/comments.model.php';
     require_once 'Model/categories.model.php';
     require_once 'libs/Router.php';
     

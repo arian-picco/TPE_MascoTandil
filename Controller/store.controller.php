@@ -11,6 +11,7 @@ class StoreController {
  private $view;
  private $model;
  private $categoryModel;
+ private $commentModel;
 
 
 
@@ -18,6 +19,7 @@ class StoreController {
         $this->view = new StoreView();
         $this->model = new ProductsModel();
         $this->categoryModel = new CategoriesModel();
+        $this->commentModel = new CommentsModel();
     }
 
     function showProducts($params = null){
@@ -72,15 +74,18 @@ class StoreController {
             $minPrice = $_REQUEST['input_minPrice'];
             $maxPrice = $_REQUEST['input_maxPrice'];
             $search = $_REQUEST['input_search'];
-            }         
-            $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);   
-            if ($searchedProducts = 0) {
-                $errorSearch = "No se han encontrado resultados";
-                $categories = $this->categoryModel->getCategories();
-                $this->view->showProducts($searchedProducts,$categories, $errorSearch);
-            } else {
-                $this->view->showProducts($searchedProducts,$categories);             
-        }
+            }       
+            $loggedIn =  AuthHelper::checkLoggedIn();
+            if ($loggedIn){
+            $categories = $this->categoryModel->getCategories();  
+            $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
+            if(empty($searchedProducts)){
+                $error = 'No se encontraron resultados para la búsqueda';
+                $this->view->showProducts($searchedProducts, $categories, $error); 
+                }  else {
+                    $this->view->showProducts($searchedProducts,$categories);    
+                }          
+            } 
     }
 
 
@@ -89,7 +94,7 @@ class StoreController {
         $productSelected = $params[':ID'];
         $categories = $this->categoryModel->getCategories();
         $productDetail= $this->model->getProductDetail($productSelected);
-        $average = $this->model->getProductAverageScore($productSelected);
+        $average = $this->commentModel->getProductAverageScore($productSelected);
         $loggedIn =  AuthHelper::checkLoggedIn();
         if(!$productDetail){
             //sino existe se dirige a la store
@@ -198,7 +203,7 @@ class StoreController {
             $this->model->updateProduct($name,$description,$price,$id_category,$id,$realPath);
             $productDetailUpdated= $this->model->getProductDetail($id);
             $categories = $this->categoryModel->getCategories();
-            $average = $this->model->getProductAverageScore($productDetailUpdated);
+            $average = $this->commentModel->getProductAverageScore($productDetailUpdated);
             $this->view->showProductDetail($productDetailUpdated,$categories,$average);
                 }
         }

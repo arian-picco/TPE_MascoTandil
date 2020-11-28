@@ -44,6 +44,11 @@ Class CommentsModel {
         return $this->db->lastInsertId();
     }
 
+    function getProductAverageScore($productSelected){
+        $query = $this->db->prepare("SELECT AVG(score) as average, COUNT(score) as count from comments where id_product = ?");
+        $query->execute(array($productSelected));
+        return $productAvg = $query->fetch(PDO::FETCH_OBJ);
+      }
 
   
 
