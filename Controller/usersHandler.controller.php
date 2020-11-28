@@ -58,11 +58,15 @@ Class UserHandlerController{
     function removePermissions($params = null){
         $user_id = $params[':ID'];
         $loggedIn =  AuthHelper::checkLoggedIn(); 
+        $isAdmin = AuthHelper::checkAdmin();
         if(!$loggedIn){
             header("Location:  " .  BASE_URL . "store");
             }
-            else {
+            else if ($isAdmin) {
                 $this->userModel->removePermissions($user_id);
+                AuthHelper::logOutUser();
+                header("Location:  " .  BASE_URL . "store");
+            } else {
                 $loggedIn =  AuthHelper::checkLoggedIn();
                 header("Location:  " .  BASE_URL . "edit_users");
             }
