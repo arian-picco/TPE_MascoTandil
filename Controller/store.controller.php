@@ -67,27 +67,22 @@ class StoreController {
     }
 
     function showProductsBySearch(){
-
         if(isset($_REQUEST['input_minPrice']) && isset($_REQUEST['input_maxPrice'])
         && isset($_REQUEST['input_search'])){ 
             $minPrice = $_REQUEST['input_minPrice'];
             $maxPrice = $_REQUEST['input_maxPrice'];
             $search = $_REQUEST['input_search'];
-                }        
-            if($minPrice>$maxPrice){
-                $errorRange = "El precio mínimo no debe exceder al máximo";
-                $products = $this->model->getProducts();
-                $categories = $this->categoryModel->getCategories();
-                $this->view->showProducts($products,$categories,$errorRange);
-            } else { 
+            }         
             $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);   
-            var_dump($searchedProducts);
-            $categories = $this->categoryModel->getCategories();
-            $this->view->showProducts($searchedProducts,$categories);
-           
-             }
+            if ($searchedProducts = 0) {
+                $errorSearch = "No se han encontrado resultados";
+                $categories = $this->categoryModel->getCategories();
+                $this->view->showProducts($searchedProducts,$categories, $errorSearch);
+            } else {
+                $this->view->showProducts($searchedProducts,$categories);             
         }
-    
+    }
+
 
 
     function showProductDetail($params = null){

@@ -78,12 +78,12 @@
                 </div>
                  <div class="product_meta">
                     <span class="posted_in"> <strong>Puntaje Promedio:
-                    {if isset($average)}
+                    {if $average->count > 0}
                     
-                    {$printAVG = $average[0]->average}
+                    {$printAVG = $average->average}
     
                     {$printAVG|string_format:"%.2f"}
-                    {else if $printAVG = 0}
+                    {else}
                     'No hay puntaje en éste producto'
                     {/if}
                     </strong> 
@@ -93,6 +93,8 @@
                   <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
                 </p>
             </div>
+            {* buscar input hidden  y data - si pones a cualquier tag un data se puede sacar como una variable de gjs*}
+
         <div style="display:none"><input id="product_id" value="{$productDetail[0]->id}"></div>
         <div style="display:none"><input id="user_id" value="{$smarty.session.ID_USER}"></div>
         <div style="display:none"><input id="isAdmin" value="{$smarty.session.IS_ADMIN}"></div> 
@@ -101,7 +103,7 @@
    </section>
  </div>
 
-    {* CAJA DE COMENTARIOS *}
+    {* CAJA DE COMENTARIOS aca deberia usar el data por cada atributo, en js se levanta con dataset *}
    <div class="row justify-content-center form" id="comments-box" style="width:inherit;">
    </div>
     

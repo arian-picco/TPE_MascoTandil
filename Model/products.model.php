@@ -41,10 +41,11 @@ Class ProductsModel {
         $query->execute(array($name,$description,$price,$id_category,$realPath,$id));
       }
 
+      //mover a comments model - Agregar count
       function getProductAverageScore($productSelected){
-        $query = $this->db->prepare("SELECT AVG(score) as average from comments where id_product = ?");
+        $query = $this->db->prepare("SELECT AVG(score) as average, COUNT(score) as count from comments where id_product = ?");
         $query->execute(array($productSelected));
-        return $productAvg = $query->fetchAll(PDO::FETCH_OBJ);
+        return $productAvg = $query->fetch(PDO::FETCH_OBJ);
       }
 
     function getProductsByPrice($order){
@@ -72,44 +73,55 @@ Class ProductsModel {
     }
 
 
-    function getProductsBySearch($minPrice,$maxPrice,$search){
-        $inputQuery ="";
+
+    // function getProductsBySearch($search){
+
+
+    //     $query = $this->db->prepare("SELECT products.id,products.name, products.imagen as prodImg,
+    //     products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
+    //     FROM products inner JOIN categories ON products.id_category = categories.id WHERE products.name LIKE '%".$search."%' ");
+    //     $query->execute(array($search));
+    //     return $productsBySearch2 = $query->fetchAll(PDO::FETCH_OBJ);
+
+    // }
+      
+
+
+    function getProductsBySearch2($minPrice,$maxPrice,$search){
+
         $query = $this->db->prepare("SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
-        FROM products inner JOIN categories ON products.id_category = categories.id WHERE 1 AND products.price > ? AND products.price < ? AND products.name LIKE '?%");
-        $query->execute(array($minPrice, $maxPrice, $search));
+        FROM products inner JOIN categories ON products.id_category = categories.id WHERE 1 
+        AND products.price > ? AND products.price < ? AND products.name LIKE ? ");
+        $array = [$minPrice,$maxPrice,'%'.$search.'%'];
+
+        $query->execute($array);
         return $productsBySearch2 = $query->fetchAll(PDO::FETCH_OBJ);
 
     }
       
 
-    function getProductsBySearch2($minPrice = null,$maxPrice = null,$search = null){
+    function getProductsBySearch($minPrice = null,$maxPrice = null,$search = null){
         $inputQuery ="SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
         FROM products inner JOIN categories ON products.id_category = categories.id WHERE 1";
-        $query = $this->db->prepare($inputQuery);
-        if(isset($minPrice)){
-           $inputQuery .= "AND products.price < ?";
-        } else if (isset(($maxPrice)) && isset($minPrice)){
-           $inputQuery .= "AND products.price > ?";
-        } else if  (isset(($maxPrice)) && isset($minPrice) && isset($search)) {
-            $inputQuery .= "AND products.name LIKE '?%'";
+        $array = [];
+        if(isset($minPrice) && $minPrice>0){
+           $inputQuery .= " AND products.price > ?";
+           $array[] = $minPrice;
         } 
-        
-        if(isset($minPrice)){
-            $query->execute(array($minPrice));
-            return $productsBySearch1 = $query->fetchAll(PDO::FETCH_OBJ);
-        } else if (isset(($maxPrice)) && isset($minPrice)){
-            $query->execute(array($minPrice,$maxPrice));
-            return $search =  $query->fetchAll(PDO::FETCH_OBJ);
-        } else if  (isset(($maxPrice)) && isset($minPrice) && isset($search)) {
-            $query->execute(array($minPrice, $maxPrice, $search));
-            return $productsBySearch2 = $query->fetchAll(PDO::FETCH_OBJ);
-        } else{
-            $query->execute();
-            return $productsBySearch3= $query->fetchAll(PDO::FETCH_OBJ); 
+        if (isset($maxPrice) && $maxPrice>0){
+            $array[] = $maxPrice;
+           $inputQuery .= " AND products.price < ?";
+        } if  (isset($search) && $search != '') {
+            $array[] = '%'.$search.'%';
+            $inputQuery .= " AND products.name LIKE ?";
+        } 
+           
+        $query = $this->db->prepare($inputQuery);  
+        $query->execute($array);
+        return $productsBySearch = $query->fetchAll(PDO::FETCH_OBJ); 
         }
-    }
 
     }
 
