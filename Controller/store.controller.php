@@ -188,18 +188,22 @@ class StoreController {
                 $name = $_REQUEST['input_name'];
                 $description = $_REQUEST['input_description'];
                 $price = $_REQUEST['input_price'];
-
                 $realPath = 'imagenes/'.uniqid("",true).".".strtolower(pathinfo( $_FILES['input_image']['name'],PATHINFO_EXTENSION));               
                 $ImgTemp = $_FILES["input_image"]["tmp_name"];
                 move_uploaded_file($ImgTemp,$realPath);
                 }
+
             if(empty($name) || empty($description) ||
-            empty($price) || empty($id_category) || empty($realPath)) {  
+            empty($price) || empty($id_category) || empty($realPath)) { 
+
                 $categories = $this->categoryModel->getCategories();
                 $productDetail= $this->model->getProductDetail($id);
                 $error = 'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
+                
                 $this->view->showProductDetail($productDetail,$categories,$error);  
+
                 } else { 
+
             $this->model->updateProduct($name,$description,$price,$id_category,$id,$realPath);
             $productDetailUpdated= $this->model->getProductDetail($id);
             $categories = $this->categoryModel->getCategories();

@@ -93,14 +93,7 @@ Class ProductsModel {
     }
 
 
-    // INPUT RANGO DE PRECIOS 
-    // HACER ANDAR EL SEARCH
-    //va a ser todo el mismo formulario, recibe un desde/hasta y un string.
-    //poner la lógica en el modelo, pasarle por parametros los inputs 
-    //y armar la query de acuerdo a los campos que recibió
    
-
-    // Deslogearme o no mostrar el botón en caso de ser admin    
 
 
     //crear una consulta que traiga los 3 primeros elementos

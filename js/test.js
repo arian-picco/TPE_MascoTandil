@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function getComments() {
-    let productId = document.querySelector('#product_id').value;
+    // let productId = document.querySelector('#product_id').value;
+    let product = document.querySelector('#product-detail');
+    let productId = product.getAttribute('data-productId');
     fetch('api/detail/' + productId + '/comments')
         //obtengo la data en forma de json
         .then(response => response.json())
@@ -27,17 +29,17 @@ function getComments() {
 }
 
 function addComment() {
-
-    let product = document.querySelector('#product_id').value;
-
+    let product = document.querySelector('#product-detail');
+    let productId = product.getAttribute('data-productId');
+    let userId = product.getAttribute('data-userId'); 
     const commentBody = {
         comment: document.querySelector('#comment').value,
         score: document.querySelector('#score').value,
-        id_product: document.querySelector('#product_id').value,
-        id_user: document.querySelector('#user_id').value
+        id_product: productId,
+        id_user: userId
     }
 
-    fetch('api/detail/' + product + '/comments', {
+    fetch('api/detail/' + productId + '/comments', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(commentBody)
@@ -52,9 +54,10 @@ function addComment() {
 }
 
 function deleteComment(e) {
+    let product = document.querySelector('#product-detail');
+    let productId = product.getAttribute('data-productId');
     let commentId = e.target.parentElement.id;
-    let productId = document.querySelector('#product_id').value;
-    fetch('api/detail/' + productId + '/comments/' + commentId, {
+    fetch('api/detail/' + productId  + '/comments/' + commentId, {
         method: "Delete",
         mode: "cors",
     })
@@ -70,11 +73,11 @@ function deleteComment(e) {
 }
 
 function render(comments) {
-  
+    let product = document.querySelector('#product-detail');
     const container = document.querySelector('#comments-box');
     container.innerHTML = "";
     if (verifyComment(comments)) {
-        const isAdmin = document.querySelector('#isAdmin').value;
+        let isAdmin = product.getAttribute('data-isAdmin');
          for (let comment of comments) {
             let divCommentBox = document.createElement('div');
             //crear caja contenedora y atributos

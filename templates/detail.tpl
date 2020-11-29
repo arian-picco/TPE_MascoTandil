@@ -58,7 +58,11 @@
   {* DETALLE DEL PRODUCTO *}
 <div class="container">
   <div class="col-md-12 mb-3">
-  <section class="panel">
+    <section class="panel" id="product-detail"
+    data-productId="{$productDetail[0]->id}"
+    data-userId="{$smarty.session.ID_USER}"
+    data-isAdmin="{$smarty.session.IS_ADMIN}"
+    >
         <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
@@ -93,11 +97,7 @@
                   <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
                 </p>
             </div>
-            {* buscar input hidden  y data - si pones a cualquier tag un data se puede sacar como una variable de gjs*}
 
-        <div style="display:none"><input id="product_id" value="{$productDetail[0]->id}"></div>
-        <div style="display:none"><input id="user_id" value="{$smarty.session.ID_USER}"></div>
-        <div style="display:none"><input id="isAdmin" value="{$smarty.session.IS_ADMIN}"></div> 
         </div>
       </div>
    </section>
