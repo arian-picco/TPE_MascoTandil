@@ -81,14 +81,12 @@
                     <span class="posted_in"> <strong>Categoría: {$productDetail[0]->cat_name}</strong> 
                 </div>
                  <div class="product_meta">
-                    <span class="posted_in"> <strong>Puntaje Promedio:
+                    <span class="posted_in"> <strong>Puntaje Promedio:     
                     {if $average->count > 0}
-                    
-                    {$printAVG = $average->average}
-    
-                    {$printAVG|string_format:"%.2f"}
-                    {else}
-                    'No hay puntaje en éste producto'
+                      {$printAVG = $average->average}
+                      {$printAVG|string_format:"%.2f"}
+                      {else}
+                      'No hay puntaje en éste producto'
                     {/if}
                     </strong> 
                 </div>

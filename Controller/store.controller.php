@@ -195,19 +195,16 @@ class StoreController {
 
             if(empty($name) || empty($description) ||
             empty($price) || empty($id_category) || empty($realPath)) { 
-
-                $categories = $this->categoryModel->getCategories();
                 $productDetail= $this->model->getProductDetail($id);
+                $categories = $this->categoryModel->getCategories();
+                $average = $this->commentModel->getProductAverageScore($id);
                 $error = 'Faltaron campos obligatorios - Por favor vuelva e intente nuevamente';
-                
-                $this->view->showProductDetail($productDetail,$categories,$error);  
-
+                $this->view->showProductDetail($productDetail,$categories,$average,$error);  
                 } else { 
-
             $this->model->updateProduct($name,$description,$price,$id_category,$id,$realPath);
             $productDetailUpdated= $this->model->getProductDetail($id);
             $categories = $this->categoryModel->getCategories();
-            $average = $this->commentModel->getProductAverageScore($productDetailUpdated);
+            $average = $this->commentModel->getProductAverageScore($id);
             $this->view->showProductDetail($productDetailUpdated,$categories,$average);
                 }
         }
