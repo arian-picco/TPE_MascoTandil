@@ -8,6 +8,15 @@ Class ProductsModel {
     }
 
 
+    function getProductsPerPage($productsAmount, $offset){
+  
+        $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg, products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM products
+         inner JOIN categories ON products.id_category = categories.id ORDER BY products.id DESC LIMIT $productsAmount OFFSET $offset");
+        $query->execute(array($productsAmount,$offset));       
+        return $productsToDisplay = $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
     function getProducts(){
         $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name

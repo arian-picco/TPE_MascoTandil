@@ -55,7 +55,6 @@ class StoreController {
                 break;
             case 'orderDESC':
                 $order = 'DESC';
-                //cambiar nombres
                 $productsByPriceDESC = $this->model->getProductsByPrice($order);
                  $this->view->showProducts($productsByPriceDESC,$categories);
                 break;
@@ -69,22 +68,39 @@ class StoreController {
     }
 
     function showProductsBySearch(){
+        //checkeo que los inputs existan y los guardo en variables
         if(isset($_REQUEST['input_minPrice']) && isset($_REQUEST['input_maxPrice'])
         && isset($_REQUEST['input_search'])){ 
             $minPrice = $_REQUEST['input_minPrice'];
             $maxPrice = $_REQUEST['input_maxPrice'];
             $search = $_REQUEST['input_search'];
             }       
+            //verifico que el user esté loggeado 
             $loggedIn =  AuthHelper::checkLoggedIn();
-            if ($loggedIn){
-            $categories = $this->categoryModel->getCategories();  
-            $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
+            //si está loggeado carga la busqueda y mantiene la session
+            if ($loggedIn) {
+                $categories = $this->categoryModel->getCategories();  
+                $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
+                //en caso de estar el arreglo vacío trae un mensaje de error
             if(empty($searchedProducts)){
                 $error = 'No se encontraron resultados para la búsqueda';
                 $this->view->showProducts($searchedProducts, $categories, $error); 
-                }  else {
+                //sino está vacío trae la búsqueda
+                } else {
                     $this->view->showProducts($searchedProducts,$categories);    
                 }          
+            //en caso que el user no esté loggeado     
+            } else {
+                $categories = $this->categoryModel->getCategories();  
+                $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
+                if (empty($searchedProducts)){
+                    $error = 'No se encontraron resultados para la búsqueda';
+                    $this->view->showProducts($searchedProducts, $categories, $error); 
+                } else{
+                    $this->view->showProducts($searchedProducts,$categories); 
+                //en caso que el arreglo esté vacío cargo la página con mensaje de error
+                }
+
             } 
     }
 
@@ -192,7 +208,6 @@ class StoreController {
                 $ImgTemp = $_FILES["input_image"]["tmp_name"];
                 move_uploaded_file($ImgTemp,$realPath);
                 }
-
             if(empty($name) || empty($description) ||
             empty($price) || empty($id_category) || empty($realPath)) { 
                 $productDetail= $this->model->getProductDetail($id);

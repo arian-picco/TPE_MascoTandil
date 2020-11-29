@@ -95,7 +95,6 @@
                   <a href="store"><button class="btn btn-round btn-danger" type="button">Volver a la tienda</button></a>
                 </p>
             </div>
-
         </div>
       </div>
    </section>
