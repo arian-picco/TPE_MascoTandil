@@ -5,8 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     getComments();
-
-
     
     let form = document.querySelector('#formComments')
     form.addEventListener('submit', e => {
@@ -101,8 +99,6 @@ function render(comments) {
             divScore.setAttribute('class', 'score');
             let scoreTitle = document.createElement('h4');
             scoreTitle.innerHTML = comment.score;
-
-       
             //añade los elementos al dom
             container.appendChild(divCommentBox);
             divCommentBox.appendChild(divAutor);
@@ -111,7 +107,6 @@ function render(comments) {
             divAutor.appendChild(authorTitle);
             divComment.appendChild(pcomment);
             divScore.appendChild(scoreTitle);
-       
             //crear el boton y atributos
             if (isAdmin == 1) {
             let botonDelete = document.createElement('button');

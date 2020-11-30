@@ -13,8 +13,6 @@ Class UserHandlerController{
         $this->userModel = new UserModel();
     }
    
-
-
     function showUserEditionPanel(){
         $users = $this->userModel->getAllUsers();
         $loggedIn =  AuthHelper::checkLoggedIn();
@@ -25,7 +23,6 @@ Class UserHandlerController{
             header("Location:  " .  BASE_URL . "store");
         }
     }
-
 
     function deleteUser($params = null){
         $user_id = $params[':ID'];

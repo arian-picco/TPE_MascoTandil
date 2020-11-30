@@ -40,10 +40,10 @@ class StoreController {
         $products = $this->model->getProducts();
         $categories = $this->categoryModel->getCategories();
         switch ($order) {
-            case 'byScore':
-                $productsByScore = $this->model->getProductsByScore();
-                $this->view->showProducts($productsByScore,$categories);
-                break;
+            // case 'byScore':
+            //     $productsByScore = $this->model->getProductsByScore();
+            //     $this->view->showProducts($productsByScore,$categories);
+            //     break;
             case 'orderASC':
                 $order = 'ASC';
                 $productsByPriceASC = $this->model->getProductsByPrice($order);

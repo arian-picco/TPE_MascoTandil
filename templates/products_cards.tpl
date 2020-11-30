@@ -48,19 +48,19 @@
     </div>
 {/if}
 
-
+        {if $error}
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
       <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo01">
-            {if $error}
+    
                <div class="row" style="margin:5%;">
                  <div class="alert alert-danger">
                   {$error}
                  </div>
                </div>
-            {/if}
+       
       </div>
   </nav>
-
+     {/if}
 
 {* //BARRA DE NAVEGACION DE LAS CARDS *}
 <div class="container">
@@ -97,7 +97,7 @@
             Ordenar por Precio:
             </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="store/byScore">Relevancia</a>
+                    {* <a class="dropdown-item" href="store/byScore">Relevancia</a> *}
                     <a class="dropdown-item" href="store/orderASC">Precio: de menor a mayor</a>
                     <a class="dropdown-item" href="store/orderDESC">Precio: de mayor a menor</a>
                     <a class="dropdown-item" href="store">Ver Todos</a>

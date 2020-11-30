@@ -39,7 +39,7 @@
                       </td>
                       <td>
 
-                {if {$smarty.session.IS_ADMIN} == 1}
+                {if $smarty.session.IS_ADMIN == 1 && $smarty.session.ID_USER != $user->id}
                       <button class="btn-delete">
                           <a href="deleteUser/{$user->id}">Borrar</a>
                       </button>

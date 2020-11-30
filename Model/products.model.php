@@ -51,20 +51,20 @@ Class ProductsModel {
     }
 
     //SUSPENDIDO
-    function getProductsByScore() {
-        $query = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg,
-         p.description, p.price,
-         p.id_category, c.id, AVG(c.score), cat.category_name as cat_name, cat.id as cat_id
-        FROM comments as c 
-        INNER JOIN products as p
-        ON c.id_product = p.id
-        INNER JOIN categories as cat 
-        ON p.id_category = cat.id
-        GROUP BY c.id
-        ORDER BY AVG(c.score)");
-        $query->execute();
-        return $productsByScore = $query->fetchAll(PDO::FETCH_OBJ);
-    }
+    // function getProductsByScore() {
+    //     $query = $this->db->prepare("SELECT p.name, p.id as productId, p.imagen as prodImg,
+    //      p.description, p.price,
+    //      p.id_category, c.id, AVG(c.score), cat.category_name as cat_name, cat.id as cat_id
+    //     FROM comments as c 
+    //     INNER JOIN products as p
+    //     ON c.id_product = p.id
+    //     INNER JOIN categories as cat 
+    //     ON p.id_category = cat.id
+    //     GROUP BY c.id
+    //     ORDER BY AVG(c.score)");
+    //     $query->execute();
+    //     return $productsByScore = $query->fetchAll(PDO::FETCH_OBJ);
+    // }
 
 
 
