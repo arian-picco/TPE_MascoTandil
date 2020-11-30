@@ -61,9 +61,8 @@
       </div>
   </nav>
 
+
 {* //BARRA DE NAVEGACION DE LAS CARDS *}
-
-
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
       <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo01">
@@ -80,17 +79,6 @@
                     <a class="dropdown-item" href="store">Ver Todos</a>
                 </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-            Ordenar por Precio:
-            </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="store/byScore">Relevancia</a>
-                    <a class="dropdown-item" href="store/orderASC">Precio: de menor a mayor</a>
-                    <a class="dropdown-item" href="store/orderDESC">Precio: de mayor a menor</a>
-                    <a class="dropdown-item" href="store">Ver Todos</a>
-                </div>
-          </li>
             {if {$smarty.session.IS_ADMIN} == 1}
             <li class="nav-item"><a class="nav-link" href="category_edition">
             <span style="color:red">Editar Categorías</span></a>
@@ -100,7 +88,7 @@
       </div>
   </nav>
 
-
+{* //BARRA DE NAVEGACION DE LAS BUSQUEDAS *}
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarTogglerDemo01">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

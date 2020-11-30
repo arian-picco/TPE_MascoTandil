@@ -1,6 +1,4 @@
 {include file="header.tpl"}
-
-
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Bienvenido a la tienda Online - 
@@ -136,10 +134,6 @@
 
 
 </main>
-
-
-
-              
 
 <script src="js/test.js"></script>   
 {include file="footer.tpl"}

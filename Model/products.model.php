@@ -7,16 +7,6 @@ Class ProductsModel {
     $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpe;charset=utf8', 'root', '');
     }
 
-
-    function getProductsPerPage($productsAmount, $offset){
-  
-        $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg, products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM products
-         inner JOIN categories ON products.id_category = categories.id ORDER BY products.id DESC LIMIT $productsAmount OFFSET $offset");
-        $query->execute(array($productsAmount,$offset));       
-        return $productsToDisplay = $query->fetchAll(PDO::FETCH_OBJ);
-    }
-
-
     function getProducts(){
         $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg,
         products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name
@@ -102,27 +92,26 @@ Class ProductsModel {
     }
 
 
+   //Notas para Paginado
+
    
-
-
     //crear una consulta que traiga los 3 primeros elementos
-
     // boton siguitente / store?page=4  / en misma query limitar 
-
     //https://www.w3schools.com/php/php_mysql_select_limit.asp
-
     //investigar OFSET y Limit 
-
     //se envia el limit y el offset pasarlo por paramtro - El offset es el número de página ES MULTIPLICANDO
-
     //buscar la relacion entre el numero de pagina y el offset - para adelante es multiplicar y para atrás dividis.
-
     //1x0
-
     //unir con el controller
-
     //Hacerlo con siguiente//anterior
-
     //sacar la cuenta ofset = p*2 -2
+
+    // function getProductsPerPage($productsAmount, $offset){
+    //     $query = $this->db->prepare( "SELECT products.id,products.name, products.imagen as prodImg, products.description,products.price, products.id_category as cat_id, categories.category_name as cat_name FROM products
+    //      inner JOIN categories ON products.id_category = categories.id ORDER BY products.id DESC LIMIT $productsAmount OFFSET $offset");
+    //     $query->execute(array($productsAmount,$offset));       
+    //     return $productsToDisplay = $query->fetchAll(PDO::FETCH_OBJ);
+    // }
+
 ?>
 

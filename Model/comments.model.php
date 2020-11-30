@@ -50,8 +50,8 @@ Class CommentsModel {
         return $productAvg = $query->fetch(PDO::FETCH_OBJ);
       }
 
-  
 
+      
 }
 
 ?>

@@ -38,6 +38,8 @@
                         {/if}
                       </td>
                       <td>
+
+                {if {$smarty.session.IS_ADMIN} == 1}
                       <button class="btn-delete">
                           <a href="deleteUser/{$user->id}">Borrar</a>
                       </button>
@@ -48,6 +50,7 @@
                           <a href="quitAdmin/{$user->id}">Quitar Permiso</a>
                       </button>
                         </td>
+                {/if}
                   </tr>
               {/foreach}
                 </tbody>

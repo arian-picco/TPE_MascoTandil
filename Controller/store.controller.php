@@ -32,12 +32,8 @@ class StoreController {
         } else {
             $order = 'store';
         }
-        $loggedIn =  AuthHelper::checkLoggedIn();
-        if($loggedIn){
-            $this->orderSearch($order);
-        } else {
-            $this->orderSearch($order);
-        }
+       AuthHelper::checkLoggedIn();
+        $this->orderSearch($order);
     }
 
     function orderSearch($order = null){
@@ -67,6 +63,7 @@ class StoreController {
         } 
     }
 
+
     function showProductsBySearch(){
         //checkeo que los inputs existan y los guardo en variables
         if(isset($_REQUEST['input_minPrice']) && isset($_REQUEST['input_maxPrice'])
@@ -75,35 +72,18 @@ class StoreController {
             $maxPrice = $_REQUEST['input_maxPrice'];
             $search = $_REQUEST['input_search'];
             }       
-            //verifico que el user esté loggeado 
-            $loggedIn =  AuthHelper::checkLoggedIn();
-            //si está loggeado carga la busqueda y mantiene la session
-            if ($loggedIn) {
-                $categories = $this->categoryModel->getCategories();  
-                $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
-                //en caso de estar el arreglo vacío trae un mensaje de error
-            if(empty($searchedProducts)){
-                $error = 'No se encontraron resultados para la búsqueda';
+            //mantiene la session en caso de estar loggeado
+            AuthHelper::checkLoggedIn();
+            $categories = $this->categoryModel->getCategories();  
+            $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
+            //en caso que el arreglo esté vacío cargo la página con mensaje de error
+            if (empty($searchedProducts)){
+                 $error = 'No se encontraron resultados para la búsqueda';
                 $this->view->showProducts($searchedProducts, $categories, $error); 
-                //sino está vacío trae la búsqueda
-                } else {
-                    $this->view->showProducts($searchedProducts,$categories);    
-                }          
-            //en caso que el user no esté loggeado     
             } else {
-                $categories = $this->categoryModel->getCategories();  
-                $searchedProducts = $this->model->getProductsBySearch($minPrice,$maxPrice,$search);
-                if (empty($searchedProducts)){
-                    $error = 'No se encontraron resultados para la búsqueda';
-                    $this->view->showProducts($searchedProducts, $categories, $error); 
-                } else{
-                    $this->view->showProducts($searchedProducts,$categories); 
-                //en caso que el arreglo esté vacío cargo la página con mensaje de error
-                }
-
-            } 
+             $this->view->showProducts($searchedProducts,$categories); 
+        }   
     }
-
 
 
     function showProductDetail($params = null){
@@ -111,30 +91,20 @@ class StoreController {
         $categories = $this->categoryModel->getCategories();
         $productDetail= $this->model->getProductDetail($productSelected);
         $average = $this->commentModel->getProductAverageScore($productSelected);
-        $loggedIn =  AuthHelper::checkLoggedIn();
+        AuthHelper::checkLoggedIn();
         if(!$productDetail){
             //sino existe se dirige a la store
             header("Location:  " .  BASE_URL . "store");  
-            //valido que esté inicada la session
-        } else if($loggedIn){
-            //si está iniciada se carga la página con session
-            $this->view->showProductDetail($productDetail,$categories,$average);
-        } else {
-            //sino esta iniciada se carga sin session
-            $this->view->showProductDetail($productDetail,$categories,$average);   
-             }      
+            } 
+        $this->view->showProductDetail($productDetail,$categories,$average);  
     }
 
     function showProductByCategory($params = null){
         $categorySelected = $params[':ID'];
-        $productsByCatogory= $this->categoryModel->getProductByCategory($categorySelected);
+        $productsByCategory= $this->categoryModel->getProductByCategory($categorySelected);
         $categories = $this->categoryModel->getCategories();
-        $loggedIn =  AuthHelper::checkLoggedIn();
-        if($loggedIn){
-            $this->view->showProductByCategory($productsByCatogory,$categories);
-        } else {
-            $this->view->showProductByCategory($productsByCatogory,$categories);
-        }
+        AuthHelper::checkLoggedIn();
+        $this->view->showProductByCategory($productsByCategory,$categories);
     }
 
     function DeleteProduct($params = null){
@@ -167,7 +137,6 @@ class StoreController {
                     $name = $_REQUEST['input_name'];
                     $description = $_REQUEST['input_description'];
                     $price = $_REQUEST['input_price'];
-
                     $realPath = 'imagenes/'.uniqid("",true).".".strtolower(pathinfo( $_FILES['input_image']['name'],PATHINFO_EXTENSION));               
                     $ImgTemp = $_FILES["input_image"]["tmp_name"];
                     move_uploaded_file($ImgTemp,$realPath);
