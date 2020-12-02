@@ -135,5 +135,5 @@
 
 </main>
 
-<script src="js/test.js"></script>   
+<script src="js/comments.js"></script>   
 {include file="footer.tpl"}
