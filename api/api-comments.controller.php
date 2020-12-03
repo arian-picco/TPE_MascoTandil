@@ -22,14 +22,14 @@ class ApiCommentsController extends ApiController{
     public function getCommentsOfaProduct($params = null){
         $id_product = $params[':ID'];
         $comments = $this->model->getCommentsOfaProduct($id_product);
-          if($comments) {
+        //   if($comments) {
             $this->view->response($comments, 200);
-        } 
-        else {
-            //la respuesta es 200 porqué devuelve un arreglo vacio - porque no hay comment, pero no es que el endpoint no existe
-            $this->view->response("No existe el comentario solicitado", 200);
-        }
+        // }s
+        
     }
+
+
+    
 
   
     public function deleteComment($params = null) {
